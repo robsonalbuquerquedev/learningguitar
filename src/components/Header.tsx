@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -23,10 +24,16 @@ export default function Header() {
             <div className="max-w-7xl mx-auto flex justify-between items-center p-4 sm:p-6">
                 {/* Logo / título */}
                 <Link href="/" className="text-2xl font-bold text-yellow-300 flex items-center gap-2">
-                    <img src="/robson.png" alt="Robson Albuquerque" className="w-8 h-8 rounded-full" />
+                    <Image
+                        src="/robson.png"
+                        alt="Robson Albuquerque"
+                        width={32}
+                        height={32}
+                        className="rounded-full"
+                    />
                     LearningGuitar 🎸
                 </Link>
-
+                
                 {/* Menu desktop */}
                 <nav className="hidden sm:flex space-x-6">
                     {links.map((link) => (
