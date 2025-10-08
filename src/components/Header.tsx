@@ -11,19 +11,23 @@ export default function Header() {
     const pathname = usePathname();
     const [menuOpen, setMenuOpen] = useState(false);
 
-    // Rotas do menu (sem "Projetos")
+    // ✅ Agora incluindo a rota de Feedback
     const links = [
         { name: "Home", href: "/" },
         { name: "Escalas", href: "/escalas" },
         { name: "Memorizar Braço", href: "/memorizar-braco-do-violao" },
         { name: "Sobre", href: "/sobre" },
+        { name: "Feedback", href: "/feedback" },
     ];
 
     return (
         <header className="fixed top-0 left-0 w-full bg-amber-900/90 backdrop-blur-md shadow-lg z-50">
             <div className="max-w-7xl mx-auto flex justify-between items-center p-4 sm:p-6">
                 {/* Logo / título */}
-                <Link href="/" className="text-2xl font-bold text-yellow-300 flex items-center gap-2">
+                <Link
+                    href="/"
+                    className="text-2xl font-bold text-yellow-300 flex items-center gap-2"
+                >
                     <Image
                         src="/robson.png"
                         alt="Robson Albuquerque"
@@ -33,11 +37,15 @@ export default function Header() {
                     />
                     LearningGuitar 🎸
                 </Link>
-                
+
                 {/* Menu desktop */}
                 <nav className="hidden sm:flex space-x-6">
                     {links.map((link) => (
-                        <Link key={link.href} href={link.href} className="relative text-white font-semibold transition-colors duration-200 hover:text-yellow-300">
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className="relative text-white font-semibold transition-colors duration-200 hover:text-yellow-300"
+                        >
                             {link.name}
                             {pathname === link.href && (
                                 <motion.span
@@ -49,7 +57,7 @@ export default function Header() {
                     ))}
                 </nav>
 
-                {/* Menu mobile */}
+                {/* Botão do menu mobile */}
                 <div className="sm:hidden">
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
@@ -68,7 +76,9 @@ export default function Header() {
                             key={link.href}
                             href={link.href}
                             onClick={() => setMenuOpen(false)}
-                            className={`block py-2 text-white font-semibold transition-colors duration-200 hover:text-yellow-300 ${pathname === link.href ? "underline text-yellow-200" : ""
+                            className={`block py-2 text-white font-semibold transition-colors duration-200 hover:text-yellow-300 ${pathname === link.href
+                                    ? "underline text-yellow-200"
+                                    : ""
                                 }`}
                         >
                             {link.name}
