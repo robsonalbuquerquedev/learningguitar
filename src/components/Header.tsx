@@ -19,6 +19,7 @@ export default function Header() {
             links: [
                 { name: "Escalas", href: "/escalas" },
                 { name: "Formação de Acordes", href: "/formacao-de-acordes" },
+                { name: "Aprender a Tocar em Todos os Tons", href: "/aprender-tocar-em-todos-os-tons" },
             ],
         },
         {
