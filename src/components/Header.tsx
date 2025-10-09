@@ -17,10 +17,11 @@ export default function Header() {
         {
             name: "Teoria",
             links: [
+                { name: "Acordes Maiores e Menores Naturais", href: "/acordes-maiores-e-menores-naturais" },
                 { name: "Escalas", href: "/escalas" },
                 { name: "Formação de Acordes", href: "/formacao-de-acordes" },
-                { name: "Aprender a Tocar em Todos os Tons", href: "/aprender-tocar-em-todos-os-tons" },
                 { name: "Campo Harmônico", href: "/campo-harmonico" },
+                { name: "Aprender a Tocar em Todos os Tons", href: "/aprender-tocar-em-todos-os-tons" },
             ],
         },
         {
