@@ -21,6 +21,7 @@ export default function Header() {
                 { name: "Escalas", href: "/escalas" },
                 { name: "Formação de Acordes", href: "/formacao-de-acordes" },
                 { name: "Campo Harmônico", href: "/campo-harmonico" },
+                { name: "Progressões de Acordes", href: "/progressoes-de-acordes" },
                 { name: "Aprender a Tocar em Todos os Tons", href: "/aprender-tocar-em-todos-os-tons" },
             ],
         },
@@ -29,7 +30,6 @@ export default function Header() {
             links: [
                 { name: "Memorizar Braço", href: "/memorizar-braco-do-violao" },
                 { name: "Memorizar Todas as Notas", href: "/memorizar-todas-as-notas" },
-                { name: "Progressões de Acordes", href: "/progressoes-de-acordes" },
             ],
         },
         {
