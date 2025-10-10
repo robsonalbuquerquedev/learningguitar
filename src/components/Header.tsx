@@ -29,6 +29,7 @@ export default function Header() {
             links: [
                 { name: "Memorizar Braço", href: "/memorizar-braco-do-violao" },
                 { name: "Memorizar Todas as Notas", href: "/memorizar-todas-as-notas" },
+                { name: "Progressões de Acordes", href: "/progressoes-de-acordes" },
             ],
         },
         {
