@@ -15,7 +15,7 @@ export default function MemorizarTodasAsNotas() {
                     Memorizar Todas as Notas no Violão 🎸
                 </h1>
 
-                <p className="leading-relaxed mb-4">
+                <p className="text-lg leading-relaxed mb-4">
                     Saber onde cada nota está no braço do violão é o segredo para tocar com liberdade.
                     Vamos ver três técnicas práticas que ajudam você a dominar todas as notas do instrumento.
                 </p>
