@@ -23,6 +23,7 @@ export default function Header() {
                 { name: "Campo Harmônico", href: "/campo-harmonico" },
                 { name: "Progressões de Acordes", href: "/progressoes-de-acordes" },
                 { name: "Aprender a Tocar em Todos os Tons", href: "/aprender-tocar-em-todos-os-tons" },
+                { name: "Batidas Básicas", href: "/batidas-basicas" },
             ],
         },
         {
