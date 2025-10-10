@@ -22,7 +22,7 @@ export default function ProgressoesDeAcordes() {
                 </p>
 
                 <h2 className="text-2xl font-semibold mt-6 mb-2 text-yellow-300">
-                    🎶 Exemplo prático: "Eu Navegarei"
+                    🎶 Exemplo prático: &quot;Eu Navegarei&quot;
                 </h2>
 
                 <p className="leading-relaxed mb-3">
@@ -35,7 +35,7 @@ export default function ProgressoesDeAcordes() {
 
                 <p className="leading-relaxed mb-3">
                     Com apenas esses quatro acordes é possível tocar a música completa
-                    <strong> “Eu Navegarei”</strong>.
+                    <strong> &ldquo;Eu Navegarei&rdquo;</strong>.
                     Essa sequência soa natural e bonita, porque respeita o <strong>campo harmônico</strong> e
                     cria um ciclo de <strong>tensão e repouso</strong>.
                 </p>
