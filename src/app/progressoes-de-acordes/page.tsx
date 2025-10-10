@@ -15,7 +15,7 @@ export default function ProgressoesDeAcordes() {
                     Progressões de Acordes 🎵
                 </h1>
 
-                <p className="leading-relaxed mb-4">
+                <p className="text-lg leading-relaxed mb-4">
                     As <strong>progressões de acordes</strong> são a alma das músicas.
                     Elas indicam a ordem em que os acordes são tocados, criando sensação de
                     movimento, emoção e resolução.
