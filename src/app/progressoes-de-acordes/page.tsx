@@ -63,7 +63,7 @@ export default function ProgressoesDeAcordes() {
                     o acorde de <strong>F</strong> ao de <strong>E</strong> de forma mais fluida.
                 </p>
 
-                <h2 className="text-2xl font-semibold mt-6 mb-2 text-yellow-300">
+                <h2 className="text-2xl font-semibold mt-8 mb-2 text-yellow-300">
                     🧩 Entendendo o movimento harmônico
                 </h2>
 
@@ -86,6 +86,68 @@ export default function ProgressoesDeAcordes() {
                     💡 Dica: pratique essas sequências em diferentes tons e perceba como o “clima”
                     muda. Isso ajuda o ouvido a se acostumar com o <strong>movimento harmônico</strong>.
                 </p>
+
+                {/* --- Nova seção adicionada --- */}
+                <h2 className="text-2xl font-semibold mt-10 mb-4 text-yellow-300">
+                    🎸 Transpondo a progressão para outros tons menores
+                </h2>
+
+                <p className="leading-relaxed mb-4">
+                    A mesma estrutura harmônica de <strong>Am → G → F → Dm → E</strong> pode ser transposta
+                    para qualquer outro tom menor. Observe como o formato se mantém:
+                </p>
+
+                <div className="space-y-3">
+                    <div className="bg-amber-100 p-4 rounded-xl text-center font-semibold text-amber-900 shadow-sm">
+                        <span className="text-amber-900">Am → G → F → Dm → E</span>
+                        <br />
+                        <span className="text-sm text-amber-700">(Tom de Lá menor)</span>
+                    </div>
+
+                    <div className="bg-amber-100 p-4 rounded-xl text-center font-semibold text-amber-900 shadow-sm">
+                        <span className="text-amber-900">Bm → A → G → Em → F#</span>
+                        <br />
+                        <span className="text-sm text-amber-700">(Tom de Si menor)</span>
+                    </div>
+
+                    <div className="bg-amber-100 p-4 rounded-xl text-center font-semibold text-amber-900 shadow-sm">
+                        <span className="text-amber-900">Cm → Bb → Ab → Fm → G</span>
+                        <br />
+                        <span className="text-sm text-amber-700">(Tom de Dó menor)</span>
+                    </div>
+
+                    <div className="bg-amber-100 p-4 rounded-xl text-center font-semibold text-amber-900 shadow-sm">
+                        <span className="text-amber-900">Dm → C → Bb → Gm → A</span>
+                        <br />
+                        <span className="text-sm text-amber-700">(Tom de Ré menor)</span>
+                    </div>
+
+                    <div className="bg-amber-100 p-4 rounded-xl text-center font-semibold text-amber-900 shadow-sm">
+                        <span className="text-amber-900">Em → D → C → Am → B</span>
+                        <br />
+                        <span className="text-sm text-amber-700">(Tom de Mi menor)</span>
+                    </div>
+
+                    <div className="bg-amber-100 p-4 rounded-xl text-center font-semibold text-amber-900 shadow-sm">
+                        <span className="text-amber-900">Fm → Eb → Db → Bbm → C</span>
+                        <br />
+                        <span className="text-sm text-amber-700">(Tom de Fá menor)</span>
+                    </div>
+
+                    <div className="bg-amber-100 p-4 rounded-xl text-center font-semibold text-amber-900 shadow-sm">
+                        <span className="text-amber-900">Gm → F → Eb → Cm → D</span>
+                        <br />
+                        <span className="text-sm text-amber-700">(Tom de Sol menor)</span>
+                    </div>
+                </div>
+
+                <p className="leading-relaxed mt-6">
+                    Note que o <strong>padrão harmônico</strong> é o mesmo em todos os tons:
+                    <br /> <strong>i → VII → VI → iv → V</strong>
+                    <br /> Isso mostra que compreender o campo harmônico é o segredo para
+                    tocar em qualquer tonalidade.
+                </p>
+
             </motion.section>
         </main>
     );
