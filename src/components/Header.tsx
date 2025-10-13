@@ -24,6 +24,8 @@ export default function Header() {
                 { name: "Acordes de Minutos e Meio de Minuto", href: "/acordes-de-minutos" },
                 { name: "Campo Harmônico", href: "/campo-harmonico" },
                 { name: "Progressões de Acordes", href: "/progressoes-de-acordes" },
+                { name: "Progressões Harmônicas Mais Usadas", href: "/progressoes-harmonicas-mais-usadas" },
+                { name: "Progressões I–III–IV–V", href: "/progressoes-I-III-IV-V" },
                 { name: "Progressões II–V–I", href: "/progressoes-II-V-I" },
                 { name: "Aprender a Tocar em Todos os Tons", href: "/aprender-tocar-em-todos-os-tons" },
                 { name: "Batidas Básicas", href: "/batidas-basicas" },
