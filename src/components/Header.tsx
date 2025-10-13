@@ -21,6 +21,7 @@ export default function Header() {
                 { name: "Escalas", href: "/escalas" },
                 { name: "Formação de Acordes", href: "/formacao-de-acordes" },
                 { name: "Acordes com Sétimas", href: "/acordes-com-setimas" },
+                { name: "Acordes de Minutos e Meio de Minuto", href: "/acordes-de-minutos" },
                 { name: "Campo Harmônico", href: "/campo-harmonico" },
                 { name: "Progressões de Acordes", href: "/progressoes-de-acordes" },
                 { name: "Progressões II–V–I", href: "/progressoes-II-V-I" },
