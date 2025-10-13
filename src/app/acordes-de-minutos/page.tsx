@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGuitar, FaArrowRight } from "react-icons/fa";
 
 export default function AcordesDeMinutos() {
     return (
