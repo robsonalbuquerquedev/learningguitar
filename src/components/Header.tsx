@@ -34,6 +34,12 @@ export default function Header() {
             ],
         },
         {
+            name: "Prática de Solos",
+            links: [
+                { name: "Shapes para Solos", href: "/shapes-solos" },
+            ],
+        },
+        {
             name: "Outros",
             links: [
                 { name: "Sobre", href: "/sobre" },
