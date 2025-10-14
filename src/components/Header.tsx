@@ -47,6 +47,7 @@ export default function Header() {
                     links: [
                         { name: "Tocar em Todos os Tons", href: "/aprender-tocar-em-todos-os-tons" },
                         { name: "Batidas", href: "/batidas-basicas" },
+                        { name: "Dedilhados", href: "/dedilhados" },
                     ],
                 },
             ],
