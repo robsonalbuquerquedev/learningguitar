@@ -33,10 +33,62 @@ export default function ProgressoesHarmonicasMaisUsadas() {
 
             {/* Lista de Progressões */}
             <section className="max-w-3xl mx-auto space-y-6">
+                {/* 1-4-1-5 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎵 1–4–1–5</h3>
+                    <p className="mb-2 italic text-yellow-800">Entrada firme.</p>
+                    <p><strong>No tom de G:</strong> G / C9 / G / D9</p>
+                    <p><strong>No tom de A:</strong> A / D9 / A / E9</p>
+                    <p><strong>No tom de B:</strong> B / E9 / B / F#9</p>
+                    <p><strong>No tom de C:</strong> C / F9 / C / G9</p>
+                    <p><strong>No tom de D:</strong> D / G / D / A9</p>
+                    <p><strong>No tom de E:</strong> E / A9 / E / B9</p>
+                    <p><strong>No tom de F:</strong> F / Bb9 / F / C9</p>
+                </div>
+
+                {/* 1-4-5-1 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎵 1–4–5–1</h3>
+                    <p className="mb-2 italic text-yellow-800">Energia e alegria.</p>
+                    <p><strong>No tom de G:</strong> G / C9 / D9 / G</p>
+                    <p><strong>No tom de A:</strong> A / D9 / E9 / A</p>
+                    <p><strong>No tom de B:</strong> B / E9 / F#9 / B</p>
+                    <p><strong>No tom de C:</strong> C / F9 / G9 / C</p>
+                    <p><strong>No tom de D:</strong> D / G9 / A9 / D</p>
+                    <p><strong>No tom de E:</strong> E / A9 / B9 / E</p>
+                    <p><strong>No tom de F:</strong> F / Bb9 / C9 / F</p>
+                </div>
+
+                {/* 1-4-2-5 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎵 1–4–2–5</h3>
+                    <p className="mb-2 italic text-yellow-800">Emoção.</p>
+                    <p><strong>No tom de G:</strong> G / C9 / Am / D</p>
+                    <p><strong>No tom de A:</strong> A / D9 / Bm / E</p>
+                    <p><strong>No tom de B:</strong> B / E9 / c#m / F#</p>
+                    <p><strong>No tom de C:</strong> C / F9 / Dm / G</p>
+                    <p><strong>No tom de D:</strong> D / G9 / Em / A</p>
+                    <p><strong>No tom de E:</strong> E / A9 / F#m / B9</p>
+                    <p><strong>No tom de F:</strong> F / Bb9 / Gm / C</p>
+                </div>
+
+                {/* 1-4-6-5-1 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎵 1–4–6–5–1</h3>
+                    <p className="mb-2 italic text-yellow-800">Encerramento triunfal.</p>
+                    <p><strong>No tom de G:</strong> G / C9 / Em / D9 / G</p>
+                    <p><strong>No tom de A:</strong> A / D9 / F#m / E9 / A</p>
+                    <p><strong>No tom de B:</strong> B / E9 / G#m / F#9 / B</p>
+                    <p><strong>No tom de C:</strong> C / F9 / Am / G9 / C</p>
+                    <p><strong>No tom de D:</strong> D / G9 / Bm / A9 / D</p>
+                    <p><strong>No tom de E:</strong> E / A9 / C#m / B9 / E</p>
+                    <p><strong>No tom de F:</strong> F / Bb9 / Dm / C9 / F</p>
+                </div>
+
                 {/* 1-5-6-4 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 1–5–6–4</h3>
-                    <p className="mb-2 italic text-yellow-800">Usada em pop, louvor e baladas</p>
+                    <p className="mb-2 italic text-yellow-800">Usada em pop, louvor e baladas.</p>
                     <p><strong>No tom de G:</strong> G / D / Em / C</p>
                     <p><strong>No tom de A:</strong> A / E / F#m / D</p>
                     <p><strong>No tom de B:</strong> B / F# / G#m / E</p>
@@ -70,7 +122,7 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                 {/* 1-6-2-5 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 1–6–2–5</h3>
-                    <p className="mb-2 italic text-yellow-800">Clássica no jazz, gospel e MPB</p>
+                    <p className="mb-2 italic text-yellow-800">Clássica no jazz, gospel e MPB.</p>
                     <p><strong>No tom de G:</strong> G / Em / Am / D</p>
                     <p><strong>No tom de A:</strong> A / F#m / Bm / E</p>
                     <p><strong>No tom de B:</strong> B / G#m / C#m / F#</p>
@@ -86,7 +138,7 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                 {/* 1-6-4-5 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 1–6–4–5</h3>
-                    <p className="mb-2 italic text-yellow-800">Muito usada em louvores e pop romântico</p>
+                    <p className="mb-2 italic text-yellow-800">Muito usada em louvores e pop romântico.</p>
                     <p><strong>No tom de G:</strong> G / Em / C / D</p>
                     <p><strong>No tom de A:</strong> A / F#m / D / E</p>
                     <p><strong>No tom de B:</strong> B / G#m / E / F#</p>
@@ -102,7 +154,7 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                 {/* 1-2-4-5 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 1–2–4–5</h3>
-                    <p className="mb-2 italic text-yellow-800">Típica de músicas alegres e otimistas</p>
+                    <p className="mb-2 italic text-yellow-800">Típica de músicas alegres e otimistas.</p>
                     <p><strong>No tom de G:</strong> G / Am / C / D</p>
                     <p><strong>No tom de A:</strong> A / Bm / D / E</p>
                     <p><strong>No tom de B:</strong> B / C#m / E / F#</p>
@@ -118,7 +170,7 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                 {/* 6-4-1-5 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 6–4–1–5</h3>
-                    <p className="mb-2 italic text-yellow-800">Usada em pop e rock moderno</p>
+                    <p className="mb-2 italic text-yellow-800">Usada em pop e rock moderno.</p>
                     <p><strong>No tom de G:</strong> Em / C / G / D</p>
                     <p><strong>No tom de A:</strong> F#m / D / A / E</p>
                     <p><strong>No tom de B:</strong> G#m / E / B / F#</p>
@@ -134,7 +186,7 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                 {/* 6-5-4-1 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 6–5–4–1</h3>
-                    <p className="mb-2 italic text-yellow-800">Cria movimento descendente e emocional</p>
+                    <p className="mb-2 italic text-yellow-800">Cria movimento descendente e emocional.</p>
                     <p><strong>No tom de G:</strong> Em / D / C / G</p>
                     <p><strong>No tom de A:</strong> F#m / E / D / A</p>
                     <p><strong>No tom de B:</strong> G#m / F# / E / B</p>
@@ -202,7 +254,7 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                 {/* 2-5-1 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 2–5–1</h3>
-                    <p className="mb-2 italic text-yellow-800">A rainha das progressões do jazz</p>
+                    <p className="mb-2 italic text-yellow-800">A rainha das progressões do jazz.</p>
                     <p><strong>No tom de G:</strong> Am / D / G</p>
                     <p><strong>No tom de A:</strong> Bm / E / A</p>
                     <p><strong>No tom de B:</strong> C#m / F# / B</p>
@@ -218,7 +270,7 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                 {/* 1-4-5 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 1–4–5</h3>
-                    <p className="mb-2 italic text-yellow-800">A sequência mais antiga e universal</p>
+                    <p className="mb-2 italic text-yellow-800">A sequência mais antiga e universal.</p>
                     <p><strong>No tom de G:</strong> G / C / D</p>
                     <p><strong>No tom de A:</strong> A / D / E</p>
                     <p><strong>No tom de B:</strong> B / E / F#</p>
@@ -234,7 +286,7 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                 {/* 5-4-1 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 5–4–1</h3>
-                    <p className="mb-2 italic text-yellow-800">Progressão de retorno e fechamento</p>
+                    <p className="mb-2 italic text-yellow-800">Progressão de retorno e fechamento.</p>
                     <p><strong>No tom de G:</strong> D / C / G</p>
                     <p><strong>No tom de A:</strong> E / D / A</p>
                     <p><strong>No tom de B:</strong> F# / E / B</p>
@@ -245,6 +297,19 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                     <p className="mt-2 text-sm text-yellow-700">
                         💡 Ideal para finais de música — dá sensação de conclusão e repouso.
                     </p>
+                </div>
+
+                {/* 5-4-5-1 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎵 5–4–5–1</h3>
+                    <p className="mb-2 italic text-yellow-800">Transição.</p>
+                    <p><strong>No tom de G:</strong> D9 / C9 / D9 / G</p>
+                    <p><strong>No tom de A:</strong> E9 / D9 / E9 / A</p>
+                    <p><strong>No tom de B:</strong> F#9 / E9 / F#9 / B</p>
+                    <p><strong>No tom de C:</strong> G9 / F9 / G9 / C</p>
+                    <p><strong>No tom de D:</strong> A9 / G9 / A9 / D</p>
+                    <p><strong>No tom de E:</strong> B9 / A9 / B9 / E</p>
+                    <p><strong>No tom de F:</strong> C9 / Bb9 / C9 / F</p>
                 </div>
 
                 {/* 4–3–4–6 */}
