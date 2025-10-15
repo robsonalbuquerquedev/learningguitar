@@ -49,6 +49,24 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                     </p>
                 </div>
 
+                {/* 1–5–6–3–4 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎶 1–5–6–3–4</h3>
+                    <p className="mb-2 italic text-yellow-800">
+                        Combina força, emoção e resolução — muito usada em pop e louvor.
+                    </p>
+                    <p><strong>No tom de G:</strong> G / D / Em / Bm / C</p>
+                    <p><strong>No tom de A:</strong> A / E / F#m / C#m / D</p>
+                    <p><strong>No tom de B:</strong> B / F# / G#m / D#m / E</p>
+                    <p><strong>No tom de C:</strong> C / G / Am / Em / F</p>
+                    <p><strong>No tom de D:</strong> D / A / Bm / F#m / G</p>
+                    <p><strong>No tom de E:</strong> E / B / C#m / G#m / A</p>
+                    <p><strong>No tom de F:</strong> F / C / Dm / Am / Bb</p>
+                    <p className="mt-2 text-sm text-yellow-700">
+                        💡 Essa progressão tem um &quot;clima&quot; crescente, ótimo para versos e introduções.
+                    </p>
+                </div>
+
                 {/* 1-6-2-5 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 1–6–2–5</h3>
@@ -159,7 +177,25 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                     <p><strong>No tom de E:</strong> C#m / G#m / A / C# / F#7</p>
                     <p><strong>No tom de F:</strong> Dm / Am / Bb / D / G7</p>
                     <p className="mt-2 text-sm text-yellow-800">
-                        💡 Cria sensação de movimento e “empurrão harmônico”. Muito usada em pagode, MPB e pop romântico.
+                        💡 Cria sensação de movimento e &quot;empurrão harmônico&quot;. Muito usada em pagode, MPB e pop romântico.
+                    </p>
+                </div>
+
+                {/* 1–2–5 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎶 1–2–5</h3>
+                    <p className="mb-2 italic text-yellow-800">
+                        Clássica progressão de preparação — usada para retornar ao início ou criar expectativa.
+                    </p>
+                    <p><strong>No tom de G:</strong> G / Am / D</p>
+                    <p><strong>No tom de A:</strong> A / Bm / E</p>
+                    <p><strong>No tom de B:</strong> B / C#m / F#</p>
+                    <p><strong>No tom de C:</strong> C / Dm / G</p>
+                    <p><strong>No tom de D:</strong> D / Em / A</p>
+                    <p><strong>No tom de E:</strong> E / F#m / B</p>
+                    <p><strong>No tom de F:</strong> F / Gm / C</p>
+                    <p className="mt-2 text-sm text-yellow-700">
+                        💡 Ideal para transições suaves ou ponte entre partes da música.
                     </p>
                 </div>
 
@@ -208,6 +244,52 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                     <p><strong>No tom de F:</strong> C / Bb / F</p>
                     <p className="mt-2 text-sm text-yellow-700">
                         💡 Ideal para finais de música — dá sensação de conclusão e repouso.
+                    </p>
+                </div>
+
+                {/* 4–3–4–6 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎶 4–3–4–6</h3>
+                    <p className="mb-2 italic text-yellow-800">
+                        Passagem moderna e emotiva, comum em músicas de adoração e pop contemporâneo.
+                    </p>
+                    <p><strong>No tom de G:</strong> C / Bm / C / Em</p>
+                    <p><strong>No tom de A:</strong> D / C#m / D / F#m</p>
+                    <p><strong>No tom de B:</strong> E / D#m / E / G#m</p>
+                    <p><strong>No tom de C:</strong> F / Em / F / Am</p>
+                    <p><strong>No tom de D:</strong> G / F#m / G / Bm</p>
+                    <p><strong>No tom de E:</strong> A / G#m / A / C#m</p>
+                    <p><strong>No tom de F:</strong> Bb / Am / Bb / Dm</p>
+                    <p className="mt-2 text-sm text-yellow-700">
+                        💡 Gera uma sensação de &quot;ida e volta&quot; suave, perfeita para partes mais sentimentais.
+                    </p>
+                </div>
+
+                {/* 1–5–6–3–4–1–2–5–4–3–4–6–2–5–1 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎶 1–5–6–3–4–1–2–5–4–3–4–6–2–5–1</h3>
+                    <p className="mb-2 italic text-yellow-800">
+                        Uma progressão longa e envolvente, perfeita para louvores e músicas emocionais.
+                    </p>
+                    <p><strong>No tom de G:</strong> G / D / Em / Bm / C / G / Am / D / C / Bm / C / Em / Am / D / G</p>
+                    <p><strong>No tom de A:</strong> A / E / F#m / C#m / D / A / Bm / E / D / C#m / D / F#m / Bm / E / A</p>
+                    <p><strong>No tom de B:</strong> B / F# / G#m / D#m / E / B / C#m / F# / E / D#m / E / G#m / C#m / F# / B</p>
+                    <p><strong>No tom de C:</strong> C / G / Am / Em / F / C / Dm / G / F / Em / F / Am / Dm / G / C</p>
+                    <p><strong>No tom de D:</strong> D / A / Bm / F#m / G / D / Em / A / G / F#m / G / Bm / Em / A / D</p>
+                    <p><strong>No tom de E:</strong> E / B / C#m / G#m / A / E / F#m / B / A / G#m / A / C#m / F#m / B / E</p>
+                    <p><strong>No tom de F:</strong> F / C / Dm / Am / Bb / F / Gm / C / Bb / Am / Bb / Dm / Gm / C / F</p>
+                    <div className="mt-4 flex flex-wrap justify-center gap-2 text-sm text-yellow-800">
+                        <span className="bg-yellow-200/70 px-3 py-1 rounded-full">1 (Tônica) → Base e repouso</span>
+                        <span className="bg-yellow-100/70 px-3 py-1 rounded-full">5 (Dominante) → Puxa pro 1</span>
+                        <span className="bg-yellow-200/70 px-3 py-1 rounded-full">6 (Relativo menor) → Emoção</span>
+                        <span className="bg-yellow-100/70 px-3 py-1 rounded-full">3 (Mediante) → Transição suave</span>
+                        <span className="bg-yellow-200/70 px-3 py-1 rounded-full">4 (Subdominante) → Estabilidade</span>
+                        <span className="bg-yellow-100/70 px-3 py-1 rounded-full">2 (Pré-dominante) → Prepara o 5</span>
+                    </div>
+
+                    <p className="mt-3 text-sm text-yellow-700">
+                        💡 Dica: toque com batidas leves e ênfase no 1º e 5º graus.
+                        Essa sequência é ótima para refrões e finais emocionantes.
                     </p>
                 </div>
             </section>
