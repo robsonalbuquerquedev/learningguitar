@@ -129,6 +129,44 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                     </p>
                 </div>
 
+                {/* 6–3–4–5–1 (Simples) */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎵 6–3–4–5–1</h3>
+                    <p className="mb-2 italic text-yellow-800">Progressão emocional e suave, com sensação de retorno natural.</p>
+
+                    <p><strong>No tom de C:</strong> Am / Em / F / G / C</p>
+                    <p><strong>No tom de D:</strong> Bm / F#m / G / A / D</p>
+                    <p><strong>No tom de E:</strong> C#m / G#m / A / B / E</p>
+                    <p><strong>No tom de F:</strong> Dm / Am / Bb / C / F</p>
+                    <p><strong>No tom de G:</strong> Em / Bm / C / D / G</p>
+                    <p><strong>No tom de A:</strong> F#m / C#m / D / E / A</p>
+                    <p><strong>No tom de B:</strong> G#m / D#m / E / F# / B</p>
+
+                    <p className="mt-2 text-sm text-yellow-700">
+                        💡 Ideal para músicas lentas, introspectivas ou românticas. Traz sensação de conforto e resolução.
+                    </p>
+                </div>
+
+                {/* 6–3–4–V/V–V/VI (Com dominantes secundários) */}
+                <div className="bg-yellow-100 text-yellow-950 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎶 6–3–4–V/V–V/VI</h3>
+                    <p className="mb-2 italic text-yellow-900">
+                        Versão com dominantes secundários — adiciona tensão e um toque moderno.
+                    </p>
+
+                    <p><strong>No tom de C:</strong> Am / Em / F / A / D7</p>
+                    <p><strong>No tom de D:</strong> Bm / F#m / G / B / E7</p>
+                    <p><strong>No tom de E:</strong> C#m / G#m / A / C# / F#7</p>
+                    <p><strong>No tom de F:</strong> Dm / Am / Bb / D / G7</p>
+                    <p><strong>No tom de G:</strong> Em / Bm / C / E / A7</p>
+                    <p><strong>No tom de A:</strong> F#m / C#m / D / G# / C#7</p>
+                    <p><strong>No tom de B:</strong> G#m / D#m / E / A# / D#7</p>
+
+                    <p className="mt-2 text-sm text-yellow-800">
+                        💡 Cria sensação de movimento e “empurrão harmônico”. Muito usada em pagode, MPB e pop romântico.
+                    </p>
+                </div>
+
                 {/* 2-5-1 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 2–5–1</h3>
