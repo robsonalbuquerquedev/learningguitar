@@ -85,6 +85,19 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                     <p><strong>No tom de F:</strong> F / Bb9 / Dm / C9 / F</p>
                 </div>
 
+                {/* 1-4-5-3-6 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎵 1–4–5–3–6</h3>
+                    <p className="mb-2 italic text-yellow-800">Movimentos de sentimento.</p>
+                    <p><strong>No tom de G:</strong> G7 / C / D / Bm / Em</p>
+                    <p><strong>No tom de A:</strong> A7 / D / E / C#m / F#m</p>
+                    <p><strong>No tom de B:</strong> B7 / E / F# / D#m / G#m</p>
+                    <p><strong>No tom de C:</strong> C7 / F / G / Em / Am</p>
+                    <p><strong>No tom de D:</strong> D7 / G / A / F#m / Bm</p>
+                    <p><strong>No tom de E:</strong> E7 / A / B / G#m / C#m</p>
+                    <p><strong>No tom de F:</strong> F7 / Bb / C / Am / Dm</p>
+                </div>
+
                 {/* 1-5-6-4 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 1–5–6–4</h3>
