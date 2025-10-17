@@ -312,6 +312,22 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                     </p>
                 </div>
 
+                {/* 1-5-6 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎵 1–5–6</h3>
+                    <p className="mb-2 italic text-yellow-800">Perfeita para músicas pop, baladas e louvores tranquilos.</p>
+                    <p><strong>No tom de G:</strong> G / D9 / Em</p>
+                    <p><strong>No tom de A:</strong> A / E9 / F#m</p>
+                    <p><strong>No tom de B:</strong> B / F#9 / G#m</p>
+                    <p><strong>No tom de C:</strong> C / G9 / Am</p>
+                    <p><strong>No tom de D:</strong> D / A9 / Bm</p>
+                    <p><strong>No tom de E:</strong> E / B9 / C#m</p>
+                    <p><strong>No tom de F:</strong> F / C9 / Dm</p>
+                    <p className="mt-2 text-sm text-yellow-700">
+                        💡 Simples, elegante e versátil — ótima para introduções, refrões ou transições suaves.
+                    </p>
+                </div>
+
                 {/* 5-4-1 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 5–4–1</h3>
