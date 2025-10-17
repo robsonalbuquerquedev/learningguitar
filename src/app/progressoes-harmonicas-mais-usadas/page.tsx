@@ -312,6 +312,22 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                     </p>
                 </div>
 
+                {/* 6-1-5-4-5 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎵 6–1–5-4-5</h3>
+                    <p className="mb-2 italic text-yellow-800">Essa sequência tem um toque emocional e resolutivo.</p>
+                    <p><strong>No tom de G:</strong> Em / G / D / C / D</p>
+                    <p><strong>No tom de A:</strong> F#m / A / E / D / E</p>
+                    <p><strong>No tom de B:</strong> G#m / B / F# / E / F#</p>
+                    <p><strong>No tom de C:</strong> Am / C / G / F / G</p>
+                    <p><strong>No tom de D:</strong> Bm / D / A / G / A</p>
+                    <p><strong>No tom de E:</strong> C#m / E / B / A / B</p>
+                    <p><strong>No tom de F:</strong> Dm / F / C / Bb / C</p>
+                    <p className="mt-2 text-sm text-yellow-700">
+                        💡 Cria um fluxo emocional com final aberto — perfeita para pontes e transições que convidam o ouvinte a continuar.
+                    </p>
+                </div>
+
                 {/* 5-4-5-1 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 5–4–5–1</h3>
