@@ -343,6 +343,24 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                     </p>
                 </div>
 
+                {/* 4–3–4–5–1–6–3–4–5–1 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎶 4–3–4–5–1–6–3–4–5–1</h3>
+                    <p className="mb-2 italic text-yellow-800">
+                        Essa sequência cria um movimento envolvente e circular, com o acorde III servindo de ponte suave entre o IV e o V.
+                    </p>
+                    <p><strong>No tom de G:</strong> C / Bm / C / D / G / Em / Bm / C / D / G</p>
+                    <p><strong>No tom de A:</strong> D / C#m / D / E / A / F#m / C#m / D / E / A</p>
+                    <p><strong>No tom de B:</strong> E / D#m / E / F# / B / G#m / D#m / E / F# / B</p>
+                    <p><strong>No tom de C:</strong> F / Em / F / G / C / Am / Em / F / G / C</p>
+                    <p><strong>No tom de D:</strong> G / F#m / G / A / D / Bm / F#m / G / A / D</p>
+                    <p><strong>No tom de E:</strong> A / G#m / A / B / E / C#m / G#m / A / B / E</p>
+                    <p><strong>No tom de F:</strong> Bb / Am / Bb / C / F / Dm / Am / Bb / C / F</p>
+                    <p className="mt-2 text-sm text-yellow-700">
+                        💡 Transmite sensação de crescimento e continuidade — ótima para refrões que evoluem e voltam com força.
+                    </p>
+                </div>
+
                 {/* 1–5–6–3–4–1–2–5–4–3–4–6–2–5–1 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎶 1–5–6–3–4–1–2–5–4–3–4–6–2–5–1</h3>
@@ -379,6 +397,6 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                     músicas que você já toca ou compõe.
                 </p>
             </section>
-        </main>
+        </main >
     );
 }
