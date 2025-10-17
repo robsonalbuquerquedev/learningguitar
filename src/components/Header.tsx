@@ -38,6 +38,7 @@ export default function Header() {
                     links: [
                         { name: "Introdução às Progressões", href: "/progressoes-de-acordes" },
                         { name: "Mais Usadas", href: "/progressoes-harmonicas-mais-usadas" },
+                        { name: "Subdominante Menor", href: "/subdominante-menor" },
                         { name: "I–III–IV–V", href: "/progressoes-I-III-IV-V" },
                         { name: "II–V–I", href: "/progressoes-II-V-I" },
                     ],
