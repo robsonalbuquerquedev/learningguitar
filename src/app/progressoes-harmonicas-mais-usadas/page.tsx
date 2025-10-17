@@ -98,6 +98,22 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                     <p><strong>No tom de F:</strong> F7 / Bb / C / Am / Dm</p>
                 </div>
 
+                {/* 1-5-4-2-5 */}
+                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
+                    <h3 className="text-xl font-bold mb-2">🎵 1–5–4–2–5</h3>
+                    <p className="mb-2 italic text-yellow-800">Essa sequência cria movimento e suavidade, com o acorde II (2) atuando como uma ponte que gera leve tensão antes de voltar ao dominante (V).</p>
+                    <p><strong>No tom de G:</strong> G / D / C / Am / D</p>
+                    <p><strong>No tom de A:</strong> A / E / D / Bm / E</p>
+                    <p><strong>No tom de B:</strong> B / F# / E / C#m / F#</p>
+                    <p><strong>No tom de C:</strong> C / G / F / Dm / G</p>
+                    <p><strong>No tom de D:</strong> D / A / G / Em / A</p>
+                    <p><strong>No tom de E:</strong> E / B / A / F#m / B</p>
+                    <p><strong>No tom de F:</strong> F / C / Bb / Gm / C</p>
+                    <p className="mt-2 text-sm text-yellow-700">
+                        💡 Combina leveza e continuidade — perfeita para transições suaves entre verso e refrão.
+                    </p>
+                </div>
+
                 {/* 1-5-6-4 */}
                 <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
                     <h3 className="text-xl font-bold mb-2">🎵 1–5–6–4</h3>
