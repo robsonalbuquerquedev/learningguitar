@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Script from "next/script"; // Importa o Script do Next.js
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -14,7 +14,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR">
       <head>
-        {/* Código do Google AdSense */}
+        {/* Tag de verificação e script do Google AdSense */}
+        <meta name="google-adsense-account" content="ca-pub-9360124149047745" />
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9360124149047745"
