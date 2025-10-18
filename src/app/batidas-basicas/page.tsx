@@ -15,6 +15,7 @@ const batidas = [
     { nome: "Batida 9", padrao: ["down", "up", "up", "down", "up", "up", "down"], descricao: "Perfeita para músicas mais animadas." },
     { nome: "Batida 10", padrao: ["down", "down", "up", "down", "up", "down", "down"], descricao: "Muito usada em músicas pop e adoração." },
     { nome: "Batida 11", padrao: ["down", "down", "up", "up", "down", "down", "down", "up"] },
+    { nome: "Batida 12", padrao: ["down", "up", "up", "down", "up", "up", "down", "up", "down", "up"] },
 ];
 
 export default function Batidas() {
