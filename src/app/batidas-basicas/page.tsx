@@ -9,13 +9,14 @@ const batidas = [
     { nome: "Batida 3", padrao: ["down", "mute", "up", "up", "mute", "up"] },
     { nome: "Batida 4", padrao: ["down", "down", "up", "up", "down", "up"] },
     { nome: "Batida 5", padrao: ["down", "down", "up", "up", "down", "down"], descricao: "Ideal para louvores suaves e lentos." },
-    { nome: "Batida 6", padrao: ["down", "up", "up"], descricao: "Batida de sertanejo." },
-    { nome: "Batida 7", padrao: ["down", "up", "up", "down"] },
-    { nome: "Batida 8", padrao: ["down", "down", "up", "down", "up", "down"] },
-    { nome: "Batida 9", padrao: ["down", "up", "up", "down", "up", "up", "down"], descricao: "Perfeita para músicas mais animadas." },
-    { nome: "Batida 10", padrao: ["down", "down", "up", "down", "up", "down", "down"], descricao: "Muito usada em músicas pop e adoração." },
-    { nome: "Batida 11", padrao: ["down", "down", "up", "up", "down", "down", "down", "up"] },
-    { nome: "Batida 12", padrao: ["down", "up", "up", "down", "up", "up", "down", "up", "down", "up"] },
+    { nome: "Batida 6", padrao: ["down", "down", "up", "up", "down", "down", "up", "down", "up"] },
+    { nome: "Batida 7", padrao: ["down", "up", "up"], descricao: "Batida de sertanejo." },
+    { nome: "Batida 8", padrao: ["down", "up", "up", "down"] },
+    { nome: "Batida 9", padrao: ["down", "down", "up", "down", "up", "down"] },
+    { nome: "Batida 10", padrao: ["down", "up", "up", "down", "up", "up", "down"], descricao: "Perfeita para músicas mais animadas." },
+    { nome: "Batida 11", padrao: ["down", "down", "up", "down", "up", "down", "down"], descricao: "Muito usada em músicas pop e adoração." },
+    { nome: "Batida 12", padrao: ["down", "down", "up", "up", "down", "down", "down", "up"] },
+    { nome: "Batida 13", padrao: ["down", "up", "up", "down", "up", "up", "down", "up", "down", "up"] },
 ];
 
 export default function Batidas() {
