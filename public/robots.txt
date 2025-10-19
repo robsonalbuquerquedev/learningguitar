@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://aprenderviolaoonline.com.br
+
+# Sitemaps
+Sitemap: https://aprenderviolaoonline.com.br/sitemap.xml
