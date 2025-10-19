@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const secoes = [
@@ -53,13 +54,29 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-amber-50 py-20 px-6">
-      {/* 🎸 Título chamativo */}
+    <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-white py-16 px-6 flex flex-col items-center justify-center">
+      {/* 🎸 Logo */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, y: -20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="flex flex-col items-center mb-8"
+      >
+        <Image
+          src="/logo.png"
+          alt="Logo LearningGuitar"
+          width={140}
+          height={140}
+          className="rounded-full shadow-lg border-4 border-yellow-400"
+        />
+      </motion.div>
+
+      {/* 🎶 Título */}
       <motion.h1
-        initial={{ opacity: 0, y: -30 }}
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl sm:text-6xl font-extrabold text-center drop-shadow-lg mb-6"
+        className="text-5xl sm:text-6xl font-extrabold text-center text-yellow-200 drop-shadow-lg mb-4"
       >
         LearningGuitar 🎸
       </motion.h1>
@@ -69,19 +86,33 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.3 }}
-        className="text-center max-w-3xl text-lg sm:text-xl mb-12 bg-black/40 p-4 rounded-xl shadow-md"
+        className="text-center max-w-3xl text-lg sm:text-xl mb-8 bg-black/30 p-4 rounded-xl shadow-md"
       >
-        Aprenda violão de forma interativa com exercícios, truques práticos e dicas
+        Aprenda violão de forma interativa com truques práticos, exercícios e dicas
         para memorizar acordes, notas e escalas. Ideal para iniciantes e apaixonados por música!
       </motion.p>
 
-      {/* 🗂 Seções / cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {/* 🔗 Botão de navegação */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+      >
+        <Link
+          href="/acordes-maiores-e-menores-naturais"
+          className="bg-yellow-300 text-amber-900 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-400 transition-all duration-300"
+        >
+          🎵 Explorar Teoria
+        </Link>
+      </motion.div>
+
+      {/* 🗂 Seções */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mt-12">
         {secoes.map((secao, index) => (
           <motion.div
             key={index}
-            className="bg-amber-800/40 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform duration-300"
-            initial={{ opacity: 0, y: 20 }}
+            className="bg-amber-800/40 p-6 rounded-2xl shadow-md hover:scale-105 hover:shadow-xl transition-all duration-300 border border-yellow-200/20"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 * index, duration: 0.6 }}
           >
@@ -96,16 +127,6 @@ export default function Home() {
           </motion.div>
         ))}
       </div>
-
-      {/* 🌟 Imagem de destaque */}
-      <motion.img
-        src="/robson.png"
-        alt="Robson Albuquerque"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="mt-12 w-48 sm:w-64 rounded-full border-4 border-yellow-300 shadow-xl mx-auto"
-      />
     </main>
   );
 }
