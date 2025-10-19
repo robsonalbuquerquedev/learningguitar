@@ -84,7 +84,7 @@ export default function Header() {
                     className="text-2xl font-bold text-yellow-300 flex items-center gap-2"
                 >
                     <Image
-                        src="/robson.png"
+                        src="/logo.png"
                         alt="Robson Albuquerque"
                         width={32}
                         height={32}
