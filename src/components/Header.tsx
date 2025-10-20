@@ -7,6 +7,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import Image from "next/image";
 
+interface LinkItem {
+    name: string;
+    href: string;
+}
+
+interface Subcategory {
+    name: string;
+    links: LinkItem[];
+}
+
+interface Menu {
+    name: string;
+    subcategories?: Subcategory[];
+    links?: LinkItem[];
+}
+
 export default function Header() {
     const pathname = usePathname();
     const [menuOpen, setMenuOpen] = useState(false);
@@ -120,7 +136,7 @@ export default function Header() {
                     </Link>
 
                     {/* Dropdowns */}
-                    {menus.map((menu: any) => (
+                    {menus.map((menu: Menu) => (
                         <div
                             key={menu.name}
                             className="relative group"
@@ -140,18 +156,18 @@ export default function Header() {
                                         exit={{ opacity: 0, y: -10 }}
                                         transition={{ duration: 0.2 }}
                                         className={`absolute left-0 mt-2 bg-amber-950/95 backdrop-blur-md shadow-xl rounded-xl p-4 border border-yellow-400/10
-                      ${menu.subcategories
+            ${menu.subcategories
                                                 ? "grid grid-cols-2 gap-4 w-[460px]"
-                                                : menu.links.length > 6
+                                                : menu.links && menu.links.length > 6
                                                     ? "grid grid-cols-2 gap-2 w-[420px]"
                                                     : "flex flex-col"
                                             }`}
                                     >
                                         {menu.subcategories
-                                            ? menu.subcategories.map((sub: any) => (
+                                            ? menu.subcategories.map((sub: Subcategory) => (
                                                 <div key={sub.name}>
                                                     <p className="font-semibold text-yellow-300 mb-1">{sub.name}</p>
-                                                    {sub.links.map((link: any) => (
+                                                    {sub.links.map((link: LinkItem) => (
                                                         <Link
                                                             key={link.href}
                                                             href={link.href}
@@ -163,7 +179,7 @@ export default function Header() {
                                                     ))}
                                                 </div>
                                             ))
-                                            : menu.links.map((link: any) => (
+                                            : menu.links?.map((link: LinkItem) => (
                                                 <Link
                                                     key={link.href}
                                                     href={link.href}
