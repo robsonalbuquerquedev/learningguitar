@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import Image from "next/image";
-import { ChevronRight } from "lucide-react";
 
 export default function Header() {
     const pathname = usePathname();
