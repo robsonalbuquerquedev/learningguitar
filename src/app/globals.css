@@ -10,3 +10,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes shimmer-once {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Executa o brilho apenas uma vez */
+.animate-shimmer-once {
+  background-size: 200% auto;
+  animation: shimmer-once 3s linear 1;
+}
