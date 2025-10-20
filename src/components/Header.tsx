@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import Image from "next/image";
+import { ChevronRight } from "lucide-react";
 
 export default function Header() {
     const pathname = usePathname();
@@ -185,54 +186,63 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Menu mobile expandido */}
+            {/* 📱 Menu mobile expandido com acordeões */}
             {menuOpen && (
-                <nav className="sm:hidden bg-amber-900/95 backdrop-blur-md w-full px-4 pb-4">
+                <nav className="sm:hidden bg-amber-900/95 backdrop-blur-md w-full px-4 pb-4 rounded-b-2xl border-t border-yellow-400/20">
                     <Link
                         href="/"
                         onClick={() => setMenuOpen(false)}
-                        className={`block py-2 text-white font-semibold hover:text-yellow-300 ${pathname === "/" ? "underline" : ""
+                        className={`block py-2 text-lg font-bold text-white hover:text-yellow-300 ${pathname === "/" ? "underline text-yellow-200" : ""
                             }`}
                     >
                         Home
                     </Link>
-                    {menus.map((menu) => (
-                        <div key={menu.name}>
-                            {/* Nome da categoria principal */}
-                            <p className="mt-2 font-bold text-yellow-400">{menu.name}</p>
 
-                            {/* Se o menu tiver subcategorias (ex: Teoria) */}
-                            {menu.subcategories ? (
-                                menu.subcategories.map((sub) => (
-                                    <div key={sub.name} className="ml-2 mt-1">
-                                        <p className="font-semibold text-yellow-300">{sub.name}</p>
-                                        {sub.links.map((link) => (
-                                            <Link
-                                                key={link.href}
-                                                href={link.href}
-                                                onClick={() => setMenuOpen(false)}
-                                                className={`block py-1 pl-4 text-white hover:text-yellow-300 ${pathname === link.href ? "underline text-yellow-200" : ""
-                                                    }`}
-                                            >
-                                                {link.name}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                ))
-                            ) : (
-                                /* Caso o menu não tenha subcategorias (Ferramentas, Outros, etc.) */
-                                menu.links.map((link) => (
-                                    <Link
-                                        key={link.href}
-                                        href={link.href}
-                                        onClick={() => setMenuOpen(false)}
-                                        className={`block py-1 pl-3 text-white hover:text-yellow-300 ${pathname === link.href ? "underline text-yellow-200" : ""
-                                            }`}
-                                    >
-                                        {link.name}
-                                    </Link>
-                                ))
-                            )}
+                    {menus.map((menu) => (
+                        <div key={menu.name} className="mt-2">
+                            <details className="group">
+                                <summary className="flex justify-between items-center cursor-pointer py-2 text-yellow-300 font-bold hover:text-yellow-200">
+                                    {menu.name}
+                                    <span className="transition-transform group-open:rotate-90">▶</span>
+                                </summary>
+
+                                {/* Subcategorias (se existirem) */}
+                                {menu.subcategories ? (
+                                    menu.subcategories.map((sub) => (
+                                        <details key={sub.name} className="ml-3 group mt-1">
+                                            <summary className="cursor-pointer text-yellow-200 font-semibold text-sm hover:text-yellow-100 flex justify-between">
+                                                {sub.name}
+                                                <span className="transition-transform group-open:rotate-90">▶</span>
+                                            </summary>
+                                            <div className="ml-4 mt-1">
+                                                {sub.links.map((link) => (
+                                                    <Link
+                                                        key={link.href}
+                                                        href={link.href}
+                                                        onClick={() => setMenuOpen(false)}
+                                                        className={`block py-1 text-sm text-white hover:text-yellow-300 ${pathname === link.href ? "underline text-yellow-200" : ""
+                                                            }`}
+                                                    >
+                                                        {link.name}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </details>
+                                    ))
+                                ) : (
+                                    menu.links.map((link) => (
+                                        <Link
+                                            key={link.href}
+                                            href={link.href}
+                                            onClick={() => setMenuOpen(false)}
+                                            className={`block py-1 pl-3 text-sm text-white hover:text-yellow-300 ${pathname === link.href ? "underline text-yellow-200" : ""
+                                                }`}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    ))
+                                )}
+                            </details>
                         </div>
                     ))}
                 </nav>
