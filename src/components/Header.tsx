@@ -77,25 +77,35 @@ export default function Header() {
     ];
 
     return (
-        <header className="fixed top-0 left-0 w-full bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 backdrop-blur-md shadow-lg z-50">
-            <div className="max-w-7xl mx-auto flex justify-between items-center p-4 sm:p-6">
-                {/* Logo / título */}
+        <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-amber-900/95 via-yellow-900/90 to-amber-800/95 backdrop-blur-sm border-b border-yellow-400/20">
+            <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4">
+
+                {/* 🎸 Logo + Título */}
                 <Link
                     href="/"
-                    className="text-2xl font-bold text-yellow-300 flex items-center gap-2"
+                    className="flex items-center gap-2 sm:gap-3 text-yellow-300 font-extrabold text-xl sm:text-2xl hover:text-yellow-200 transition-colors"
                 >
-                    <Image
-                        src="/logo.png"
-                        alt="Robson Albuquerque"
-                        width={32}
-                        height={32}
-                        className="rounded-full"
-                    />
-                    LearningGuitar 🎸
+                    <motion.div
+                        initial={{ scale: 0.9, rotate: -5, opacity: 0 }}
+                        animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <Image
+                            src="/logo.png"
+                            alt="Logo LearningGuitar"
+                            width={40}
+                            height={40}
+                            className="rounded-full border-2 border-yellow-400 shadow-md"
+                            priority
+                        />
+                    </motion.div>
+                    <span className="hidden xs:inline bg-gradient-to-r from-yellow-300 via-yellow-100 to-yellow-300 bg-clip-text text-transparent">
+                        LearningGuitar 🎸
+                    </span>
                 </Link>
 
-                {/* Menu desktop */}
-                <nav className="hidden sm:flex items-center space-x-6 text-white font-semibold relative">
+                {/* 🌟 Menu desktop */}
+                <nav className="hidden md:flex items-center space-x-6 text-white font-semibold relative">
                     <Link
                         href="/"
                         className={`relative hover:text-yellow-300 transition-colors duration-200 ${pathname === "/" ? "text-yellow-300" : ""
@@ -105,22 +115,22 @@ export default function Header() {
                         {pathname === "/" && (
                             <motion.span
                                 layoutId="underline"
-                                className="absolute left-0 -bottom-1 w-full h-1 bg-yellow-300 rounded"
+                                className="absolute left-0 -bottom-1 w-full h-[3px] bg-yellow-300 rounded"
                             />
                         )}
                     </Link>
 
                     {/* Dropdowns */}
-                    {menus.map((menu) => (
+                    {menus.map((menu: any) => (
                         <div
                             key={menu.name}
-                            className="relative"
+                            className="relative group"
                             onMouseEnter={() => setDropdownOpen(menu.name)}
                             onMouseLeave={() => setDropdownOpen(null)}
                         >
-                            <button className="flex items-center gap-1 hover:text-yellow-300 cursor-pointer">
+                            <button className="flex items-center gap-1 hover:text-yellow-300 transition-colors cursor-pointer">
                                 {menu.name}
-                                <FaChevronDown className="text-sm mt-[2px]" />
+                                <FaChevronDown className="text-xs mt-[2px] transition-transform duration-200 group-hover:rotate-180" />
                             </button>
 
                             <AnimatePresence>
@@ -130,44 +140,40 @@ export default function Header() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
                                         transition={{ duration: 0.2 }}
-                                        className={`absolute left-0 mt-2 bg-amber-900/95 backdrop-blur-md shadow-lg rounded-xl p-4 
-      ${menu.subcategories
-                                                ? "grid grid-cols-2 gap-4 w-[460px]" // para menus com subcategorias (ex: Teoria)
+                                        className={`absolute left-0 mt-2 bg-amber-950/95 backdrop-blur-md shadow-xl rounded-xl p-4 border border-yellow-400/10
+                      ${menu.subcategories
+                                                ? "grid grid-cols-2 gap-4 w-[460px]"
                                                 : menu.links.length > 6
-                                                    ? "grid grid-cols-2 gap-2 w-[420px]" // para menus grandes sem subcategorias
+                                                    ? "grid grid-cols-2 gap-2 w-[420px]"
                                                     : "flex flex-col"
                                             }`}
                                     >
-                                        {/* Caso o menu tenha subcategorias (ex: Teoria) */}
-                                        {menu.subcategories ? (
-                                            menu.subcategories.map((sub) => (
+                                        {menu.subcategories
+                                            ? menu.subcategories.map((sub: any) => (
                                                 <div key={sub.name}>
                                                     <p className="font-semibold text-yellow-300 mb-1">{sub.name}</p>
-                                                    {sub.links.map((link) => (
+                                                    {sub.links.map((link: any) => (
                                                         <Link
                                                             key={link.href}
                                                             href={link.href}
-                                                            className={`block px-3 py-1.5 rounded-md whitespace-nowrap hover:bg-yellow-800/30 
-                ${pathname === link.href ? "text-yellow-300" : "text-white"}`}
+                                                            className={`block px-3 py-1.5 rounded-md whitespace-nowrap hover:bg-yellow-800/30 transition ${pathname === link.href ? "text-yellow-300" : "text-white"
+                                                                }`}
                                                         >
                                                             {link.name}
                                                         </Link>
                                                     ))}
                                                 </div>
                                             ))
-                                        ) : (
-                                            /* Caso o menu tenha links diretos (Ferramentas, Outros etc.) */
-                                            menu.links.map((link) => (
+                                            : menu.links.map((link: any) => (
                                                 <Link
                                                     key={link.href}
                                                     href={link.href}
-                                                    className={`block px-3 py-2 whitespace-nowrap rounded-md hover:bg-yellow-800/30 
-            ${pathname === link.href ? "text-yellow-300" : "text-white"}`}
+                                                    className={`block px-3 py-2 rounded-md hover:bg-yellow-800/30 transition ${pathname === link.href ? "text-yellow-300" : "text-white"
+                                                        }`}
                                                 >
                                                     {link.name}
                                                 </Link>
-                                            ))
-                                        )}
+                                            ))}
                                     </motion.div>
                                 )}
                             </AnimatePresence>
@@ -175,11 +181,11 @@ export default function Header() {
                     ))}
                 </nav>
 
-                {/* Botão do menu mobile */}
-                <div className="sm:hidden">
+                {/* 📱 Botão do menu mobile */}
+                <div className="md:hidden">
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className="text-white text-2xl focus:outline-none"
+                        className="text-white text-2xl focus:outline-none hover:text-yellow-300 transition"
                     >
                         {menuOpen ? <FaTimes /> : <FaBars />}
                     </button>
