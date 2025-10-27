@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  // 🌐 URL base para gerar canonicals automaticamente
+  metadataBase: new URL("https://aprenderviolaoonline.com.br"),
   title: "LearningGuitar 🎸 | Aprenda Violão de Forma Interativa",
   description:
     "Aprenda violão online com truques práticos, exercícios interativos e dicas para memorizar acordes, notas e escalas. Ideal para iniciantes e estudantes de música.",
