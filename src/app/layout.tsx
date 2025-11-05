@@ -4,11 +4,65 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  // 🌐 URL base para gerar canonicals automaticamente
   metadataBase: new URL("https://aprenderviolaoonline.com.br"),
-  title: "LearningGuitar 🎸 | Aprenda Violão de Forma Interativa",
+  title: {
+    default: "LearningGuitar 🎸 | Aprenda Violão de Forma Interativa",
+    template: "%s | LearningGuitar 🎸",
+  },
   description:
-    "Aprenda violão online com truques práticos, exercícios interativos e dicas para memorizar acordes, notas e escalas. Ideal para iniciantes e estudantes de música.",
+    "Aprenda violão online com exercícios interativos, escalas, acordes, campo harmônico e técnicas práticas. Ideal para iniciantes e músicos que querem evoluir.",
+
+  keywords: [
+    "aprender violão",
+    "curso de violão",
+    "acordes violão",
+    "campo harmônico",
+    "escalas violão",
+    "progressões de acordes",
+    "teoria musical",
+    "dicas de violão",
+    "música para iniciantes"
+  ],
+
+  authors: [{ name: "Robson Albuquerque", url: "https://aprenderviolaoonline.com.br" }],
+
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "https://aprenderviolaoonline.com.br",
+    siteName: "LearningGuitar 🎸",
+    title: "LearningGuitar 🎸 | Aprenda Violão de Forma Interativa",
+    description:
+      "Aprenda violão com aulas práticas, acordes, escalas, campo harmônico e exercícios guiados.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "LearningGuitar 🎸 – Aprenda Violão Online",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "LearningGuitar 🎸 | Aprenda Violão Online",
+    description:
+      "Aprenda violão com exercícios práticos, teoria musical simplificada e ferramentas interativas.",
+    images: ["/og-image.png"],
+    creator: "@robsonalbuquerque", // se tiver Twitter
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
