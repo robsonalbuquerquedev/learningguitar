@@ -51,9 +51,9 @@ export const metadata: Metadata = {
     description:
       "Aprenda violão com exercícios práticos, acordes, escalas e teoria musical simplificada. Um blog educativo e interativo criado por Robson Albuquerque.",
     images: ["/og-image.png"],
-    creator: "@robsonalbuquerque", // mantenha se quiser associar a sua conta X/Twitter
+    creator: "@LGuitarBr", // perfil oficial da marca no X (Twitter)
   },
-  
+
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
