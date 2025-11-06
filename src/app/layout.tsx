@@ -10,18 +10,19 @@ export const metadata: Metadata = {
     template: "%s | LearningGuitar 🎸",
   },
   description:
-    "Aprenda violão online com exercícios interativos, escalas, acordes, campo harmônico e técnicas práticas. Ideal para iniciantes e músicos que querem evoluir.",
+    "Aprenda violão online com aulas, exercícios interativos e conteúdos sobre acordes, escalas, campo harmônico e teoria musical. Ideal para iniciantes e músicos que desejam evoluir com técnica e prática.",
 
   keywords: [
     "aprender violão",
-    "curso de violão",
-    "acordes violão",
+    "curso de violão online",
+    "aulas de violão",
+    "acordes de violão",
     "campo harmônico",
-    "escalas violão",
+    "escalas musicais",
     "progressões de acordes",
-    "teoria musical",
-    "dicas de violão",
-    "música para iniciantes"
+    "teoria musical básica",
+    "dicas de violão para iniciantes",
+    "aprendizado musical interativo"
   ],
 
   authors: [{ name: "Robson Albuquerque", url: "https://aprenderviolaoonline.com.br" }],
@@ -31,28 +32,28 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "https://aprenderviolaoonline.com.br",
     siteName: "LearningGuitar 🎸",
-    title: "LearningGuitar 🎸 | Aprenda Violão de Forma Interativa",
+    title: "LearningGuitar 🎸 | Blog de Violão e Teoria Musical Interativa",
     description:
-      "Aprenda violão com aulas práticas, acordes, escalas, campo harmônico e exercícios guiados.",
+      "Aprenda violão online com aulas, exercícios interativos e conteúdos sobre acordes, escalas, campo harmônico e teoria musical. Ideal para iniciantes e músicos que desejam evoluir com técnica e prática.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "LearningGuitar 🎸 – Aprenda Violão Online",
+        alt: "LearningGuitar 🎸 – Aprenda Violão Online e Teoria Musical",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "LearningGuitar 🎸 | Aprenda Violão Online",
+    title: "LearningGuitar 🎸 | Aprenda Violão Online e Teoria Musical",
     description:
-      "Aprenda violão com exercícios práticos, teoria musical simplificada e ferramentas interativas.",
+      "Aprenda violão com exercícios práticos, acordes, escalas e teoria musical simplificada. Um blog educativo e interativo criado por Robson Albuquerque.",
     images: ["/og-image.png"],
-    creator: "@robsonalbuquerque", // se tiver Twitter
+    creator: "@robsonalbuquerque", // mantenha se quiser associar a sua conta X/Twitter
   },
-
+  
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
