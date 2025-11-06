@@ -87,6 +87,7 @@ export default function Header() {
             links: [
                 { name: "Sobre", href: "/sobre" },
                 { name: "Feedback", href: "/feedback" },
+                { name: "Recomendações", href: "/recomendacoes" },
             ],
         },
     ];
