@@ -71,6 +71,11 @@ export default function Footer() {
                 </div>
             </motion.div>
 
+            <p className="text-center text-amber-100 text-xs mt-6">
+                O <strong>LearningGuitar 🎸</strong> participa de programas de afiliados Shopee e Hotmart, podendo receber comissões por compras qualificadas.
+            </p>
+
+
             {/* 📜 Linha divisória e links secundários */}
             <div className="border-t border-yellow-400/20 bg-amber-950/70 text-amber-200 text-xs sm:text-sm py-4">
                 <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
@@ -90,6 +95,13 @@ export default function Footer() {
                             className="hover:text-yellow-300 transition-colors duration-200"
                         >
                             Termos de Uso
+                        </Link>
+                        <span className="text-yellow-400/40">|</span>
+                        <Link
+                            href="/politica-de-afiliados"
+                            className="hover:text-yellow-300 transition-colors duration-200"
+                        >
+                            Política de Afiliados
                         </Link>
                     </div>
                 </div>
