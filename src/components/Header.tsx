@@ -83,6 +83,16 @@ export default function Header() {
             ],
         },
         {
+            name: "Loja Musical",
+            links: [
+                { name: "Acessar Loja", href: "/loja-musical" }, // ✅ link principal
+                { name: "Afinadores", href: "/loja-musical/afinadores" },
+                { name: "Capotrastes", href: "/loja-musical/capotrastes" },
+                { name: "Palhetas", href: "/loja-musical/palhetas" },
+                { name: "Camisetas Musicais", href: "/loja-musical/camisetas-musicais" },
+            ],
+        },
+        {
             name: "Outros",
             links: [
                 { name: "Sobre", href: "/sobre" },
