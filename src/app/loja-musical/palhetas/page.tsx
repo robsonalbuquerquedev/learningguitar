@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Palhetas() {
     const produtos = [
@@ -103,11 +104,18 @@ export default function Palhetas() {
                         transition={{ delay: index * 0.1, duration: 0.5 }}
                         className="bg-white/10 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
                     >
-                        <img
-                            src={item.imagem}
-                            alt={item.nome}
-                            className="rounded-lg mb-3 w-full object-cover h-52"
-                        />
+                        {/* 🔹 Container da imagem ajustado para não cortar nada */}
+                        <div className="relative w-full h-52 mb-3 bg-black/20 flex items-center justify-center rounded-lg overflow-hidden">
+                            <Image
+                                src={item.imagem}
+                                alt={item.nome}
+                                fill
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                className="object-contain rounded-lg"
+                                priority={index === 0}
+                            />
+                        </div>
+                        
                         <h2 className="text-xl font-semibold text-yellow-200 mb-2">
                             {item.nome}
                         </h2>
