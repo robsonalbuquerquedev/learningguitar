@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Guitar, ShoppingBag, Shirt, Pickaxe, Settings } from "lucide-react";
+import { Guitar, Shirt, Pickaxe, Settings } from "lucide-react";
 
 export default function LojaMusical() {
     const categorias = [
