@@ -11,10 +11,14 @@ import {
     Cookie,
 } from "lucide-react";
 
-// Declaração para o TypeScript reconhecer window.gtag
+// ✅ Tipagem segura para o gtag do GA4
 declare global {
     interface Window {
-        gtag: (...args: any[]) => void;
+        gtag: (
+            command: "consent" | "config" | "event" | "js",
+            targetIdOrAction: string | "default" | "update",
+            params?: Record<string, unknown>
+        ) => void;
     }
 }
 
