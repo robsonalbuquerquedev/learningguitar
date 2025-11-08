@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aprenderviolaoonline.com.br"),
@@ -74,43 +75,36 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* ✅ Tag de verificação do Google AdSense */}
         <meta name="google-adsense-account" content="ca-pub-9360124149047745" />
         {/* 🧠 Google Consent Mode (AdSense + GA4) */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-      // Define estado inicial de consentimento
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied'
-      });
-    `,
-          }}
-        />
+        <Script id="consent-mode" strategy="beforeInteractive">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+  `}
+        </Script>
 
         {/* 📊 Google Analytics 4 */}
-        <script
+        <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-06LMB9E4W6"
+          strategy="afterInteractive"
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-      // Inicializa o GA4
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      // Configuração padrão com IP anonimizado (boa prática LGPD)
-      gtag('config', 'G-06LMB9E4W6', {
-        'anonymize_ip': true,
-        'allow_ad_personalization_signals': false
-      });
-    `,
-          }}
-        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-06LMB9E4W6', {
+      'anonymize_ip': true,
+      'allow_ad_personalization_signals': false
+    });
+  `}
+        </Script>
       </head>
 
       <body className="flex flex-col min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-white">
@@ -119,12 +113,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <CookieConsent />
 
-        {/* ✅ Script padrão do Google AdSense (sem data-nscript) */}
-        <script
+        {/* ✅ Google AdSense */}
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9360124149047745"
           crossOrigin="anonymous"
-        ></script>
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
