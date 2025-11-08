@@ -35,9 +35,16 @@ export default function CookieConsent() {
         else {
             const saved = JSON.parse(consent);
             setCookies(saved);
-            updateConsent(saved); // ✅ garante sincronização ao recarregar
+            if (typeof window !== "undefined" && window.gtag) {
+                window.gtag("consent", "update", {
+                    ad_storage: saved.marketing ? "granted" : "denied",
+                    ad_user_data: saved.marketing ? "granted" : "denied",
+                    ad_personalization: saved.marketing ? "granted" : "denied",
+                    analytics_storage: saved.analytics ? "granted" : "denied",
+                });
+            }
         }
-    }, []);
+    }, []); // ✅ dependências vazias
 
     // 🧠 Função que envia a atualização de consentimento ao Google
     const updateConsent = (cookiePrefs: typeof cookies) => {
