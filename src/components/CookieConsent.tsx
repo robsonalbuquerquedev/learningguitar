@@ -11,6 +11,13 @@ import {
     Cookie,
 } from "lucide-react";
 
+// Declaração para o TypeScript reconhecer window.gtag
+declare global {
+    interface Window {
+        gtag: (...args: any[]) => void;
+    }
+}
+
 export default function CookieConsent() {
     const [showBanner, setShowBanner] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -21,11 +28,30 @@ export default function CookieConsent() {
         marketing: false,
     });
 
+    // ⚙️ Exibir o banner caso o usuário ainda não tenha escolhido
     useEffect(() => {
         const consent = localStorage.getItem("lg_cookie_consent");
         if (!consent) setShowBanner(true);
+        else {
+            const saved = JSON.parse(consent);
+            setCookies(saved);
+            updateConsent(saved); // ✅ garante sincronização ao recarregar
+        }
     }, []);
 
+    // 🧠 Função que envia a atualização de consentimento ao Google
+    const updateConsent = (cookiePrefs: typeof cookies) => {
+        if (typeof window !== "undefined" && window.gtag) {
+            window.gtag("consent", "update", {
+                ad_storage: cookiePrefs.marketing ? "granted" : "denied",
+                ad_user_data: cookiePrefs.marketing ? "granted" : "denied",
+                ad_personalization: cookiePrefs.marketing ? "granted" : "denied",
+                analytics_storage: cookiePrefs.analytics ? "granted" : "denied",
+            });
+        }
+    };
+
+    // ✅ Aceitar todos os cookies
     const acceptAll = () => {
         const all = {
             necessary: true,
@@ -34,15 +60,20 @@ export default function CookieConsent() {
             marketing: true,
         };
         localStorage.setItem("lg_cookie_consent", JSON.stringify(all));
+        updateConsent(all); // 🔗 informa ao Google que tudo foi aceito
+        setCookies(all);
         setShowBanner(false);
     };
 
+    // ⚙️ Salvar preferências personalizadas
     const savePreferences = () => {
         localStorage.setItem("lg_cookie_consent", JSON.stringify(cookies));
+        updateConsent(cookies); // 🔗 sincroniza as escolhas específicas
         setShowModal(false);
         setShowBanner(false);
     };
 
+    // 🎚️ Alternar categorias (exceto o “necessário”)
     const toggleCookie = (key: keyof typeof cookies) => {
         if (key !== "necessary") {
             setCookies({ ...cookies, [key]: !cookies[key] });
@@ -142,7 +173,7 @@ export default function CookieConsent() {
                                     type="checkbox"
                                     checked={cookies.functional}
                                     onChange={() => toggleCookie("functional")}
-                                    className="ml-auto w-5 h-5 accent-yellow-400"
+                                    className="ml-auto w-5 h-5 accent-yellow-400 cursor-pointer"
                                 />
                             </div>
 
@@ -159,7 +190,7 @@ export default function CookieConsent() {
                                     type="checkbox"
                                     checked={cookies.analytics}
                                     onChange={() => toggleCookie("analytics")}
-                                    className="ml-auto w-5 h-5 accent-yellow-400"
+                                    className="ml-auto w-5 h-5 accent-yellow-400 cursor-pointer"
                                 />
                             </div>
 
@@ -176,7 +207,7 @@ export default function CookieConsent() {
                                     type="checkbox"
                                     checked={cookies.marketing}
                                     onChange={() => toggleCookie("marketing")}
-                                    className="ml-auto w-5 h-5 accent-yellow-400"
+                                    className="ml-auto w-5 h-5 accent-yellow-400 cursor-pointer"
                                 />
                             </div>
                         </div>
