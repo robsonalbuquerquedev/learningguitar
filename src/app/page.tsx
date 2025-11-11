@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const secoes = [
@@ -53,82 +53,103 @@ export default function Home() {
     },
   ];
 
+  // ✨ Variantes para o container e os cards (corrigidos para TypeScript)
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.3 },
+    },
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" as any }, // 👈 cast simples para resolver o tipo
+    },
+  };
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-white py-16 px-6 flex flex-col items-center justify-center">
-      {/* 🎸 Logo com entrada única (sem loop) */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.6, rotate: -10, y: -30 }}
-        animate={{ opacity: 1, scale: 1, rotate: 0, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="flex flex-col items-center mb-6 sm:mb-8"
-      >
-        <Image
-          src="/logo.png"
-          alt="Logo LearningGuitar"
-          width={120}
-          height={120}
-          priority
-          className="rounded-full shadow-lg border-4 border-yellow-400 w-28 sm:w-36 md:w-44 h-auto"
-        />
-      </motion.div>
-
-      {/* 🎶 Título com brilho único e suave */}
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="relative font-extrabold text-yellow-200 text-3xl xs:text-4xl sm:text-5xl md:text-6xl drop-shadow-lg mb-3 sm:mb-4"
-      >
-        <span className="bg-gradient-to-r from-yellow-300 via-yellow-100 to-yellow-300 bg-clip-text text-transparent animate-shimmer-once">
-          LearningGuitar 🎸
-        </span>
-      </motion.h1>
-
-      {/* ✨ Subtítulo */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.6 }}
-        className="
-          max-w-md sm:max-w-2xl 
-          text-base sm:text-lg md:text-xl 
-          leading-relaxed 
-          mb-6 sm:mb-10 
-          bg-black/30 
-          p-3 sm:p-5 
-          rounded-xl 
-          shadow-md 
-        "
-      >
-        Aprenda violão de forma interativa com truques práticos, exercícios e dicas
-        para memorizar acordes, notas e escalas. Ideal para iniciantes e apaixonados por música!
-      </motion.p>
-
-      {/* 🔗 Botão de navegação */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-      >
-        <Link
-          href="/acordes-maiores-e-menores-naturais"
-          className="bg-yellow-300 text-amber-900 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-400 transition-all duration-300"
+    <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-white flex flex-col">
+      {/* 🟨 HERO SPLIT com hero-guitar aprimorado */}
+      <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-20 md:py-28 gap-10">
+        {/* 🎸 Lado esquerdo: imagem hero-guitar nova */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="md:w-1/2 flex justify-center"
         >
-          🎵 Explorar Teoria
-        </Link>
-      </motion.div>
+          <Image
+            src="/hero-guitar.png"
+            alt="Violão LearningGuitar"
+            width={480}
+            height={480}
+            className="rounded-2xl shadow-2xl border-4 border-yellow-400/70"
+            priority
+          />
+        </motion.div>
 
-      {/* 🗂 Seções */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mt-12">
+        {/* ✨ Lado direito: conteúdo textual */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left"
+        >
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-yellow-200 drop-shadow-lg mb-4">
+            LearningGuitar 🎸
+          </h1>
+
+          <p className="text-lg sm:text-xl bg-black/30 p-4 rounded-xl shadow-md leading-relaxed mb-6 max-w-lg">
+            Aprenda violão de forma interativa com truques práticos, exercícios e dicas
+            para memorizar acordes, notas e escalas. Ideal para iniciantes e apaixonados por música!
+          </p>
+
+          {/* 🪶 Novo botão: rola até os cards */}
+          <button
+            onClick={() =>
+              document
+                .getElementById("cards-section")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="bg-yellow-300 text-amber-900 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-400 transition-all duration-300 cursor-pointer"
+          >
+            🎵 Explorar Conteúdos
+          </button>
+        </motion.div>
+      </section>
+
+      {/* 🎶 TÍTULO DE TRANSIÇÃO ENTRE HERO E CARDS */}
+      <motion.h2
+        id="cards-section"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="text-center text-yellow-100 text-3xl sm:text-4xl font-bold drop-shadow-md mb-12"
+      >
+        🎶 Explore o Universo do Violão
+      </motion.h2>
+
+      {/* ✨ SEÇÕES COM EFEITO ELEGANTE */}
+      <motion.section
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-6 pb-24"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {secoes.map((secao, index) => (
           <motion.div
             key={index}
-            className="bg-amber-800/40 p-6 rounded-2xl shadow-md hover:scale-105 hover:shadow-xl transition-all duration-300 border border-yellow-200/20"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 * index, duration: 0.6 }}
+            variants={cardVariants}
+            className="backdrop-blur-md bg-amber-800/30 p-6 rounded-2xl shadow-md border border-yellow-200/20 hover:border-yellow-300/50 hover:scale-105 hover:-rotate-1 hover:shadow-amber-200/30 transition-all duration-500"
           >
-            <h2 className="text-2xl font-bold text-yellow-200 mb-2">{secao.nome}</h2>
+            <h3 className="text-2xl font-bold text-yellow-200 mb-2">{secao.nome}</h3>
             <p className="text-lg leading-relaxed mb-4">{secao.descricao}</p>
             <Link
               href={secao.href}
@@ -138,7 +159,7 @@ export default function Home() {
             </Link>
           </motion.div>
         ))}
-      </div>
+      </motion.section>
     </main>
   );
 }
