@@ -68,7 +68,7 @@ export default function Home() {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 0.6, ease: "easeOut" as any }, // 👈 cast simples para resolver o tipo
+      transition: { duration: 0.6, ease: ["easeOut"] },
     },
   };
 
