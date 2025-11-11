@@ -74,6 +74,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* ✅ Tag de verificação do Google AdSense */}
         <meta name="google-adsense-account" content="ca-pub-9360124149047745" />
+        {/* ✅ Tag de verificação do Pinterest */}
+        <meta name="p:domain_verify" content="66fb6e1cb728a61992a3b89e771294f1" />
         {/* 🧠 Google Consent Mode (AdSense + GA4) */}
         <Script id="consent-mode" strategy="beforeInteractive">
           {`
