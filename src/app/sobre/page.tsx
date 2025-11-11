@@ -42,78 +42,89 @@ const projetos: Projeto[] = [
         tecnologias: ["HTML", "CSS", "JavaScript", "Vue.js"],
     },
     {
-        nome: "Currículo Online",
-        descricao: "Visualize meu currículo atualizado com experiência e projetos.",
-        link: "https://robson-dev-cv.vercel.app/",
+        nome: "ArtevivaQ",
+        descricao: "Portal de expressão artística e visual. Projeto de design e cultura digital.",
+        link: "https://artevivaq.vercel.app/",
         tecnologias: ["Next.js", "Tailwind CSS", "React", "TypeScript"],
     },
 ];
 
 export default function SobrePage() {
     return (
-        <main className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-white p-6 sm:p-8">
+        <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-white">
+            {/* 🟨 HERO SPLIT */}
+            <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-20 md:py-28 gap-10">
+                {/* 🎸 Lado esquerdo: imagem hero-sobre */}
+                <motion.div
+                    initial={{ opacity: 0, x: -40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="md:w-1/2 flex justify-center"
+                >
+                    <Image
+                        src="/hero-sobre.png"
+                        alt="Robson Albuquerque - Desenvolvedor e Músico"
+                        width={480}
+                        height={480}
+                        className="rounded-2xl shadow-2xl border-4 border-yellow-400/70"
+                        priority
+                    />
+                </motion.div>
 
-            <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-3xl sm:text-4xl font-bold mb-6 text-center drop-shadow-lg"
-            >
-                👋 Sobre o Desenvolvedor
-            </motion.h1>
+                {/* ✨ Lado direito: texto e botão */}
+                <motion.div
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left"
+                >
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-yellow-200 drop-shadow-lg mb-4">
+                        👋 Sobre o Desenvolvedor
+                    </h1>
 
-            {/* Foto */}
-            <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="rounded-full overflow-hidden w-40 h-40 sm:w-48 sm:h-48 mb-6 shadow-xl"
-            >
-                <Image
-                    src="/robson.png"
-                    alt="Foto de Robson Albuquerque"
-                    width={192}
-                    height={192}
-                    className="object-cover"
-                />
-            </motion.div>
+                    <p className="text-lg sm:text-xl bg-black/30 p-4 rounded-xl shadow-md leading-relaxed mb-6 max-w-lg">
+                        Olá! Sou <strong>Robson Albuquerque</strong>, formado em <strong>Análise e Desenvolvimento de Sistemas</strong>
+                        e apaixonado por tecnologia, música e aprendizado contínuo.
+                        Crio projetos que unem **criatividade, design e interatividade**, buscando inspirar e ensinar.
+                    </p>
 
-            {/* Texto de apresentação */}
-            <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-amber-100 max-w-2xl mx-auto mb-6 leading-relaxed text-center bg-black/40 p-4 rounded-lg shadow-lg text-sm sm:text-base"
-            >
-                Olá! Eu sou <strong>Robson Albuquerque</strong>, formado em <strong>Análise e Desenvolvimento de Sistemas</strong> e apaixonado por programação, música e aprendizado contínuo. 🎸💻
-                Gosto de criar páginas web para estudar e revisar conteúdos que me interessam, o que me ajuda a memorizar, praticar e compartilhar meus projetos, fortalecendo meu portfólio.
-            </motion.p>
+                    <button
+                        onClick={() =>
+                            document
+                                .getElementById("projetos-section")
+                                ?.scrollIntoView({ behavior: "smooth" })
+                        }
+                        className="bg-yellow-300 text-amber-900 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-400 transition-all duration-300 cursor-pointer"
+                    >
+                        🎨 Ver Projetos
+                    </button>
+                </motion.div>
+            </section>
 
-            {/* Metodologia */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="max-w-2xl mx-auto bg-black/40 p-6 rounded-2xl shadow-xl backdrop-blur-md text-sm sm:text-base mb-10"
+            {/* 🎶 Título de transição */}
+            <motion.h2
+                id="projetos-section"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="text-center text-yellow-100 text-3xl sm:text-4xl font-bold drop-shadow-md mb-12"
             >
-                <h2 className="text-2xl font-bold mb-4 text-amber-300 text-center">💡 Minha Metodologia de Estudo</h2>
-                <ul className="list-disc list-inside space-y-3 text-amber-100">
-                    <li>Criar páginas web para estudar e revisar conteúdos de programação, música, inglês ou qualquer outro assunto que agregue valor.</li>
-                    <li>Praticar repetição e aplicação prática, tanto no código quanto em outras áreas de interesse.</li>
-                    <li>Combinar estudo visual com interatividade, tornando o aprendizado mais eficiente e dinâmico.</li>
-                    <li>Compartilhar projetos online para validar aprendizado e enriquecer meu portfólio.</li>
-                </ul>
-            </motion.div>
+                🚀 Projetos em Destaque
+            </motion.h2>
 
-            {/* Projetos em Cards */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl"
-            >
-                {projetos.map((projeto) => (
+            {/* 🧱 Grid de Projetos */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mx-auto px-6 pb-24">
+                {projetos.map((projeto, index) => (
                     <motion.a
                         key={projeto.nome}
                         href={projeto.link}
                         target="_blank"
-                        className="bg-black/40 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-amber-700 hover:scale-105 transition-transform duration-300 flex flex-col justify-between"
-                        whileHover={{ scale: 1.05 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1, duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="bg-black/40 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-amber-700 hover:scale-105 hover:shadow-yellow-200/30 transition-transform duration-300 flex flex-col justify-between"
                     >
                         <div>
                             <h3 className="text-xl font-bold text-amber-300 mb-2">{projeto.nome}</h3>
@@ -136,7 +147,7 @@ export default function SobrePage() {
                         </p>
                     </motion.a>
                 ))}
-            </motion.div>
+            </div>
         </main>
     );
 }
