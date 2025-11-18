@@ -1,18 +1,49 @@
-"use client";
+import type { Metadata } from "next";
 
-import { motion } from "framer-motion";
+export const metadata: Metadata = {
+    title: {
+        absolute: "Acordes com Sétimas no Violão | Guia Completo e Explicado"
+    },
+    description:
+        "Aprenda a formar e aplicar acordes com sétimas no violão: maior, menor, dominante, meia-diminuta e diminuta. Explicação simples e prática para iniciantes e intermediários.",
+    keywords: [
+        "acordes com sétimas",
+        "acordes com 7",
+        "acordes dominantes",
+        "acordes menor com sétima",
+        "acordes meia diminuta",
+        "violão acordes com 7",
+        "como montar acordes com 7"
+    ],
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/acordes-com-setimas",
+    },
+    openGraph: {
+        title: "Acordes com Sétimas no Violão | Guia Completo",
+        description:
+            "Aprenda acordes com sétima de forma prática: como montar, onde usar e como aplicá-los no violão com clareza.",
+        url: "https://aprenderviolaoonline.com.br/acordes-com-setimas",
+        images: ["/og-image.png"],
+        type: "article",
+        locale: "pt_BR",
+        siteName: "LearningGuitar 🎸"
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Acordes com Sétimas no Violão | Guia Completo",
+        description:
+            "Aprenda a montar e usar acordes com sétima no violão de forma simples e prática.",
+        images: ["/og-image.png"],
+        creator: "@LGuitarBr"
+    }
+};
 
 export default function AcordesComSetimas() {
     return (
         <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-white p-6 sm:p-12">
-            <motion.h1
-                initial={{ opacity: 0, y: -30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-4xl sm:text-5xl font-extrabold text-center mb-8 text-yellow-300 drop-shadow-lg"
-            >
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-center mb-8 text-yellow-300 drop-shadow-lg animate-fadeSlide">
                 🎸 Acordes com Sétimas
-            </motion.h1>
+            </h1>
 
             {/* Introdução */}
             <section className="max-w-3xl mx-auto text-lg leading-relaxed bg-black/40 p-6 rounded-2xl shadow-lg mb-10">
