@@ -46,6 +46,7 @@ footer {
   background-size: 200% auto;
 }
 
+/* 🟡 Animação do título — já existe e é a oficial */
 @keyframes fadeSlide {
   0% {
     opacity: 0;
@@ -60,4 +61,19 @@ footer {
 
 .animate-fadeSlide {
   animation: fadeSlide 0.8s ease-out forwards;
+}
+
+/* 🟢 Nova animação — efeito Fade simples */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
 }
