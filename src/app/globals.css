@@ -1,3 +1,6 @@
+/* ----------------------------------------------------- */
+/* 🌐 Base & Reset                                        */
+/* ----------------------------------------------------- */
 @import "tailwindcss";
 
 :root {
@@ -11,21 +14,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@keyframes shimmer-once {
-  0% {
-    background-position: -200% center;
-  }
-
-  100% {
-    background-position: 200% center;
-  }
-}
-
-/* Executa o brilho apenas uma vez */
-.animate-shimmer-once {
-  background-size: 200% auto;
-  animation: shimmer-once 3s linear 1;
-}
+/* ----------------------------------------------------- */
+/* ✨ Footer — Efeito Gold Pulse                          */
+/* ----------------------------------------------------- */
 
 @keyframes goldPulse {
 
@@ -46,7 +37,16 @@ footer {
   background-size: 200% auto;
 }
 
-/* 🟡 Animação do título — já existe e é a oficial */
+
+/* ===================================================== */
+/* 🎬 ANIMAÇÕES — ORGANIZADAS POR CATEGORIA               */
+/* ===================================================== */
+
+
+/* ----------------------------------------------------- */
+/* 🟡 01. Animação Fade + Slide (a oficial do projeto)    */
+/* ----------------------------------------------------- */
+
 @keyframes fadeSlide {
   0% {
     opacity: 0;
@@ -63,7 +63,11 @@ footer {
   animation: fadeSlide 0.8s ease-out forwards;
 }
 
-/* 🟢 Nova animação — efeito Fade simples */
+
+/* ----------------------------------------------------- */
+/* 🟢 02. Fade simples                                    */
+/* ----------------------------------------------------- */
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -77,6 +81,11 @@ footer {
 .animate-fadeIn {
   animation: fadeIn 1s ease-out forwards;
 }
+
+
+/* ----------------------------------------------------- */
+/* 🟣 03. PopIn (elementos que surgem "pulando")           */
+/* ----------------------------------------------------- */
 
 @keyframes popIn {
   0% {
@@ -92,4 +101,24 @@ footer {
 
 .animate-popIn {
   animation: popIn 0.5s ease-out forwards;
+}
+
+
+/* ----------------------------------------------------- */
+/* 🔆 04. Shimmer (efeito brilho único)                   */
+/* ----------------------------------------------------- */
+
+@keyframes shimmer-once {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-shimmer-once {
+  background-size: 200% auto;
+  animation: shimmer-once 3s linear 1;
 }
