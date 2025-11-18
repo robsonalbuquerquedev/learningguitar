@@ -76,7 +76,7 @@ export default function BatidasContent() {
                 </motion.div>
             ) : (
                 <p className="text-center text-yellow-200 mt-8">
-                    Nenhuma batida encontrada para "<span className="font-semibold">{filtro}</span>"
+                    Nenhuma batida encontrada para &quot;<span className="font-semibold">{filtro}</span>&quot;
                 </p>
             )}
 
