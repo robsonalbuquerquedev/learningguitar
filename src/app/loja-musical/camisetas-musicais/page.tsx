@@ -1,9 +1,34 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function CamisetasMusicais() {
+export const metadata = {
+    title: "Camisetas Musicais 👕 | Loja LearningGuitar",
+    description:
+        "Camisetas musicais estilosas para músicos e apaixonados por música. Temas, bandas e designs criativos em parceria com Shopee Brasil.",
+    keywords: [
+        "camisetas musicais",
+        "camisetas de música",
+        "roupas para músicos",
+        "camisetas rock",
+        "camisetas bandas",
+        "camisetas personalizadas",
+        "LearningGuitar",
+        "loja musical",
+        "roupas musicais"
+    ],
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/loja-musical/camisetas-musicais",
+    },
+    openGraph: {
+        title: "Camisetas Musicais 👕 | Loja LearningGuitar",
+        description:
+            "Camisetas com temas musicais criativos, perfeitas para músicos e amantes da música. Produtos selecionados com envio pela Shopee Brasil.",
+        url: "https://aprenderviolaoonline.com.br/loja-musical/camisetas-musicais",
+        type: "website",
+    },
+};
+
+export default function CamisetasMusicaisPage() {
     const produtos = [
         {
             nome: "Camiseta Gorillaz Punk Rock Vintage",
@@ -51,15 +76,12 @@ export default function CamisetasMusicais() {
 
     return (
         <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-white">
+
             {/* 🟨 HERO SPLIT */}
             <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-20 md:py-28 gap-10">
-                {/* 👕 Lado esquerdo: imagem hero-camiseta */}
-                <motion.div
-                    initial={{ opacity: 0, x: -40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                    className="md:w-1/2 flex justify-center"
-                >
+
+                {/* 👕 Imagem do Hero */}
+                <div className="md:w-1/2 flex justify-center animate-fadeSlide">
                     <Image
                         src="/hero-camiseta.png"
                         alt="Camisetas Musicais LearningGuitar"
@@ -68,60 +90,44 @@ export default function CamisetasMusicais() {
                         className="rounded-2xl shadow-2xl border-4 border-yellow-400/70"
                         priority
                     />
-                </motion.div>
+                </div>
 
-                {/* ✨ Lado direito: texto e botão */}
-                <motion.div
-                    initial={{ opacity: 0, x: 40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                    className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left"
-                >
+                {/* ✨ Texto */}
+                <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left animate-fadeSlide">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-yellow-200 drop-shadow-lg mb-4">
                         👕 Camisetas Musicais
                     </h1>
 
                     <p className="text-lg sm:text-xl bg-black/30 p-4 rounded-xl shadow-md leading-relaxed mb-6 max-w-lg">
-                        Vista sua paixão pela música!
-                        Explore camisetas com temas musicais, bandas e ícones da cultura sonora —
-                        perfeitas para músicos e fãs de todos os estilos.
+                        Vista sua paixão pela música! Explore modelos criativos,
+                        temas musicais, bandas e ícones culturais — perfeitas para músicos e amantes da música.
                     </p>
 
-                    <button
-                        onClick={() =>
-                            document
-                                .getElementById("produtos-section")
-                                ?.scrollIntoView({ behavior: "smooth" })
-                        }
+                    {/* Botão sem use client */}
+                    <a
+                        href="#produtos-section"
                         className="bg-yellow-300 text-amber-900 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-400 transition-all duration-300 cursor-pointer"
                     >
                         🎵 Ver Produtos
-                    </button>
-                </motion.div>
+                    </a>
+                </div>
             </section>
 
-            {/* 🎶 Título de transição */}
-            <motion.h2
+            {/* 🎶 Título */}
+            <h2
                 id="produtos-section"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="text-center text-yellow-100 text-3xl sm:text-4xl font-bold drop-shadow-md mb-12"
+                className="text-center text-yellow-100 text-3xl sm:text-4xl font-bold drop-shadow-md mb-12 animate-fadeSlide"
             >
                 🎶 Produtos em Destaque
-            </motion.h2>
+            </h2>
 
-            {/* 🪶 Grade de produtos */}
+            {/* 🛒 Grade de Produtos */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto px-6 pb-24">
                 {produtos.map((item, index) => (
-                    <motion.div
+                    <div
                         key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.15, duration: 0.6 }}
-                        viewport={{ once: true }}
-                        className="bg-white/10 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+                        className="bg-white/10 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 animate-popIn"
+                        style={{ animationDelay: `${index * 0.15}s` }}
                     >
                         <div className="relative w-full h-52 mb-3 bg-black/20 flex items-center justify-center rounded-lg overflow-hidden">
                             <Image
@@ -137,30 +143,27 @@ export default function CamisetasMusicais() {
                         <h2 className="text-xl font-semibold text-yellow-200 mb-2 text-center">
                             {item.nome}
                         </h2>
+
                         <p className="text-sm mb-4 text-center">{item.descricao}</p>
+
                         <div className="flex justify-center">
-                            <a
+                            <Link
                                 href={item.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-block bg-yellow-400 text-amber-900 font-bold px-5 py-2 rounded-full hover:bg-yellow-300 transition"
                             >
                                 Ver na Shopee
-                            </a>
+                            </Link>
                         </div>
-                    </motion.div>
+                    </div>
                 ))}
             </div>
 
-            {/* 🧡 Rodapé */}
-            <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                className="text-center text-sm text-amber-100 mt-16 italic pb-6"
-            >
+            {/* Rodapé */}
+            <p className="text-center text-sm text-amber-100 mt-16 italic pb-6 animate-fadeSlide">
                 Produtos recomendados por <strong>LearningGuitar 🎸</strong> em parceria com Shopee Brasil.
-            </motion.p>
+            </p>
         </main>
     );
 }
