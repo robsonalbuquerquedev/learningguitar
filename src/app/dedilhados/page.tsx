@@ -6,10 +6,39 @@ export const metadata: Metadata = {
         absolute: "Dedilhados de Violão | Padrões Essenciais"
     },
     description:
-        "Aprenda dedilhados clássicos e modernos para violão. P, I, M, A e padrões com abafado (X). Guia prático e visual para iniciantes e intermediários.",
+        "Aprenda dedilhados clássicos e modernos para violão usando P, I, M, A e abafado (X). Guia prático e visual ideal para iniciantes e músicos intermediários.",
+
+    keywords: [
+        "dedilhados no violão",
+        "padrões de dedilhado",
+        "dedilhados para iniciantes",
+        "pima violão",
+        "dedilhado clássico",
+        "dedilhado moderno",
+        "dedilhado violão fácil",
+        "dedilhado P I M A",
+        "abafado X violão"
+    ],
+
     alternates: {
         canonical: "https://aprenderviolaoonline.com.br/dedilhados"
     },
+
+    openGraph: {
+        title: "Dedilhados de Violão | Padrões Essenciais e Modernos",
+        description:
+            "Aprenda padrões de dedilhado no violão usando P, I, M, A e abafado (X). Visual, fácil e prático para iniciantes e intermediários.",
+        url: "https://aprenderviolaoonline.com.br/dedilhados",
+        images: ["/og-image.png"]
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Dedilhados de Violão | Aprenda Padrões Essenciais",
+        description:
+            "Guia visual completo com P, I, M, A e padrões modernos para evoluir no violão.",
+        images: ["/og-image.png"]
+    }
 };
 
 export default function DedilhadosPage() {
