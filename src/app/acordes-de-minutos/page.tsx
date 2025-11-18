@@ -1,32 +1,73 @@
-"use client";
+import type { Metadata } from "next";
 
-import { motion } from "framer-motion";
+export const metadata: Metadata = {
+    title: {
+        absolute: "Acordes de Minutos e Meio Diminuto | Guia Completo para Violão"
+    },
+
+    description:
+        "Aprenda como funcionam os acordes diminutos (°) e meio-diminutos (m7♭5) no violão. Guia simples e prático para identificar, montar e aplicar esses acordes como ponte harmônica entre outros acordes.",
+
+    keywords: [
+        "acorde diminuto",
+        "acorde diminuto violão",
+        "acorde de minuto",
+        "acorde dim7",
+        "acorde meio diminuto",
+        "acorde m7b5",
+        "como usar acordes diminutos",
+        "acordes diminutos para iniciantes",
+        "acordes tensos no violão",
+        "função do acorde diminuto"
+    ],
+
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/acordes-de-minutos"
+    },
+
+    openGraph: {
+        title: "Acordes de Minutos e Meio Diminuto | Guia Completo para Violão",
+        description:
+            "Entenda como usar acordes diminutos (°) e meio-diminutos (m7♭5) no violão para criar movimentos suaves, tensões harmônicas e passagens elegantes entre acordes.",
+        url: "https://aprenderviolaoonline.com.br/acordes-de-minutos",
+        images: [
+            {
+                url: "/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Acordes Minutos e Meio Diminuto — Guia para Violão"
+            }
+        ],
+        type: "article",
+        locale: "pt_BR",
+        siteName: "LearningGuitar 🎸"
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Acordes de Minutos e Meio Diminuto | Guia Completo",
+        description:
+            "Aprenda a aplicar acordes diminutos e meio-diminutos no violão de forma clara, musical e prática. Perfeito para iniciantes e músicos intermediários.",
+        images: ["/og-image.png"],
+        creator: "@LGuitarBr"
+    }
+};
 
 export default function AcordesDeMinutos() {
     return (
         <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-amber-50 py-10 px-6">
             <div className="max-w-4xl mx-auto">
                 {/* Título */}
-                <motion.h1
-                    className="text-4xl font-bold mb-6 text-amber-400 text-center"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
+                <h1 className="text-4xl font-bold mb-6 text-amber-400 text-center animate-fadeSlide">
                     🎵 Acordes de Minutos e Meio de Minuto
-                </motion.h1>
+                </h1>
 
                 {/* Introdução */}
-                <motion.p
-                    className="text-lg mb-6 text-gray-200 text-center"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                >
+                <p className="text-lg mb-6 text-gray-200 text-center animate-fadeIn">
                     Os <strong>acordes diminutos</strong> e os <strong>meio-diminutos</strong> são como
-                    &quot;pontes sonoras&quot; — eles ligam um acorde ao outro criando uma sensação de
+                    “pontes sonoras” — eles ligam um acorde ao outro criando uma sensação de
                     movimento suave e elegante. Vamos entender como isso funciona na prática!
-                </motion.p>
+                </p>
 
                 {/* Explicação dos diminutos */}
                 <section className="mb-10">
