@@ -33,7 +33,7 @@ export default function CapotrastesPage() {
         {
             nome: "Capotraste Braçadeira para Violão e Guitarra",
             descricao:
-                "Capotraste de alta resistência para violão e guitarra — ideal para ajustar o tom rapidamente.",
+                "Capotraste de alta resistência para violão e guitarra — ideal para ajustar o tom.",
             imagem: "/capotraste1.png",
             link: "https://s.shopee.com.br/qbTlIJ6ub",
         },
