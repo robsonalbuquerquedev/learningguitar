@@ -1,7 +1,58 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: {
+        absolute: "Como Tocar em Todos os Tons no Violão | Método 7L Explicado"
+    },
+
+    description:
+        "Aprenda a tocar em qualquer tom usando o padrão 7L: um método simples para mover acordes maiores, menores e meio-diminutos pelo braço do violão. Explicação clara, visual e prática.",
+
+    keywords: [
+        "tocar em todos os tons",
+        "como mudar o tom no violão",
+        "tocar em qualquer tom violão",
+        "padrão 7L",
+        "transposição de acordes",
+        "tocar acordes em diferentes tons",
+        "como transportar acordes",
+        "tocar em vários tons",
+        "tom de G no violão",
+        "aprender a transpor músicas"
+    ],
+
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/aprender-tocar-em-todos-os-tons"
+    },
+
+    openGraph: {
+        title: "Aprender a Tocar em Todos os Tons | Método 7L no Violão",
+        description:
+            "Entenda como mover acordes pelo braço do violão usando o padrão 7L e toque em qualquer tom com facilidade. Explicação objetiva, visual e perfeita para iniciantes.",
+        url: "https://aprenderviolaoonline.com.br/aprender-tocar-em-todos-os-tons",
+        images: [
+            {
+                url: "/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Como Tocar em Todos os Tons — Padrão 7L"
+            }
+        ],
+        type: "article",
+        locale: "pt_BR",
+        siteName: "LearningGuitar 🎸"
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Como Tocar em Todos os Tons no Violão | Método 7L",
+        description:
+            "Guia prático para tocar em qualquer tom usando o padrão 7L no violão. Simples, rápido e visual — perfeito para evoluir na harmonia.",
+        images: ["/og-image.png"],
+        creator: "@LGuitarBr"
+    }
+};
 
 export default function AprenderTocarEmTodosOsTons() {
     return (
@@ -9,29 +60,19 @@ export default function AprenderTocarEmTodosOsTons() {
             <div className="max-w-4xl mx-auto space-y-8">
 
                 {/* Título */}
-                <motion.h1
-                    className="text-3xl sm:text-4xl font-bold text-center text-yellow-300"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
+                <h1 className="text-3xl sm:text-4xl font-bold text-center text-yellow-300 animate-fadeSlide">
                     🎶 Aprender a Tocar em Todos os Tons
-                </motion.h1>
+                </h1>
 
                 {/* Introdução */}
-                <p className="text-lg leading-relaxed">
+                <p className="text-lg leading-relaxed animate-fadeIn">
                     Um dos segredos para se tornar um músico completo é conseguir tocar em
                     qualquer tom. O <strong>padrão 7L</strong> permite aplicar os mesmos acordes
                     em diferentes regiões do braço do violão de forma simples e prática.
                 </p>
 
                 {/* Exemplo com G */}
-                <motion.div
-                    className="space-y-4"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                >
+                <div className="space-y-4 animate-fadeIn">
                     <h2 className="text-2xl font-semibold text-yellow-200">
                         🎸 Exemplo com o tom de G (Sol)
                     </h2>
@@ -58,31 +99,29 @@ export default function AprenderTocarEmTodosOsTons() {
                         <div className="bg-amber-800/40 rounded-xl p-4 font-semibold">L → Am, Bm, Em (menores)</div>
                         <div className="bg-amber-800/40 rounded-xl p-4 font-semibold">° → F#° (meio diminuto)</div>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Aplicando em outros tons */}
-                <motion.div
-                    className="space-y-4"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                >
+                <div className="space-y-4 animate-fadeIn">
                     <h2 className="text-2xl font-semibold text-yellow-200">
                         🚀 Tocando em outros tons
                     </h2>
+
                     <p className="leading-relaxed">
                         Depois de entender o 7L no tom de G, basta aplicar o mesmo formato em
                         outro ponto do braço do violão:
                     </p>
+
                     <ul className="list-disc list-inside space-y-1">
                         <li>Mova tudo uma casa acima → Tom de <strong>G#</strong></li>
                         <li>Mova duas casas acima → Tom de <strong>A</strong></li>
                         <li>E assim por diante, mantendo o padrão 7L</li>
                     </ul>
+
                     <p className="leading-relaxed">
                         O segredo é que o <strong>padrão se mantém</strong>, mudam apenas as notas.
                     </p>
-                </motion.div>
+                </div>
 
                 {/* CTA */}
                 <div className="text-center mt-10 flex flex-col sm:flex-row justify-center gap-4">
@@ -93,6 +132,7 @@ export default function AprenderTocarEmTodosOsTons() {
                     >
                         🎵 Relembrar as escalas
                     </Link>
+
                     <Link
                         href="/memorizar-braco-do-violao"
                         target="_blank"
