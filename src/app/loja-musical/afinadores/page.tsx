@@ -1,9 +1,32 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function Afinadores() {
+export const metadata = {
+    title: "Afinadores 🎵 | Loja Musical LearningGuitar",
+    description:
+        "Afinadores digitais e práticos para violão e guitarra. Produtos selecionados com qualidade, precisão e segurança via Shopee Brasil.",
+    keywords: [
+        "afinador de violão",
+        "afinador digital",
+        "afinador para guitarra",
+        "afinador musical",
+        "acessórios de violão",
+        "produtos musicais",
+        "LearningGuitar",
+        "Shopee afinadores"
+    ],
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/loja-musical/afinadores"
+    },
+    openGraph: {
+        title: "Afinadores 🎵 | Loja Musical LearningGuitar",
+        description:
+            "Escolha entre os melhores afinadores para violão e guitarra. Produtos confiáveis com envio pela Shopee Brasil.",
+        url: "https://aprenderviolaoonline.com.br/loja-musical/afinadores",
+        type: "website",
+    }
+};
+
+export default function AfinadoresPage() {
     const produtos = [
         {
             nome: "Afinação Eletrônica para Guitarra, Violino e Ukulele",
@@ -45,15 +68,12 @@ export default function Afinadores() {
 
     return (
         <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-white">
-            {/* 🟨 HERO SPLIT */}
+
+            {/* 🟨 HERO SPLIT — agora sem motion */}
             <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-20 md:py-28 gap-10">
-                {/* 🎸 Lado esquerdo: imagem hero-afinador */}
-                <motion.div
-                    initial={{ opacity: 0, x: -40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                    className="md:w-1/2 flex justify-center"
-                >
+
+                {/* 🎸 Imagem do Hero */}
+                <div className="md:w-1/2 flex justify-center animate-fadeSlide">
                     <Image
                         src="/hero-afinador.png"
                         alt="Afinadores LearningGuitar"
@@ -62,15 +82,10 @@ export default function Afinadores() {
                         className="rounded-2xl shadow-2xl border-4 border-yellow-400/70"
                         priority
                     />
-                </motion.div>
+                </div>
 
-                {/* ✨ Lado direito: texto e botão */}
-                <motion.div
-                    initial={{ opacity: 0, x: 40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                    className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left"
-                >
+                {/* ✨ Texto */}
+                <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left animate-fadeSlide">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-yellow-200 drop-shadow-lg mb-4">
                         🎵 Afinadores
                     </h1>
@@ -80,41 +95,31 @@ export default function Afinadores() {
                         Produtos selecionados com segurança e praticidade via <strong>Shopee Brasil</strong>.
                     </p>
 
-                    <button
-                        onClick={() =>
-                            document
-                                .getElementById("produtos-section")
-                                ?.scrollIntoView({ behavior: "smooth" })
-                        }
+                    {/* Botão — agora com anchor */}
+                    <a
+                        href="#produtos-section"
                         className="bg-yellow-300 text-amber-900 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-400 transition-all duration-300 cursor-pointer"
                     >
                         🎸 Ver Produtos
-                    </button>
-                </motion.div>
+                    </a>
+                </div>
             </section>
 
             {/* 🎶 Título de transição */}
-            <motion.h2
+            <h2
                 id="produtos-section"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="text-center text-yellow-100 text-3xl sm:text-4xl font-bold drop-shadow-md mb-12"
+                className="text-center text-yellow-100 text-3xl sm:text-4xl font-bold drop-shadow-md mb-12 animate-fadeSlide"
             >
                 🎶 Produtos em Destaque
-            </motion.h2>
+            </h2>
 
-            {/* 🎵 Cards de produtos */}
+            {/* 🛒 CARDS DE PRODUTOS */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-6 pb-24">
                 {produtos.map((item, index) => (
-                    <motion.div
+                    <div
                         key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.15, duration: 0.6 }}
-                        viewport={{ once: true }}
-                        className="bg-white/10 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+                        className="bg-white/10 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 animate-popIn"
+                        style={{ animationDelay: `${index * 0.15}s` }}
                     >
                         <div className="relative w-full h-52 mb-3 bg-black/20 flex items-center justify-center rounded-lg overflow-hidden">
                             <Image
@@ -126,8 +131,13 @@ export default function Afinadores() {
                                 priority={index === 0}
                             />
                         </div>
-                        <h2 className="text-xl font-semibold text-yellow-200 mb-2">{item.nome}</h2>
+
+                        <h2 className="text-xl font-semibold text-yellow-200 mb-2">
+                            {item.nome}
+                        </h2>
+
                         <p className="text-sm mb-4">{item.descricao}</p>
+
                         <a
                             href={item.link}
                             target="_blank"
@@ -136,19 +146,14 @@ export default function Afinadores() {
                         >
                             Ver na Shopee
                         </a>
-                    </motion.div>
+                    </div>
                 ))}
             </div>
 
             {/* 🔖 Rodapé */}
-            <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                className="text-center text-sm text-amber-100 mt-16 italic pb-6"
-            >
+            <p className="text-center text-sm text-amber-100 mt-16 italic pb-6 animate-fadeSlide">
                 Produtos recomendados por <strong>LearningGuitar 🎸</strong> em parceria com Shopee Brasil.
-            </motion.p>
+            </p>
         </main>
     );
 }
