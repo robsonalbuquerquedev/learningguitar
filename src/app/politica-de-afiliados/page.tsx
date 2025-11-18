@@ -1,4 +1,43 @@
-"use client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: {
+        absolute: "Política de Afiliados | LearningGuitar 🎸"
+    },
+    description:
+        "Conheça nossa Política de Afiliados: regras, diretrizes, comissões, atribuições e como funciona a parceria de divulgação dos conteúdos e produtos do LearningGuitar.",
+    keywords: [
+        "política de afiliados",
+        "afiliados learningguitar",
+        "afiliados violão",
+        "programa de afiliados",
+        "divulgação musical",
+        "marketing de afiliados",
+        "comissões de afiliados",
+        "parceria musical",
+        "ganhar dinheiro com música",
+        "afiliados conteúdo educacional"
+    ],
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/politica-de-afiliados"
+    },
+    openGraph: {
+        title: "Política de Afiliados | LearningGuitar 🎸",
+        description:
+            "Entenda como funciona o nosso programa de afiliados, as regras de divulgação, comissões, diretrizes e boas práticas para parcerias.",
+        url: "https://aprenderviolaoonline.com.br/politica-de-afiliados",
+        type: "article",
+        images: ["/og-image.png"]
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Política de Afiliados | LearningGuitar 🎸",
+        description:
+            "Saiba como funciona o programa de afiliados do LearningGuitar: regras, comissões e diretrizes.",
+        images: ["/og-image.png"],
+        creator: "@LGuitarBr"
+    }
+};
 
 export default function PoliticaDeAfiliados() {
     return (
