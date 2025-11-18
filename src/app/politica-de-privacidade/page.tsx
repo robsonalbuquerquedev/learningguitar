@@ -1,4 +1,43 @@
-"use client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: {
+        absolute: "Política de Privacidade | LearningGuitar 🎸"
+    },
+    description:
+        "Saiba como o LearningGuitar coleta, utiliza, protege e trata seus dados pessoais. Leia nossa Política de Privacidade completa e atualizada em conformidade com a LGPD.",
+    keywords: [
+        "política de privacidade",
+        "privacidade learningguitar",
+        "dados pessoais",
+        "segurança de dados",
+        "LGPD violão",
+        "learningguitar privacidade",
+        "tratamento de dados",
+        "coleta de informações",
+        "proteção de dados",
+        "uso de dados pessoais"
+    ],
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/politica-de-privacidade"
+    },
+    openGraph: {
+        title: "Política de Privacidade | LearningGuitar 🎸",
+        description:
+            "Conheça nossa Política de Privacidade: como tratamos, armazenamos e protegemos seus dados, em conformidade com a LGPD.",
+        url: "https://aprenderviolaoonline.com.br/politica-de-privacidade",
+        type: "article",
+        images: ["/og-image.png"]
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Política de Privacidade | LearningGuitar 🎸",
+        description:
+            "Veja como seus dados são protegidos e tratados no LearningGuitar, conforme a LGPD.",
+        images: ["/og-image.png"],
+        creator: "@LGuitarBr"
+    }
+};
 
 export default function PoliticaDePrivacidade() {
     return (
