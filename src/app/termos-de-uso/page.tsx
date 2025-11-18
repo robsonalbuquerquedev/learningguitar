@@ -1,4 +1,43 @@
-"use client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: {
+        absolute: "Termos de Uso | LearningGuitar 🎸"
+    },
+    description:
+        "Leia os Termos de Uso do LearningGuitar e entenda as condições para navegação, uso da plataforma, responsabilidades, limitações e políticas de conteúdo.",
+    keywords: [
+        "termos de uso",
+        "learningguitar termos",
+        "regras da plataforma",
+        "uso permitido",
+        "responsabilidades do usuário",
+        "políticas do site",
+        "contrato de uso",
+        "informações legais",
+        "direitos autorais",
+        "condições de uso"
+    ],
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/termos-de-uso"
+    },
+    openGraph: {
+        title: "Termos de Uso | LearningGuitar 🎸",
+        description:
+            "Acesse os Termos de Uso oficiais do LearningGuitar e saiba como funciona o uso da plataforma, diretrizes e políticas gerais.",
+        url: "https://aprenderviolaoonline.com.br/termos-de-uso",
+        type: "article",
+        images: ["/og-image.png"]
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Termos de Uso | LearningGuitar 🎸",
+        description:
+            "Conheça os Termos de Uso do LearningGuitar e suas diretrizes oficiais.",
+        images: ["/og-image.png"],
+        creator: "@LGuitarBr"
+    }
+};
 
 export default function TermosDeUso() {
     return (
