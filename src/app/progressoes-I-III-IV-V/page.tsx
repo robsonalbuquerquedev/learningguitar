@@ -1,18 +1,51 @@
-"use client";
+import type { Metadata } from "next";
 
-import { motion } from "framer-motion";
+export const metadata: Metadata = {
+    title: {
+        absolute: "Progressão I–III–IV–V | Harmonia Aplicada no Violão"
+    },
+
+    description:
+        "Entenda e aplique a progressão I–III–IV–V no violão. Aprenda como funciona, por que soa forte e como usar essa sequência em músicas reais. Explicação simples e prática para iniciantes e intermediários.",
+
+    keywords: [
+        "progressão I III IV V",
+        "I III IV V violão",
+        "sequência I III IV V",
+        "progressões harmônicas",
+        "harmonia funcional",
+        "acordes no violão",
+        "como montar progressões",
+        "acordes maiores e menores"
+    ],
+
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/progressoes-I-III-IV-V"
+    },
+
+    openGraph: {
+        title: "Progressão I–III–IV–V | Guia Completo no Violão",
+        description:
+            "Aprenda como funciona a progressão I–III–IV–V e como aplicá-la no violão com clareza e prática. Guia didático para iniciantes e músicos intermediários.",
+        url: "https://aprenderviolaoonline.com.br/progressoes-I-III-IV-V",
+        images: ["/og-image.png"]
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Progressão I–III–IV–V no Violão",
+        description:
+            "Entenda e aplique a progressão I–III–IV–V com explicações simples e exemplos fáceis.",
+        images: ["/og-image.png"]
+    }
+};
 
 export default function ProgressoesI_III_IV_V() {
     return (
         <main className="min-h-screen bg-gradient-to-b from-yellow-900 via-amber-800 to-amber-900 text-amber-50 py-10 px-6">
-            <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-4xl font-bold text-center mb-8"
-            >
+            <h1 className="text-3xl sm:text-4xl font-bold text-center text-yellow-300 mb-10 drop-shadow-lg animate-fadeSlide">
                 🎵 Progressão I–III–IV–V
-            </motion.h1>
+            </h1>
 
             {/* Introdução */}
             <section className="max-w-3xl mx-auto bg-amber-50 text-amber-900 p-6 rounded-2xl shadow-lg mb-10">
