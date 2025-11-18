@@ -1,18 +1,53 @@
-"use client";
+import type { Metadata } from "next";
 
-import { motion } from "framer-motion";
+export const metadata: Metadata = {
+    title: {
+        absolute: "Progressões Harmônicas Mais Usadas | Guia Prático para Violão"
+    },
+
+    description:
+        "Descubra as progressões harmônicas mais usadas no violão, como I–V–vi–IV, II–V–I, I–IV–V e outras sequências famosas. Explicações claras, exemplos e aplicação prática para músicos iniciantes e intermediários.",
+
+    keywords: [
+        "progressões harmônicas",
+        "progressões mais usadas",
+        "sequências de acordes",
+        "círculo de quintas",
+        "I V vi IV",
+        "II V I",
+        "I IV V",
+        "harmonia funcional",
+        "como criar progressões",
+        "acordes no violão"
+    ],
+
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/progressoes-harmonicas-mais-usadas"
+    },
+
+    openGraph: {
+        title: "Progressões Harmônicas Mais Usadas | Guia Completo e Visual",
+        description:
+            "Aprenda as progressões harmônicas mais populares do violão e descubra como aplicá-las em qualquer tonalidade. Explicação simples, prática e com exemplos.",
+        url: "https://aprenderviolaoonline.com.br/progressoes-harmonicas-mais-usadas",
+        images: ["/og-image.png"]
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Progressões Harmônicas Mais Usadas no Violão",
+        description:
+            "Conheça as progressões mais utilizadas na música moderna e veja como aplicá-las no violão com clareza e prática.",
+        images: ["/og-image.png"]
+    }
+};
 
 export default function ProgressoesHarmonicasMaisUsadas() {
     return (
         <main className="min-h-screen bg-gradient-to-b from-yellow-900 via-amber-800 to-amber-900 text-amber-50 py-10 px-6">
-            <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-4xl font-bold text-center mb-8"
-            >
+            <h1 className="text-3xl sm:text-4xl font-bold text-center text-yellow-300 mb-10 drop-shadow-lg animate-fadeSlide">
                 🎶 Progressões Harmônicas Mais Usadas
-            </motion.h1>
+            </h1>
 
             {/* Introdução */}
             <section className="max-w-3xl mx-auto bg-amber-50 text-amber-900 p-6 rounded-2xl shadow-lg mb-10">
