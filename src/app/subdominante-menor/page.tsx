@@ -1,6 +1,36 @@
-"use client";
+import type { Metadata } from "next";
 
-import { motion } from "framer-motion";
+export const metadata: Metadata = {
+    title: {
+        absolute: "Progressão com Subdominante Menor (IV → iv) | Guia de Harmonia 🎸"
+    },
+    description:
+        "Aprenda como funciona a progressão com subdominante menor (IV → iv), usada em pop, MPB, louvores e baladas. Exemplos em vários tons, explicação clara e dicas práticas para violão.",
+    keywords: [
+        "subdominante menor",
+        "IV iv",
+        "progressão com iv",
+        "progressões menores",
+        "tom menor subdominante",
+        "harmonia no violão",
+        "acordes de violão",
+        "como montar progressões",
+        "campo harmônico menor",
+        "violão para iniciantes",
+        "música gospel acordes",
+        "mpb harmonia"
+    ],
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/subdominante-menor"
+    },
+    openGraph: {
+        title: "Progressão com Subdominante Menor (IV → iv) | Harmonia Explicada",
+        description:
+            "Entenda como funciona a progressão com subdominante menor e veja exemplos em vários tons. Guia simples e prático.",
+        url: "https://aprenderviolaoonline.com.br/subdominante-menor",
+        images: ["/og-image.png"],
+    }
+};
 
 export default function ProgressaoComSubdominanteMenor() {
     const tons = [
@@ -37,56 +67,57 @@ export default function ProgressaoComSubdominanteMenor() {
         {
             tom: "F",
             acordes: ["F", "F7", "Bb", "Bbm", "F", "C", "F", "C"],
-            descricao: "Muito usado em baladas, arranjos com sopros e em músicas que pedem calor harmônico.",
+            descricao: "Muito usado em baladas, arranjos com sopros e músicas com calor harmônico.",
         },
     ];
 
     return (
         <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-amber-50 py-20 px-6">
             <div className="max-w-4xl mx-auto space-y-8">
-                <h1 className="text-3xl sm:text-4xl font-bold text-center text-yellow-300">
+
+                <h1 className="text-3xl sm:text-4xl font-bold text-center text-yellow-300 mb-4 animate-fadeSlide">
                     🎸 Progressão com Subdominante Menor (IV → iv)
                 </h1>
 
-                <p className="text-lg leading-relaxed text-center">
+                <p className="text-lg leading-relaxed text-center max-w-2xl mx-auto">
                     Essa progressão é conhecida pelo toque emocional que o{" "}
                     <strong>iv</strong> (subdominante menor) traz.
-                    É comum em baladas, MPB, pop e até louvores.
+                    Ela aparece bastante em baladas, MPB, pop e até louvores.
                 </p>
 
                 {tons.map((item, index) => (
                     <div
                         key={index}
-                        className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg"
+                        className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg animate-fadeIn"
                     >
                         <h3 className="text-xl font-bold mb-2">🎵 Tom de {item.tom}</h3>
 
                         <div className="flex flex-wrap justify-center gap-3 mb-3">
                             {item.acordes.map((acorde, i) => (
-                                <motion.span
+                                <span
                                     key={i}
-                                    className={`px-3 py-2 rounded-lg font-semibold ${acorde.match(/m\b/) && !acorde.includes("7")
+                                    className={`px-3 py-2 rounded-lg font-semibold animate-popIn ${acorde.match(/m\b/) && !acorde.includes("7")
                                         ? "bg-yellow-600 text-white"
                                         : "bg-yellow-200 text-yellow-900"
                                         }`}
-                                    whileHover={{ scale: 1.1 }}
-                                    transition={{ type: "spring", stiffness: 300 }}
                                 >
                                     {acorde}
-                                </motion.span>
+                                </span>
                             ))}
                         </div>
 
                         <p className="italic text-yellow-800 mb-1">{item.descricao}</p>
+
                         <p className="text-sm text-yellow-700">
-                            💡 Dica: toque o acorde menor ({item.acordes.find(a => a.match(/m\b/) && !a.includes("7"))})
+                            💡 Dica: toque o acorde menor (
+                            {item.acordes.find(a => a.match(/m\b/) && !a.includes("7"))})
                             mais suave para realçar a emoção.
                         </p>
                     </div>
                 ))}
 
                 <p className="text-center text-sm text-amber-200 mt-6">
-                    💬 Experimente tocar lentamente e sinta a &quot;virada&quot; emocional entre o IV e o iv.
+                    💬 Experimente tocar lentamente e sinta a &quot;virada emocional&quot; entre o IV e o iv.
                 </p>
             </div>
         </main>
