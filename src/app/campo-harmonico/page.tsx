@@ -1,9 +1,55 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 
-export const metadata = {
-    title: "Campo Harmônico 🎼 | LearningGuitar",
+export const metadata: Metadata = {
+    title: {
+        absolute: "Campo Harmônico no Violão | Guia Completo e Simplificado"
+    },
+
     description:
-        "Aprenda a entender e montar o campo harmônico de qualquer tom. Descubra a relação entre escalas, acordes e tons para identificar o tom de qualquer música.",
+        "Aprenda o que é campo harmônico, como montar, como aplicar no violão e como usá-lo para criar progressões de acordes. Explicação simples para iniciantes e músicos intermediários.",
+
+    keywords: [
+        "campo harmônico",
+        "campo harmônico no violão",
+        "campo harmonico simplificado",
+        "campo harmônico para iniciantes",
+        "como montar campo harmônico",
+        "campo harmonico pratica",
+        "campo harmônico guia",
+        "progressões musicais campo harmônico"
+    ],
+
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/campo-harmonico"
+    },
+
+    openGraph: {
+        title: "Campo Harmônico no Violão | Guia Completo",
+        description:
+            "Guia completo do campo harmônico para violão: entenda montagens, aplicações práticas e exemplos para dominar o tom de qualquer música.",
+        url: "https://aprenderviolaoonline.com.br/campo-harmonico",
+        siteName: "LearningGuitar 🎸",
+        images: [
+            {
+                url: "https://aprenderviolaoonline.com.br/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Campo Harmônico — Guia de Violão e Teoria Musical"
+            }
+        ],
+        locale: "pt_BR",
+        type: "article"
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Campo Harmônico no Violão | Guia Completo",
+        description:
+            "Aprenda campo harmônico de forma simples, com exemplos aplicados no violão. Guia ideal para iniciantes e músicos intermediários.",
+        images: ["https://aprenderviolaoonline.com.br/og-image.png"],
+        creator: "@LGuitarBr"
+    }
 };
 
 export default function CampoHarmonico() {
