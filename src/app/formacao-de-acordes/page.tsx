@@ -1,7 +1,47 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: {
+        absolute: "Formação de Acordes no Violão | Guia Completo e Visual"
+    },
+
+    description:
+        "Aprenda como são formados os acordes no violão: tríades, tônica, terça, quinta, acordes maiores, menores e diferenças práticas com exemplos visuais. Explicação simples e completa para iniciantes e músicos intermediários.",
+
+    keywords: [
+        "formação de acordes",
+        "como formar acordes",
+        "acordes maiores e menores",
+        "tríades musicais",
+        "tônica terça quinta",
+        "acordes de violão",
+        "harmonia musical básica",
+        "como montar acordes",
+        "acorde de dó maior",
+        "acorde de dó menor"
+    ],
+
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/formacao-de-acordes"
+    },
+
+    openGraph: {
+        title: "Formação de Acordes no Violão | Guia Completo",
+        description:
+            "Entenda como acordes são formados e veja exemplos práticos usando tríades, terça maior e menor. Aprenda de forma simples e visual.",
+        url: "https://aprenderviolaoonline.com.br/formacao-de-acordes",
+        images: ["/og-image.png"]
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Formação de Acordes no Violão | Guia Prático",
+        description:
+            "Aprenda a montar acordes maiores, menores e tríades com exemplos claros e visuais.",
+        images: ["/og-image.png"]
+    }
+};
 
 export default function FormacaoDeAcordes() {
     const notas = ["C", "D", "E", "F", "G", "A", "B"];
@@ -12,13 +52,9 @@ export default function FormacaoDeAcordes() {
         <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-yellow-50 py-10 px-4">
             <div className="max-w-3xl mx-auto">
                 {/* Título principal */}
-                <motion.h1
-                    className="text-4xl font-bold mb-8 text-center drop-shadow-md"
-                    initial={{ opacity: 0, y: -30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                >
+                <h1 className="text-4xl font-bold mb-8 text-center drop-shadow-md text-yellow-300 animate-fadeSlide">
                     🎶 Formação de Acordes
-                </motion.h1>
+                </h1>
 
                 {/* Introdução */}
                 <p className="mb-6 leading-relaxed text-lg">
@@ -56,18 +92,15 @@ export default function FormacaoDeAcordes() {
                         {/* Visualização interativa */}
                         <div className="mt-6 flex justify-center gap-2">
                             {notas.map((nota, index) => (
-                                <motion.div
+                                <div
                                     key={nota}
-                                    className={`w-10 h-10 flex items-center justify-center rounded-full font-bold ${acordeCMaior.includes(nota)
+                                    className={`w-10 h-10 flex items-center justify-center rounded-full font-bold 
+  ${acordeCMaior.includes(nota)
                                             ? "bg-yellow-400 text-amber-900 shadow-lg"
-                                            : "bg-amber-700 text-yellow-100 opacity-60"
-                                        }`}
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ delay: index * 0.1 }}
+                                            : "bg-amber-700 text-yellow-100 opacity-60"} animate-popIn`}
                                 >
                                     {nota}
-                                </motion.div>
+                                </div>
                             ))}
                         </div>
 
@@ -120,15 +153,14 @@ export default function FormacaoDeAcordes() {
                             <h3 className="text-xl font-semibold text-center mb-4">☀️ C Maior</h3>
                             <div className="flex justify-center gap-3">
                                 {acordeCMaior.map((nota, index) => (
-                                    <motion.div
+                                    <div
                                         key={nota}
-                                        className="w-12 h-12 flex items-center justify-center rounded-full bg-yellow-400 text-amber-900 font-bold shadow-lg"
-                                        initial={{ scale: 0 }}
-                                        animate={{ scale: 1 }}
-                                        transition={{ delay: index * 0.2 }}
+                                        className={`w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg 
+    ${nota === "Eb" ? "bg-yellow-200 text-amber-900" : "bg-yellow-400 text-amber-900"}
+    animate-popIn`}
                                     >
                                         {nota}
-                                    </motion.div>
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -138,18 +170,17 @@ export default function FormacaoDeAcordes() {
                             <h3 className="text-xl font-semibold text-center mb-4">🌧️ C Menor</h3>
                             <div className="flex justify-center gap-3">
                                 {acordeCMenor.map((nota, index) => (
-                                    <motion.div
+                                    <div
                                         key={nota}
-                                        className={`w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg ${nota === "Eb"
+                                        className={`w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg 
+                ${nota === "Eb"
                                                 ? "bg-yellow-200 text-amber-900"
-                                                : "bg-yellow-400 text-amber-900"
-                                            }`}
-                                        initial={{ scale: 0 }}
-                                        animate={{ scale: 1 }}
-                                        transition={{ delay: index * 0.2 }}
+                                                : "bg-yellow-400 text-amber-900"}
+                animate-popIn`}
+                                        style={{ animationDelay: `${index * 0.2}s` }}
                                     >
                                         {nota}
-                                    </motion.div>
+                                    </div>
                                 ))}
                             </div>
                         </div>
