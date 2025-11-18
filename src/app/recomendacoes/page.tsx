@@ -46,6 +46,17 @@ export default function Recomendacoes() {
                 posso receber uma pequena comissão (sem custo extra para você). 🙌
             </p>
 
+            {/* 🎯 CTA — CantosJSM no Topo */}
+            <div className="mt-6 mb-12 flex justify-center animate-fadeSlide">
+                <a
+                    href="https://cantosjsm.com.br/"
+                    target="_blank"
+                    className="bg-gradient-to-r from-yellow-400 to-amber-300 text-amber-900 font-bold px-7 py-3 rounded-full shadow-lg hover:brightness-110 transition-all duration-300"
+                >
+                    🎵 Conhecer o CantosJSM — Plataforma de Cantos Litúrgicos
+                </a>
+            </div>
+
             {/* 🧩 GRID DE CURSOS */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
 
@@ -129,6 +140,17 @@ export default function Recomendacoes() {
                         🎶 Entrar na Comunidade
                     </a>
                 </div>
+            </div>
+
+            {/* 🎯 CTA Final — CantosJSM */}
+            <div className="mt-20 flex justify-center animate-fadeSlide">
+                <a
+                    href="https://cantosjsm.com.br/"
+                    target="_blank"
+                    className="bg-gradient-to-r from-yellow-400 to-amber-300 text-amber-900 font-bold px-7 py-3 rounded-full shadow-lg hover:brightness-110 transition-all duration-300"
+                >
+                    🙌 Visitar o CantosJSM — Cantos para Entrada, Salmo, Comunhão e mais
+                </a>
             </div>
 
             {/* ⚖️ AVISO LEGAL */}
