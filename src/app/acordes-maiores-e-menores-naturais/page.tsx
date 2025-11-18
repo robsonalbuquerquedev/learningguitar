@@ -1,9 +1,57 @@
 import Link from "next/link";
 
-export const metadata = {
-    title: "Acordes Maiores e Menores Naturais 🎵 | LearningGuitar",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: {
+        absolute: "Acordes Maiores e Menores Naturais | Guia Simples para Violão"
+    },
+
     description:
-        "Aprenda os acordes naturais maiores, menores, sustenidos e bemóis — a base para entender qualquer harmonia no violão.",
+        "Aprenda como formar e tocar acordes maiores e menores naturais no violão. Guia claro e direto para iniciantes, com explicações simples e aplicações práticas na música.",
+
+    keywords: [
+        "acordes maiores",
+        "acordes menores",
+        "acordes naturais",
+        "acordes para violão",
+        "como montar acordes",
+        "acordes básicos violão",
+        "acordes para iniciantes",
+        "violão acordes naturais",
+        "harmonia básica no violão"
+    ],
+
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/acordes-maiores-e-menores-naturais"
+    },
+
+    openGraph: {
+        title: "Acordes Maiores e Menores Naturais | Guia Completo para Violão",
+        description:
+            "Aprenda os acordes naturais maiores e menores no violão com explicações simples, exemplos e aplicações práticas para iniciantes.",
+        url: "https://aprenderviolaoonline.com.br/acordes-maiores-e-menores-naturais",
+        images: [
+            {
+                url: "/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Acordes Maiores e Menores Naturais no Violão"
+            }
+        ],
+        type: "article",
+        locale: "pt_BR",
+        siteName: "LearningGuitar 🎸"
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Acordes Maiores e Menores Naturais | Guia para Violão",
+        description:
+            "Entenda como montar e tocar acordes maiores e menores naturais no violão, com explicações fáceis para quem está começando.",
+        images: ["/og-image.png"],
+        creator: "@LGuitarBr"
+    }
 };
 
 export default function AcordesMaioresEMenoresNaturais() {
