@@ -5,7 +5,7 @@ export const metadata: Metadata = {
         absolute: "Acordes com Sétimas no Violão | Guia Completo e Explicado"
     },
     description:
-        "Aprenda a formar e aplicar acordes com sétimas no violão: maior, menor, dominante, meia-diminuta e diminuta. Explicação simples e prática para iniciantes e intermediários.",
+        "Aprenda a montar e aplicar acordes com sétima no violão: 7M (sétima maior), 7 (dominante), m7 (menor com sétima) e m7♭5 (meio diminuto). Explicação simples e prática para iniciantes e músicos intermediários.",
     keywords: [
         "acordes com sétimas",
         "acordes com 7",
