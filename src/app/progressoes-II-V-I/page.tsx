@@ -1,27 +1,61 @@
-"use client";
+import type { Metadata } from "next";
 
-import { motion } from "framer-motion";
+export const metadata: Metadata = {
+    title: {
+        absolute: "Progressão II–V–I no Violão | Guia Completo para Harmonia"
+    },
+
+    description:
+        "Aprenda a progressão II–V–I no violão: como funciona, como tocar, exemplos em vários tons e aplicação prática em estilos como jazz, gospel, MPB e pop. Explicação clara e acessível para iniciantes e músicos intermediários.",
+
+    keywords: [
+        "progressão II V I",
+        "progressão 2 5 1 violão",
+        "harmonia funcional",
+        "como tocar II V I",
+        "acordes II V I",
+        "jazz para iniciantes",
+        "gospel violão acordes",
+        "MPB harmonia",
+        "violão para iniciantes",
+        "sequência de acordes",
+        "harmonia musical",
+        "aprender violão"
+    ],
+
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/progressoes-II-V-I"
+    },
+
+    openGraph: {
+        title: "Progressão II–V–I no Violão | Harmonia Explicada",
+        description:
+            "Descubra a progressão II–V–I: tensão, movimento e resolução na prática. Guia completo com exemplos, aplicação em vários estilos e explicações fáceis.",
+        url: "https://aprenderviolaoonline.com.br/progressoes-II-V-I",
+        images: ["/og-image.png"],
+        type: "article"
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Progressão II–V–I no Violão | Aprenda Harmonia",
+        description:
+            "Veja como funciona a progressão II–V–I, uma das mais importantes da música. Explicação simples e prática.",
+        images: ["/og-image.png"],
+        creator: "@LGuitarBr"
+    }
+};
 
 export default function ProgressoesII_V_I() {
     return (
         <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-white p-6 sm:p-12">
             {/* Título */}
-            <motion.h1
-                initial={{ opacity: 0, y: -30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-4xl sm:text-5xl font-extrabold text-center mb-8 drop-shadow-lg"
-            >
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-center mb-8 drop-shadow-lg animate-fadeSlide">
                 Progressões II–V–I 🎶
-            </motion.h1>
+            </h1>
 
             {/* Introdução */}
-            <motion.section
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                className="max-w-3xl mx-auto bg-black/40 p-6 rounded-2xl shadow-lg mb-10 text-lg"
-            >
+            <section className="max-w-3xl mx-auto bg-black/40 p-6 rounded-2xl shadow-lg mb-10 text-lg animate-fadeIn">
                 <p className="mb-4">
                     A progressão <strong>II–V–I</strong> é uma das mais usadas em todo o
                     mundo. Está presente em estilos como <strong>jazz, MPB, bossa nova,
@@ -32,7 +66,7 @@ export default function ProgressoesII_V_I() {
                     💬 Pense nela como uma conversa: o II começa o assunto, o V cria
                     expectativa e o I traz a resposta final.
                 </p>
-            </motion.section>
+            </section>
 
             {/* Estrutura teórica */}
             <section className="max-w-3xl mx-auto bg-amber-50 text-amber-900 p-6 rounded-2xl shadow-lg mb-10">
