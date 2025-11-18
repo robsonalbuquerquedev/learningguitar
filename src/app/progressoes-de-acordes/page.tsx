@@ -1,15 +1,40 @@
-"use client";
+import type { Metadata } from "next";
 
-import { motion } from "framer-motion";
+export const metadata: Metadata = {
+    title: {
+        absolute: "Progressões de Acordes no Violão | Entenda o Movimento Harmônico"
+    },
+    description:
+        "Aprenda como funciona a progressão de acordes usada em músicas como 'Eu Navegarei' e entenda o movimento harmônico i–VII–VI–iv–V. Veja variações, aplicação prática e como transpor para outros tons.",
+    keywords: [
+        "progressões de acordes",
+        "progressão Eu Navegarei",
+        "i VII VI iv V",
+        "movimento harmônico",
+        "campo harmônico menor",
+        "violão para iniciantes",
+        "transpor acordes",
+        "como transpor música",
+        "progressão de acordes no violão",
+        "sequência de acordes"
+    ],
+    alternates: {
+        canonical: "https://aprenderviolaoonline.com.br/progressoes-de-acordes"
+    },
+    openGraph: {
+        title: "Progressões de Acordes no Violão | Exemplo Prático e Transposição",
+        description:
+            "Entenda a famosa progressão de Am → G → F → Dm → E, suas variações e como transpor para qualquer tom menor. Explicação simples e aplicada ao violão.",
+        url: "https://aprenderviolaoonline.com.br/progressoes-de-acordes",
+        images: ["/og-image.png"]
+    }
+};
 
 export default function ProgressoesDeAcordes() {
     return (
         <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-amber-50 py-20 px-6">
-            <motion.section
-                className="max-w-3xl mx-auto p-6 backdrop-blur-md rounded-2xl shadow-md mt-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+            <section
+                className="max-w-3xl mx-auto p-6 animate-fadeSlide"
             >
                 <h1 className="text-3xl font-bold mb-4 text-yellow-300 text-center">
                     Progressões de Acordes 🎵
@@ -147,8 +172,7 @@ export default function ProgressoesDeAcordes() {
                     <br /> Isso mostra que compreender o campo harmônico é o segredo para
                     tocar em qualquer tonalidade.
                 </p>
-
-            </motion.section>
+            </section>
         </main>
     );
 }
