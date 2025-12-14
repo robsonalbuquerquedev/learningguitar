@@ -61,7 +61,25 @@ const projetos: Projeto[] = [
         nome: "CantosJSM",
         descricao: "Plataforma moderna e organizada para consultar cantos litúrgicos com rapidez e simplicidade.",
         link: "https://cantosjsm.com.br/",
-        tecnologias: ["Next.js", "Tailwind CSS", "TypeScript"],
+        tecnologias: ["Next.js", "Tailwind CSS", "React", "TypeScript"],
+    },
+    {
+        nome: "Windly",
+        descricao: "Plataforma educacional focado em TailwindCSS, Next.js, SEO, HTML semântico e muito mais.",
+        link: "https://windly.com.br/",
+        tecnologias: ["Next.js", "Tailwind CSS", "React", "TypeScript"],
+    },
+    {
+        nome: "ArtevivaQ",
+        descricao: "Portal de expressão artística e visual. Projeto de design e cultura digital.",
+        link: "https://artevivaq.vercel.app/",
+        tecnologias: ["Next.js", "Tailwind CSS", "React", "TypeScript"],
+    },
+    {
+        nome: "Portfólio Robson Dev",
+        descricao: "Meu portfólio pessoal com projetos e estudos contínuos.",
+        link: "https://robson-next-portfolio.vercel.app/",
+        tecnologias: ["Next.js", "Tailwind CSS", "React", "TypeScript"],
     },
     {
         nome: "Learning Basic Computing",
@@ -70,28 +88,10 @@ const projetos: Projeto[] = [
         tecnologias: ["Next.js", "Tailwind CSS", "React", "TypeScript"],
     },
     {
-        nome: "Mensageiros do Una",
-        descricao: "Site institucional feito para apresentar e apoiar o projeto social Mensageiros do Una.",
-        link: "https://mensageiros-do-una-site.vercel.app/",
-        tecnologias: ["Next.js", "Tailwind CSS", "React", "TypeScript"],
-    },
-    {
         nome: "DevShowcase",
         descricao: "Showcase de projetos e estudos de desenvolvimento.",
         link: "https://devshowcase-bice.vercel.app/",
         tecnologias: ["HTML", "CSS", "Sass", "JavaScript"],
-    },
-    {
-        nome: "Portfólio Robson Dev",
-        descricao: "Meu portfólio pessoal com projetos e estudos contínuos.",
-        link: "https://robson-dev-portfolio.vercel.app/#/",
-        tecnologias: ["HTML", "CSS", "JavaScript", "Vue.js"],
-    },
-    {
-        nome: "ArtevivaQ",
-        descricao: "Portal de expressão artística e visual. Projeto de design e cultura digital.",
-        link: "https://artevivaq.vercel.app/",
-        tecnologias: ["Next.js", "Tailwind CSS", "React", "TypeScript"],
     },
 ];
 
