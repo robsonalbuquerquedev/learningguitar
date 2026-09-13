@@ -1,23 +1,33 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
+import LessonBreadcrumb from "@/components/learning/LessonBreadcrumb";
+import LessonHero from "@/components/learning/LessonHero";
+import LessonSection from "@/components/learning/LessonSection";
+import LearningObjectives from "@/components/learning/LearningObjectives";
+import ConceptCard from "@/components/learning/ConceptCard";
+import TheoryBlock from "@/components/learning/TheoryBlock";
+import ChordFormula from "@/components/learning/ChordFormula";
+import NextLesson from "@/components/learning/NextLesson";
+import LessonNavigation from "@/components/learning/LessonNavigation";
+
 export const metadata: Metadata = {
     title: {
         absolute: "Campo Harmônico no Violão | Guia Completo e Simplificado"
     },
 
     description:
-        "Aprenda o que é campo harmônico, como montar, como aplicar no violão e como usá-lo para criar progressões de acordes. Explicação simples para iniciantes e músicos intermediários.",
+        "Aprenda o que é campo harmônico, como os acordes são formados a partir da escala maior, quais são suas funções e como usar essa relação para entender músicas no violão.",
 
     keywords: [
         "campo harmônico",
         "campo harmônico no violão",
-        "campo harmonico simplificado",
+        "campo harmônico maior",
         "campo harmônico para iniciantes",
         "como montar campo harmônico",
-        "campo harmonico pratica",
-        "campo harmônico guia",
-        "progressões musicais campo harmônico"
+        "graus do campo harmônico",
+        "funções harmônicas",
+        "acordes do campo harmônico"
     ],
 
     alternates: {
@@ -27,7 +37,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Campo Harmônico no Violão | Guia Completo",
         description:
-            "Guia completo do campo harmônico para violão: entenda montagens, aplicações práticas e exemplos para dominar o tom de qualquer música.",
+            "Entenda como os acordes de uma tonalidade são formados, quais funções exercem e como essa organização ajuda a compreender músicas no violão.",
         url: "https://aprenderviolaoonline.com.br/campo-harmonico",
         siteName: "LearningGuitar 🎸",
         images: [
@@ -46,210 +56,596 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Campo Harmônico no Violão | Guia Completo",
         description:
-            "Aprenda campo harmônico de forma simples, com exemplos aplicados no violão. Guia ideal para iniciantes e músicos intermediários.",
+            "Aprenda campo harmônico de forma simples e entenda como os acordes de um tom se relacionam.",
         images: ["https://aprenderviolaoonline.com.br/og-image.png"],
         creator: "@LGuitarBr"
     }
 };
 
+const learningObjectives = [
+    {
+        icon: "🎼",
+        title: "Entender o campo harmônico",
+        description:
+            "Compreender como os acordes de um tom são organizados a partir dos graus da escala."
+    },
+    {
+        icon: "🎵",
+        title: "Conhecer a sequência dos acordes",
+        description:
+            "Reconhecer o padrão de acordes maiores, menores e meio diminuto no campo harmônico maior."
+    },
+    {
+        icon: "🎯",
+        title: "Identificar funções harmônicas",
+        description:
+            "Entender a ideia de tônica, predominante e dominante dentro de uma tonalidade."
+    },
+    {
+        icon: "🔎",
+        title: "Relacionar acordes e tonalidade",
+        description:
+            "Perceber como os acordes podem ajudar a identificar o tom de uma música."
+    },
+    {
+        icon: "🎸",
+        title: "Aplicar no violão",
+        description:
+            "Usar o campo harmônico como ponto de partida para compreender e criar sequências de acordes."
+    }
+];
+
 export default function CampoHarmonico() {
     return (
-        <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-amber-50 py-20 px-6">
-            <div className="max-w-4xl mx-auto space-y-6">
+        <main className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 px-6 py-10 text-gray-900 md:py-14">
+            <div className="mx-auto max-w-5xl">
+                <LessonBreadcrumb
+                    items={[
+                        { label: "Início", href: "/" },
+                        {
+                            label: "Trilha para iniciantes",
+                            href: "/#beginner-path"
+                        },
+                        {
+                            label: "Acordes com sétimas",
+                            href: "/acordes-com-setimas"
+                        },
+                        { label: "Campo Harmônico" }
+                    ]}
+                />
 
-                <h1 className="text-3xl sm:text-4xl font-bold text-center text-yellow-300">
-                    🎼 Campo Harmônico
-                </h1>
+                <LessonHero
+                    category="🎼 TEORIA MUSICAL"
+                    title="Campo Harmônico"
+                    description="Entenda como os acordes de uma tonalidade são organizados a partir da escala maior, quais funções eles podem exercer e como essa relação ajuda você a compreender músicas no violão."
+                    level="Iniciante → intermediário"
+                    duration="Aproximadamente 15 minutos"
+                    type="Teoria + prática"
+                />
 
-                <p className="text-lg leading-relaxed">
-                    O <strong>campo harmônico</strong> é formado a partir da{" "}
-                    <strong>escala diatônica</strong> (ou seja, a escala maior de um tom).
-                    Ele serve como base para entender quais acordes pertencem a um tom e
-                    como eles se relacionam entre si.
-                </p>
+                <LearningObjectives
+                    objectives={learningObjectives}
+                />
 
-                <h2 className="text-2xl font-semibold text-yellow-200">
-                    🎵 Estrutura da Escala Maior
-                </h2>
+                <div id="lesson-content" className="mt-12 space-y-10">
 
-                <p className="leading-relaxed">
-                    A escala diatônica maior segue esta sequência:
-                </p>
-
-                <p className="bg-amber-800/40 rounded-xl p-4 text-center font-semibold text-yellow-200">
-                    Tom – Tom – Semitom – Tom – Tom – Tom – Semitom
-                </p>
-
-                <p className="leading-relaxed">
-                    👉 A distância de <strong>1 tom</strong> equivale a{" "}
-                    <strong>duas casas</strong> no violão.<br />
-                    👉 Já o <strong>semitom</strong> equivale a{" "}
-                    <strong>uma casa</strong>.
-                </p>
-
-                <h2 className="text-2xl font-semibold text-yellow-200">
-                    🎸 Estrutura dos Acordes no Campo Harmônico
-                </h2>
-
-                <p className="leading-relaxed">
-                    Cada grau da escala gera um acorde. Seguindo a regra da escala maior,
-                    temos:
-                </p>
-
-                <ul className="list-disc list-inside space-y-1">
-                    <li>1º grau – <strong>Maior</strong></li>
-                    <li>2º grau – <strong>Menor</strong></li>
-                    <li>3º grau – <strong>Menor</strong></li>
-                    <li>4º grau – <strong>Maior</strong></li>
-                    <li>5º grau – <strong>Maior</strong></li>
-                    <li>6º grau – <strong>Menor</strong></li>
-                    <li>7º grau – <strong>Meio diminuto</strong></li>
-                </ul>
-
-                <p className="leading-relaxed">
-                    Assim, para o tom de <strong>C (Dó Maior)</strong>, temos:
-                </p>
-
-                <p className="bg-amber-800/40 rounded-xl p-4 text-center font-semibold text-yellow-200">
-                    C – Dm – Em – F – G – Am – B°
-                </p>
-
-                <h2 className="text-2xl font-semibold text-yellow-200">
-                    🎯 Identificando o Tom de uma Música
-                </h2>
-
-                <p className="leading-relaxed">
-                    Para descobrir o tom de uma música, observe os acordes usados.
-                    Por exemplo, se na música aparece um <strong>Dm</strong>, ele pode
-                    pertencer a três campos harmônicos diferentes:
-                </p>
-
-                <p className="bg-amber-800/40 rounded-xl p-4 text-center font-semibold">
-                    C maior • F maior • Bb maior
-                </p>
-
-                <p className="leading-relaxed">
-                    Isso acontece porque o acorde <strong>Dm</strong> é o segundo grau em
-                    C, o sexto grau em F e o terceiro grau em Bb.
-                </p>
-
-                <h2 className="text-2xl font-semibold text-yellow-200">
-                    🎹 Acordes Principais de Cada Campo Harmônico
-                </h2>
-
-                <p className="leading-relaxed">
-                    Os três acordes mais importantes de um tom são:
-                </p>
-
-                <ul className="list-disc list-inside space-y-1">
-                    <li><strong>Tônica</strong> – 1º grau</li>
-                    <li><strong>Subdominante</strong> – 4º grau</li>
-                    <li><strong>Dominante</strong> – 5º grau</li>
-                </ul>
-
-                <p className="leading-relaxed">
-                    Por exemplo, observe os três acordes principais em cada tom:
-                </p>
-
-                <ul className="list-disc list-inside space-y-1">
-                    <li>No tom de <strong>C</strong> → C, F, G</li>
-                    <li>No tom de <strong>D</strong> → D, G, A</li>
-                    <li>No tom de <strong>E</strong> → E, A, B</li>
-                    <li>No tom de <strong>F</strong> → F, Bb, C</li>
-                    <li>No tom de <strong>G</strong> → G, C, D</li>
-                    <li>No tom de <strong>A</strong> → A, D, E</li>
-                    <li>No tom de <strong>B</strong> → B, E, F#</li>
-                </ul>
-
-                <p className="leading-relaxed">
-                    Esses três acordes são a base de praticamente todas as músicas
-                    populares — dominar o campo harmônico é entender a espinha dorsal
-                    da harmonia!
-                </p>
-
-                <h2 className="text-2xl font-semibold text-yellow-200">
-                    🎵 Entendendo o papel de cada acorde
-                </h2>
-
-                <p className="leading-relaxed">
-                    Agora que sabemos quem são a <strong>Tônica</strong>, a <strong>Subdominante</strong> e a <strong>Dominante</strong>,
-                    vamos entender o papel que cada uma desempenha dentro da música.
-                </p>
-
-                <ul className="list-disc list-inside space-y-2">
-                    <li>
-                        <strong>Tônica (1º grau)</strong> → É o <em>lar</em> da música. O ponto de repouso, de onde tudo parte e para onde tudo quer voltar.
-                        Quando você toca a tônica, sente estabilidade e resolução — é o “fim natural” de uma ideia musical.
-                    </li>
-
-                    <li>
-                        <strong>Subdominante (4º grau)</strong> → É como se fosse o <em>momento de partida</em>.
-                        Ela cria leve movimento e prepara o caminho para sair da tranquilidade da tônica em direção à próxima emoção.
-                    </li>
-
-                    <li>
-                        <strong>Dominante (5º grau)</strong> → É o acorde da <em>tensão</em>.
-                        Ele cria aquela sensação de “quero voltar pra casa”. É por isso que a dominante normalmente resolve de volta na tônica —
-                        trazendo um sentimento de alívio e conclusão.
-                    </li>
-                </ul>
-
-                <p className="leading-relaxed">
-                    É justamente esse vai e vem entre <strong>repouso (tônica)</strong>, <strong>movimento (subdominante)</strong> e <strong>tensão (dominante)</strong>
-                    que faz a harmonia da música ser tão emocionante e expressiva.
-                </p>
-
-                <h2 className="text-2xl font-semibold text-yellow-200 mt-8">
-                    🎶 E os outros graus? O papel de cada um na harmonia
-                </h2>
-
-                <p className="leading-relaxed">
-                    Além dos três acordes principais, os outros graus do campo harmônico também têm funções muito importantes.
-                    Eles ajudam a colorir a música, conectar ideias e criar novas emoções.
-                </p>
-
-                <ul className="list-disc list-inside space-y-2">
-                    <li>
-                        <strong>2º grau (supertônica)</strong> → É um acorde menor e costuma preparar o caminho para o 5º grau (dominante).
-                        Ele tem uma sensação de leve expectativa, como se estivesse “levantando a bola” para a dominante resolver.
-                        Exemplo em C maior: <strong>Dm</strong>.
-                    </li>
-
-                    <li>
-                        <strong>3º grau (mediante)</strong> → Também é menor e tem uma função mais suave e introspectiva.
-                        Ele pode substituir a tônica em alguns casos, trazendo uma sensação de melancolia ou delicadeza.
-                        Exemplo em C maior: <strong>Em</strong>.
-                    </li>
-
-                    <li>
-                        <strong>6º grau (relativa menor)</strong> → É um dos mais importantes depois da tônica.
-                        Ele compartilha praticamente as mesmas notas da escala maior, mas muda o centro tonal.
-                        É por isso que dizemos que <strong>Am é o relativo menor de C</strong>.
-                        Esse acorde é muito usado em músicas que alternam entre alegria e leve melancolia.
-                    </li>
-
-                    <li>
-                        <strong>7º grau (sensível ou meio diminuto)</strong> → Tem uma função de <em>tensão máxima</em>, apontando fortemente para a tônica.
-                        É como se ele dissesse: “vamos resolver isso logo!”.
-                        Em C maior, o 7º grau é <strong>B°</strong> (si meio diminuto).
-                    </li>
-                </ul>
-
-                <p className="leading-relaxed">
-                    Cada um desses graus adiciona um sabor diferente à música —
-                    e quando você entende como eles se relacionam, começa a perceber padrões em praticamente todas as canções que ouve.
-                </p>
-
-                <div className="text-center mt-10">
-                    <Link
-                        href="/escalas"
-                        target="_blank"
-                        className="inline-block bg-yellow-300 text-amber-900 font-semibold px-6 py-3 rounded-full hover:bg-yellow-400 transition"
+                    <LessonSection
+                        eyebrow="Antes de começar"
+                        title="O que é um campo harmônico?"
                     >
-                        🎵 Relembrar as escalas
-                    </Link>
-                </div>
+                        <p>
+                            Pense no campo harmônico como uma{" "}
+                            <strong>família de acordes que pertence ao mesmo
+                            tom</strong>
+                            . Esses acordes não são escolhidos de forma
+                            aleatória: eles são construídos a partir das notas
+                            de uma escala.
+                        </p>
 
+                        <ConceptCard
+                            icon="🏠"
+                            title="Uma tonalidade como ponto de referência"
+                        >
+                            Se uma música está em <strong>C maior</strong>,
+                            por exemplo, o campo harmônico reúne os acordes
+                            construídos a partir das notas da escala de C
+                            maior. Isso ajuda a entender quais acordes tendem
+                            a aparecer juntos e como eles podem se relacionar.
+                        </ConceptCard>
+
+                        <p>
+                            Nesta aula, vamos trabalhar principalmente com o{" "}
+                            <strong>campo harmônico maior</strong>. Primeiro
+                            vamos entender sua construção e depois observar o
+                            papel dos acordes dentro dele.
+                        </p>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Primeiro passo"
+                        title="Começamos pela escala maior"
+                    >
+                        <p>
+                            Para construir um campo harmônico maior, partimos
+                            da <strong>escala maior</strong> da tonalidade que
+                            queremos estudar.
+                        </p>
+
+                        <TheoryBlock title="Estrutura da escala maior">
+                            <p className="text-center text-lg font-bold sm:text-xl">
+                                Tom → Tom → Semitom → Tom → Tom → Tom → Semitom
+                            </p>
+                        </TheoryBlock>
+
+                        <p>
+                            No violão, um <strong>tom</strong> corresponde a
+                            duas casas de distância, enquanto um{" "}
+                            <strong>semitom</strong> corresponde a uma casa.
+                        </p>
+
+                        <ConceptCard
+                            icon="💡"
+                            title="Não confunda escala e campo harmônico"
+                        >
+                            A escala organiza <strong>notas</strong>. O campo
+                            harmônico organiza os <strong>acordes</strong>{" "}
+                            construídos a partir dessas notas.
+                        </ConceptCard>
+
+                        <p>
+                            Se usamos a escala de <strong>C maior</strong>,
+                            temos:
+                        </p>
+
+                        <TheoryBlock title="Escala de C maior">
+                            <p className="text-center text-xl font-bold">
+                                C – D – E – F – G – A – B
+                            </p>
+                        </TheoryBlock>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Construindo os acordes"
+                        title="Cada grau gera um acorde"
+                    >
+                        <p>
+                            Agora vem a ideia central: podemos construir um
+                            acorde sobre cada grau da escala usando as notas
+                            disponíveis dentro daquela tonalidade.
+                        </p>
+
+                        <ChordFormula
+                            title="Padrão do campo harmônico maior"
+                            formula="I – ii – iii – IV – V – vi – vii°"
+                            description="A sequência de qualidades dos acordes é: maior, menor, menor, maior, maior, menor e diminuto."
+                        />
+
+                        <p>
+                            No campo harmônico de <strong>C maior</strong>,
+                            isso resulta em:
+                        </p>
+
+                        <TheoryBlock title="Campo Harmônico de C maior">
+                            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center">
+                                    <p className="text-sm text-gray-500">I</p>
+                                    <p className="text-xl font-bold">C</p>
+                                    <p className="text-sm text-gray-600">
+                                        maior
+                                    </p>
+                                </div>
+
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center">
+                                    <p className="text-sm text-gray-500">ii</p>
+                                    <p className="text-xl font-bold">Dm</p>
+                                    <p className="text-sm text-gray-600">
+                                        menor
+                                    </p>
+                                </div>
+
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center">
+                                    <p className="text-sm text-gray-500">iii</p>
+                                    <p className="text-xl font-bold">Em</p>
+                                    <p className="text-sm text-gray-600">
+                                        menor
+                                    </p>
+                                </div>
+
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center">
+                                    <p className="text-sm text-gray-500">IV</p>
+                                    <p className="text-xl font-bold">F</p>
+                                    <p className="text-sm text-gray-600">
+                                        maior
+                                    </p>
+                                </div>
+
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center">
+                                    <p className="text-sm text-gray-500">V</p>
+                                    <p className="text-xl font-bold">G</p>
+                                    <p className="text-sm text-gray-600">
+                                        maior
+                                    </p>
+                                </div>
+
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center">
+                                    <p className="text-sm text-gray-500">vi</p>
+                                    <p className="text-xl font-bold">Am</p>
+                                    <p className="text-sm text-gray-600">
+                                        menor
+                                    </p>
+                                </div>
+
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center sm:col-span-2 lg:col-span-1">
+                                    <p className="text-sm text-gray-500">
+                                        vii°
+                                    </p>
+                                    <p className="text-xl font-bold">B°</p>
+                                    <p className="text-sm text-gray-600">
+                                        diminuto
+                                    </p>
+                                </div>
+                            </div>
+                        </TheoryBlock>
+
+                        <ConceptCard
+                            icon="🎯"
+                            title="Guarde este padrão"
+                        >
+                            <strong>Maior – menor – menor – maior – maior –
+                            menor – diminuto.</strong>{" "}
+                            Esse padrão aparece quando construímos o campo
+                            harmônico de qualquer escala maior.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Conectando com a aula anterior"
+                        title="E os acordes com sétima?"
+                    >
+                        <p>
+                            Na aula anterior, vimos que uma tríade pode receber
+                            uma sétima. Quando fazemos isso com os acordes do
+                            campo harmônico maior, surge uma nova sequência de
+                            acordes.
+                        </p>
+
+                        <TheoryBlock title="Campo Harmônico de C maior com sétimas">
+                            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center">
+                                    <p className="text-sm text-gray-500">I</p>
+                                    <p className="text-xl font-bold">C7M</p>
+                                </div>
+
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center">
+                                    <p className="text-sm text-gray-500">ii</p>
+                                    <p className="text-xl font-bold">Dm7</p>
+                                </div>
+
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center">
+                                    <p className="text-sm text-gray-500">iii</p>
+                                    <p className="text-xl font-bold">Em7</p>
+                                </div>
+
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center">
+                                    <p className="text-sm text-gray-500">IV</p>
+                                    <p className="text-xl font-bold">F7M</p>
+                                </div>
+
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center">
+                                    <p className="text-sm text-gray-500">V</p>
+                                    <p className="text-xl font-bold">G7</p>
+                                </div>
+
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center">
+                                    <p className="text-sm text-gray-500">vi</p>
+                                    <p className="text-xl font-bold">Am7</p>
+                                </div>
+
+                                <div className="rounded-2xl bg-amber-50 p-4 text-center sm:col-span-2 lg:col-span-1">
+                                    <p className="text-sm text-gray-500">
+                                        viiø
+                                    </p>
+                                    <p className="text-xl font-bold">
+                                        Bm7♭5
+                                    </p>
+                                </div>
+                            </div>
+                        </TheoryBlock>
+
+                        <p>
+                            Perceba que isso retoma diretamente o que vimos em{" "}
+                            <Link
+                                href="/acordes-com-setimas"
+                                className="font-semibold text-amber-700 underline decoration-amber-300 underline-offset-4 hover:text-amber-800"
+                            >
+                                acordes com sétima
+                            </Link>
+                            : as sétimas não aparecem de maneira aleatória.
+                            Elas também podem ser organizadas de acordo com os
+                            graus da tonalidade.
+                        </p>
+
+                        <ConceptCard
+                            icon="💡"
+                            title="Uma visão, não uma nova fórmula"
+                        >
+                            Você não precisa memorizar essa tabela inteira
+                            agora. O importante é perceber que existe uma
+                            organização por trás desses acordes.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="O papel dos acordes"
+                        title="Tônica, predominante e dominante"
+                    >
+                        <p>
+                            Além de saber quais acordes pertencem ao campo
+                            harmônico, podemos observar o{" "}
+                            <strong>papel que eles desempenham</strong>.
+                        </p>
+
+                        <TheoryBlock title="Três funções para começar">
+                            <div className="grid gap-4 md:grid-cols-3">
+                                <div className="rounded-2xl border border-gray-200 bg-gray-50 p-5">
+                                    <p className="text-sm font-bold uppercase tracking-wide text-amber-700">
+                                        Tônica
+                                    </p>
+
+                                    <p className="mt-2 text-xl font-bold">
+                                        I
+                                    </p>
+
+                                    <p className="mt-2 text-sm leading-6 text-gray-600">
+                                        É o principal ponto de estabilidade e
+                                        referência da tonalidade.
+                                    </p>
+                                </div>
+
+                                <div className="rounded-2xl border border-gray-200 bg-gray-50 p-5">
+                                    <p className="text-sm font-bold uppercase tracking-wide text-amber-700">
+                                        Predominante
+                                    </p>
+
+                                    <p className="mt-2 text-xl font-bold">
+                                        ii / IV
+                                    </p>
+
+                                    <p className="mt-2 text-sm leading-6 text-gray-600">
+                                        Cria movimento e costuma conduzir em
+                                        direção à dominante.
+                                    </p>
+                                </div>
+
+                                <div className="rounded-2xl border border-gray-200 bg-gray-50 p-5">
+                                    <p className="text-sm font-bold uppercase tracking-wide text-amber-700">
+                                        Dominante
+                                    </p>
+
+                                    <p className="mt-2 text-xl font-bold">
+                                        V
+                                    </p>
+
+                                    <p className="mt-2 text-sm leading-6 text-gray-600">
+                                        Cria uma tensão que frequentemente
+                                        conduz de volta à tônica.
+                                    </p>
+                                </div>
+                            </div>
+                        </TheoryBlock>
+
+                        <p>
+                            Em <strong>C maior</strong>, por exemplo, podemos
+                            pensar em <strong>C</strong> como centro de
+                            estabilidade, <strong>Dm</strong> ou{" "}
+                            <strong>F</strong> como acordes de preparação e{" "}
+                            <strong>G</strong> como dominante.
+                        </p>
+
+                        <ConceptCard
+                            icon="🏠"
+                            title="Uma forma simples de ouvir"
+                        >
+                            Pense na tônica como <strong>casa</strong>, na
+                            predominante como o caminho que começa a afastar
+                            você dela e na dominante como o momento de maior
+                            expectativa antes do retorno.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Aplicação prática"
+                        title="Usando o campo harmônico para entender uma música"
+                    >
+                        <p>
+                            O campo harmônico também pode ajudar quando você
+                            encontra uma sequência de acordes e quer descobrir
+                            em qual tonalidade ela pode estar.
+                        </p>
+
+                        <TheoryBlock title="Um exemplo em C maior">
+                            <p className="text-center text-xl font-bold">
+                                C → Am → F → G
+                            </p>
+                        </TheoryBlock>
+
+                        <p>
+                            Todos esses acordes pertencem ao campo harmônico de{" "}
+                            <strong>C maior</strong>. Isso não significa,
+                            porém, que qualquer música que contenha esses
+                            acordes esteja necessariamente em C maior.
+                        </p>
+
+                        <ConceptCard
+                            icon="🔎"
+                            title="O campo harmônico é uma pista"
+                        >
+                            Para identificar uma tonalidade, não basta
+                            encontrar um único acorde. É preciso observar o
+                            conjunto de acordes, o contexto musical e,
+                            principalmente, qual acorde funciona como centro
+                            de repouso.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Outra descoberta"
+                        title="Um mesmo acorde pode aparecer em vários tons"
+                    >
+                        <p>
+                            Um acorde não pertence exclusivamente a uma única
+                            tonalidade. Por exemplo, <strong>Dm</strong> pode
+                            aparecer em diferentes campos harmônicos.
+                        </p>
+
+                        <TheoryBlock title="Onde encontramos Dm?">
+                            <div className="grid gap-4 text-center sm:grid-cols-3">
+                                <div>
+                                    <p className="text-sm text-gray-500">
+                                        II grau
+                                    </p>
+                                    <p className="mt-1 text-xl font-bold">
+                                        C maior
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <p className="text-sm text-gray-500">
+                                        VI grau
+                                    </p>
+                                    <p className="mt-1 text-xl font-bold">
+                                        F maior
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <p className="text-sm text-gray-500">
+                                        III grau
+                                    </p>
+                                    <p className="mt-1 text-xl font-bold">
+                                        Bb maior
+                                    </p>
+                                </div>
+                            </div>
+                        </TheoryBlock>
+
+                        <p>
+                            Por isso, descobrir o tom de uma música é um
+                            exercício de observar as relações entre os acordes,
+                            e não simplesmente procurar um acorde isolado.
+                        </p>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Hora de praticar"
+                        title="Teste sua compreensão"
+                    >
+                        <div className="space-y-4">
+                            <ConceptCard
+                                icon="🎯"
+                                title="1. Qual é o V grau de C maior?"
+                            >
+                                <p>
+                                    O V grau é <strong>G</strong>.
+                                </p>
+                            </ConceptCard>
+
+                            <ConceptCard
+                                icon="🎯"
+                                title="2. Qual é o acorde do VI grau de C maior?"
+                            >
+                                <p>
+                                    O VI grau é <strong>Am</strong>.
+                                </p>
+                            </ConceptCard>
+
+                            <ConceptCard
+                                icon="🎯"
+                                title="3. Complete o campo harmônico"
+                            >
+                                <p>
+                                    C – Dm – Em – F – G – Am –{" "}
+                                    <strong>B°</strong>.
+                                </p>
+                            </ConceptCard>
+                        </div>
+
+                        <p className="mt-6">
+                            Se você consegue reconhecer os graus e a qualidade
+                            básica desses acordes, já está começando a
+                            enxergar a lógica por trás de muitas sequências
+                            musicais.
+                        </p>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Resumo"
+                        title="O que levar desta aula"
+                    >
+                        <div className="space-y-4">
+                            <ConceptCard
+                                icon="🎼"
+                                title="Escala"
+                            >
+                                O campo harmônico maior é construído a partir
+                                das notas de uma escala maior.
+                            </ConceptCard>
+
+                            <ConceptCard
+                                icon="🎸"
+                                title="Acordes"
+                            >
+                                Cada grau da escala pode gerar um acorde,
+                                formando o padrão maior – menor – menor –
+                                maior – maior – menor – diminuto.
+                            </ConceptCard>
+
+                            <ConceptCard
+                                icon="🎯"
+                                title="Funções"
+                            >
+                                Os acordes podem exercer diferentes papéis,
+                                como tônica, predominante e dominante.
+                            </ConceptCard>
+
+                            <ConceptCard
+                                icon="➡️"
+                                title="Relações"
+                            >
+                                Entender essas relações ajuda a analisar
+                                músicas e compreender por que determinadas
+                                sequências de acordes funcionam juntas.
+                            </ConceptCard>
+                        </div>
+                    </LessonSection>
+
+                    <NextLesson
+                        title="Progressões de acordes"
+                        description="Agora que você entende como os acordes se organizam dentro de uma tonalidade, o próximo passo é descobrir como eles podem ser combinados em sequências musicais."
+                        href="/progressoes-de-acordes"
+                    />
+
+                    <LessonNavigation
+                        home={{
+                            title: "Voltar para a trilha de iniciantes",
+                            href: "/#beginner-path"
+                        }}
+                        previous={{
+                            title: "Acordes com 7ª",
+                            href: "/acordes-com-setimas"
+                        }}
+                        next={{
+                            title: "Progressões de acordes",
+                            href: "/progressoes-de-acordes"
+                        }}
+                    />
+
+                    <p className="pb-4 text-center text-sm leading-6 text-gray-500">
+                        Continue praticando: quanto mais você relacionar
+                        escalas, acordes e graus, mais fácil será reconhecer a
+                        estrutura das músicas que toca. 🎸
+                    </p>
+                </div>
             </div>
         </main>
     );
