@@ -1,34 +1,44 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+
+import LessonBreadcrumb from "@/components/learning/LessonBreadcrumb";
+import LessonHero from "@/components/learning/LessonHero";
+import LearningObjectives from "@/components/learning/LearningObjectives";
+import LessonSection from "@/components/learning/LessonSection";
+import NextLesson from "@/components/learning/NextLesson";
+import LessonNavigation from "@/components/learning/LessonNavigation";
 
 export const metadata: Metadata = {
     title: {
-        absolute: "Progressões Harmônicas Mais Usadas | Guia Prático para Violão"
+        absolute:
+            "Progressões Harmônicas Mais Usadas | Guia Prático para Violão"
     },
 
     description:
-        "Descubra as progressões harmônicas mais usadas no violão, como I–V–vi–IV, II–V–I, I–IV–V e outras sequências famosas. Explicações claras, exemplos e aplicação prática para músicos iniciantes e intermediários.",
+        "Conheça progressões harmônicas comuns no violão, entenda seus graus e veja como aplicar diferentes sequências em várias tonalidades.",
 
     keywords: [
         "progressões harmônicas",
+        "progressões de acordes",
         "progressões mais usadas",
         "sequências de acordes",
-        "círculo de quintas",
+        "I IV V",
         "I V vi IV",
         "II V I",
-        "I IV V",
-        "harmonia funcional",
-        "como criar progressões",
-        "acordes no violão"
+        "I III IV V",
+        "graus dos acordes",
+        "harmonia no violão"
     ],
 
     alternates: {
-        canonical: "https://aprenderviolaoonline.com.br/progressoes-harmonicas-mais-usadas"
+        canonical:
+            "https://aprenderviolaoonline.com.br/progressoes-harmonicas-mais-usadas"
     },
 
     openGraph: {
-        title: "Progressões Harmônicas Mais Usadas | Guia Completo e Visual",
+        title: "Progressões Harmônicas Mais Usadas | Guia Prático",
         description:
-            "Aprenda as progressões harmônicas mais populares do violão e descubra como aplicá-las em qualquer tonalidade. Explicação simples, prática e com exemplos.",
+            "Conheça progressões harmônicas comuns, entenda seus graus e pratique diferentes sequências no violão.",
         url: "https://aprenderviolaoonline.com.br/progressoes-harmonicas-mais-usadas",
         images: ["/og-image.png"]
     },
@@ -37,449 +47,418 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Progressões Harmônicas Mais Usadas no Violão",
         description:
-            "Conheça as progressões mais utilizadas na música moderna e veja como aplicá-las no violão com clareza e prática.",
+            "Conheça progressões harmônicas comuns e veja como aplicá-las em diferentes tonalidades.",
         images: ["/og-image.png"]
     }
 };
 
+const learningObjectives = [
+    {
+        icon: "🎵",
+        title: "Reconhecer progressões",
+        description:
+            "Conhecer algumas sequências de acordes recorrentes e entender como elas são representadas por graus."
+    },
+    {
+        icon: "🎼",
+        title: "Ler os graus",
+        description:
+            "Relacionar números romanos aos acordes de uma tonalidade, em vez de decorar apenas nomes de acordes."
+    },
+    {
+        icon: "🔄",
+        title: "Comparar tonalidades",
+        description:
+            "Perceber como a mesma progressão pode ser transportada para diferentes tons."
+    },
+    {
+        icon: "🎸",
+        title: "Escolher o que praticar",
+        description:
+            "Usar uma seleção organizada de progressões como ponto de partida para estudo e repertório."
+    }
+];
+
 export default function ProgressoesHarmonicasMaisUsadas() {
     return (
-        <main className="min-h-screen bg-gradient-to-b from-yellow-900 via-amber-800 to-amber-900 text-amber-50 py-10 px-6">
-            <h1 className="text-3xl sm:text-4xl font-bold text-center text-yellow-300 mb-10 drop-shadow-lg animate-fadeSlide">
-                🎶 Progressões Harmônicas Mais Usadas
-            </h1>
+        <main className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 px-6 py-10 text-gray-900 md:py-14">
+            <div className="mx-auto max-w-5xl">
+                <LessonBreadcrumb
+                    items={[
+                        { label: "Início", href: "/" },
+                        {
+                            label: "Trilha para iniciantes",
+                            href: "/#beginner-path"
+                        },
+                        {
+                            label: "Progressões de acordes",
+                            href: "/progressoes-de-acordes"
+                        },
+                        {
+                            label: "Progressões harmônicas mais usadas"
+                        }
+                    ]}
+                />
 
-            {/* Introdução */}
-            <section className="max-w-3xl mx-auto bg-amber-50 text-amber-900 p-6 rounded-2xl shadow-lg mb-10">
-                <h2 className="text-2xl font-bold mb-3">🎸 O que são progressões harmônicas?</h2>
-                <p className="mb-4">
-                    Uma <strong>progressão harmônica</strong> é uma sequência de acordes que cria
-                    uma sensação de movimento e emoção na música. Existem algumas combinações que
-                    se tornaram clássicas — usadas em milhares de canções — porque soam bem e
-                    funcionam em praticamente qualquer estilo.
+                <LessonHero
+                    category="🎶 HARMONIA"
+                    title="Progressões Harmônicas Mais Usadas"
+                    description="Agora que você já entende o que é uma progressão de acordes, chegou a hora de conhecer algumas estruturas que aparecem com frequência na música. Aqui a proposta é reconhecer padrões, experimentar no violão e entender como eles mudam de tonalidade."
+                    level="Iniciante → intermediário"
+                    duration="15 min"
+                    type="Teoria + prática"
+                />
+
+                <LearningObjectives objectives={learningObjectives} />
+
+                <div id="lesson-content" className="mt-12 space-y-10">
+                    <LessonSection
+                        eyebrow="Começando"
+                        title="O que torna uma progressão tão comum?"
+                    >
+                        <p>
+                            Algumas sequências de acordes aparecem repetidamente
+                            porque estabelecem relações harmônicas que são fáceis
+                            de reconhecer e de transportar para outras
+                            tonalidades. Isso não significa que exista uma lista
+                            definitiva das progressões &quot;mais usadas&quot;:
+                            diferentes estilos, épocas e repertórios utilizam
+                            combinações diferentes.
+                        </p>
+
+                        <p>
+                            Por isso, esta página funciona como uma{" "}
+                            <strong>curadoria de progressões importantes</strong> para quem está aprendendo violão. A ideia não é
+                            decorar dezenas de sequências, mas começar a
+                            identificar padrões e entender como os acordes se
+                            relacionam.
+                        </p>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Leitura"
+                        title="Como ler uma progressão?"
+                    >
+                        <p>
+                            Uma progressão pode ser escrita usando os nomes dos
+                            acordes ou usando os graus da tonalidade. Por
+                            exemplo, no tom de Dó maior:
+                        </p>
+
+                        <div className="rounded-2xl border border-amber-200 bg-white p-5 shadow-sm">
+                            <p className="text-center text-lg font-semibold text-amber-900">
+                                C → F → G → C
+                            </p>
+
+                            <p className="mt-3 text-center text-sm text-gray-600">
+                                I → IV → V → I
+                            </p>
+                        </div>
+
+                        <p>
+                            Quando usamos graus, conseguimos transportar a mesma
+                            estrutura para outro tom sem mudar a relação entre
+                            os acordes. Esse é um dos principais motivos para
+                            aprender a pensar em números romanos.
+                        </p>
+
+                        <p>
+                            Se quiser revisar esse conceito antes de continuar,
+                            volte para a aula de{" "}
+                            <Link
+                                href="/progressoes-de-acordes"
+                                className="font-semibold text-amber-700 underline decoration-amber-300 underline-offset-4 hover:text-amber-800"
+                            >
+                                Progressões de Acordes
+                            </Link>
+                            .
+                        </p>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Curadoria"
+                        title="Progressões essenciais para conhecer"
+                    >
+                        <p>
+                            A seguir estão algumas estruturas que vale a pena
+                            reconhecer. Os exemplos estão no tom de Dó maior,
+                            mas o mais importante é observar os graus.
+                        </p>
+
+                        <div className="grid gap-6 md:grid-cols-2">
+                            <article className="rounded-2xl border border-amber-200 bg-white p-6 shadow-sm">
+                                <h3 className="text-xl font-bold text-amber-900">
+                                    I–IV–V–I
+                                </h3>
+
+                                <p className="mt-2 text-sm text-gray-600">
+                                    Tônica, movimento e retorno à tônica.
+                                </p>
+
+                                <p className="mt-4 font-semibold text-gray-900">
+                                    C → F → G → C
+                                </p>
+
+                                <p className="mt-3 text-sm text-gray-700">
+                                    É uma estrutura simples para perceber a
+                                    relação entre I, IV e V dentro de uma
+                                    tonalidade maior.
+                                </p>
+                            </article>
+
+                            <article className="rounded-2xl border border-amber-200 bg-white p-6 shadow-sm">
+                                <h3 className="text-xl font-bold text-amber-900">
+                                    I–V–vi–IV
+                                </h3>
+
+                                <p className="mt-2 text-sm text-gray-600">
+                                    Alternância entre estabilidade e movimento.
+                                </p>
+
+                                <p className="mt-4 font-semibold text-gray-900">
+                                    C → G → Am → F
+                                </p>
+
+                                <p className="mt-3 text-sm text-gray-700">
+                                    Uma boa sequência para praticar a relação
+                                    entre os graus I, V, vi e IV.
+                                </p>
+                            </article>
+
+                            <article className="rounded-2xl border border-amber-200 bg-white p-6 shadow-sm">
+                                <h3 className="text-xl font-bold text-amber-900">
+                                    vi–IV–I–V
+                                </h3>
+
+                                <p className="mt-2 text-sm text-gray-600">
+                                    A mesma família de quatro graus em outra
+                                    ordem.
+                                </p>
+
+                                <p className="mt-4 font-semibold text-gray-900">
+                                    Am → F → C → G
+                                </p>
+
+                                <p className="mt-3 text-sm text-gray-700">
+                                    Compare esta sequência com I–V–vi–IV e
+                                    perceba como mudar a ordem dos mesmos graus
+                                    altera o caminho harmônico.
+                                </p>
+                            </article>
+
+                            <article className="rounded-2xl border border-amber-200 bg-white p-6 shadow-sm">
+                                <h3 className="text-xl font-bold text-amber-900">
+                                    I–vi–IV–V
+                                </h3>
+
+                                <p className="mt-2 text-sm text-gray-600">
+                                    Uma sequência que combina tônica, relativo
+                                    menor, subdominante e dominante.
+                                </p>
+
+                                <p className="mt-4 font-semibold text-gray-900">
+                                    C → Am → F → G
+                                </p>
+
+                                <p className="mt-3 text-sm text-gray-700">
+                                    É um bom exercício para visualizar diferentes
+                                    funções dentro do mesmo campo harmônico.
+                                </p>
+                            </article>
+
+                            <article className="rounded-2xl border border-amber-200 bg-white p-6 shadow-sm md:col-span-2">
+                                <h3 className="text-xl font-bold text-amber-900">
+                                    I–V–vi–iii–IV
+                                </h3>
+
+                                <p className="mt-2 text-sm text-gray-600">
+                                    Uma sequência um pouco mais longa, usando
+                                    cinco graus do campo harmônico maior.
+                                </p>
+
+                                <p className="mt-4 text-center font-semibold text-gray-900">
+                                    C → G → Am → Em → F
+                                </p>
+
+                                <p className="mt-3 text-sm text-gray-700">
+                                    Aqui aparece o iii grau, que no campo
+                                    harmônico maior forma um acorde menor.
+                                    Esse detalhe ajuda a reforçar a ideia de que
+                                    os graus não representam apenas números:
+                                    cada grau também possui uma qualidade de
+                                    acorde determinada pela tonalidade.
+                                </p>
+                            </article>
+                        </div>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Aprofundamento"
+                        title="Duas progressões que merecem uma aula própria"
+                    >
+                        <p>
+                            Algumas progressões são importantes o suficiente
+                            para receber uma explicação mais detalhada. Em vez
+                            de repetir todo o conteúdo nesta página, deixamos
+                            cada tema em sua própria aula.
+                        </p>
+
+                        <div className="grid gap-6 md:grid-cols-2">
+                            <article className="rounded-2xl border border-amber-200 bg-white p-6 shadow-sm">
+                                <span className="text-2xl">🎼</span>
+
+                                <h3 className="mt-3 text-xl font-bold text-amber-900">
+                                    II–V–I
+                                </h3>
+
+                                <p className="mt-3 text-gray-700">
+                                    Uma progressão fundamental para entender a
+                                    relação entre preparação, dominante e
+                                    resolução.
+                                </p>
+
+                                <p className="mt-3 font-semibold text-gray-900">
+                                    Dm7 → G7 → C7M
+                                </p>
+
+                                <Link
+                                    href="/progressoes-II-V-I"
+                                    className="mt-5 inline-flex font-semibold text-amber-700 underline decoration-amber-300 underline-offset-4 hover:text-amber-800"
+                                >
+                                    Estudar II–V–I →
+                                </Link>
+                            </article>
+
+                            <article className="rounded-2xl border border-amber-200 bg-white p-6 shadow-sm">
+                                <span className="text-2xl">🎸</span>
+
+                                <h3 className="mt-3 text-xl font-bold text-amber-900">
+                                    I–III–IV–V
+                                </h3>
+
+                                <p className="mt-3 text-gray-700">
+                                    Uma sequência que combina I, iii, IV e V,
+                                    permitindo observar como o acorde do III grau
+                                    se encaixa entre os demais.
+                                </p>
+
+                                <p className="mt-3 font-semibold text-gray-900">
+                                    C → Em → F → G
+                                </p>
+
+                                <Link
+                                    href="/progressoes-I-III-IV-V"
+                                    className="mt-5 inline-flex font-semibold text-amber-700 underline decoration-amber-300 underline-offset-4 hover:text-amber-800"
+                                >
+                                    Estudar I–III–IV–V →
+                                </Link>
+                            </article>
+                        </div>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Na prática"
+                        title="Como estudar essas progressões?"
+                    >
+                        <p>
+                            Não tente memorizar todas as sequências de uma vez.
+                            Escolha uma delas e pratique primeiro em uma
+                            tonalidade confortável.
+                        </p>
+
+                        <ol className="space-y-4">
+                            <li>
+                                <strong>1. Escolha uma progressão.</strong>{" "}
+                                Comece, por exemplo, com I–V–vi–IV.
+                            </li>
+
+                            <li>
+                                <strong>2. Toque os acordes lentamente.</strong>{" "}
+                                Concentre-se nas mudanças e mantenha o ritmo
+                                constante.
+                            </li>
+
+                            <li>
+                                <strong>3. Identifique os graus.</strong>{" "}
+                                Não pense apenas em C, G, Am e F. Pense em
+                                I, V, vi e IV.
+                            </li>
+
+                            <li>
+                                <strong>4. Mude a tonalidade.</strong>{" "}
+                                Experimente a mesma estrutura em G ou D e
+                                observe como os nomes dos acordes mudam.
+                            </li>
+
+                            <li>
+                                <strong>5. Compare com músicas.</strong>{" "}
+                                Quando encontrar uma música com uma sequência
+                                parecida, tente identificar os graus utilizados.
+                            </li>
+                        </ol>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Consolidação"
+                        title="O que você deve levar desta aula?"
+                    >
+                        <div className="rounded-2xl border border-amber-200 bg-white p-6 shadow-sm">
+                            <ul className="space-y-3 text-gray-700">
+                                <li>
+                                    ✓ Progressões são sequências organizadas de
+                                    acordes.
+                                </li>
+
+                                <li>
+                                    ✓ Os graus permitem representar uma mesma
+                                    estrutura em diferentes tonalidades.
+                                </li>
+
+                                <li>
+                                    ✓ Algumas sequências aparecem com frequência
+                                    e são úteis para estudo e reconhecimento.
+                                </li>
+
+                                <li>
+                                    ✓ I–IV–V, I–V–vi–IV, vi–IV–I–V e I–vi–IV–V
+                                    são bons pontos de partida.
+                                </li>
+
+                                <li>
+                                    ✓ II–V–I e I–III–IV–V possuem páginas
+                                    próprias para aprofundamento.
+                                </li>
+                            </ul>
+                        </div>
+                    </LessonSection>
+                </div>
+
+                <NextLesson
+                    title="Explorar acordes de minutos"
+                    description="Você já passou pelos fundamentos dos acordes, do campo harmônico e das progressões. Agora pode avançar para um conteúdo de nível intermediário, explorando acordes de minutos e novas possibilidades de construção e sonoridade."
+                    href="/acordes-de-minutos"
+                />
+
+                <LessonNavigation
+                    home={{
+                        title: "Voltar para a trilha de iniciantes",
+                        href: "/#beginner-path"
+                    }}
+                    previous={{
+                        title: "Progressões de acordes",
+                        href: "/progressoes-de-acordes"
+                    }}
+                    next={{
+                        title: "Acordes de minutos",
+                        href: "/acordes-de-minutos"
+                    }}
+                />
+
+                <p className="mt-10 text-center text-sm text-gray-600">
+                    Continue praticando: entender os graus é mais importante do
+                    que decorar uma lista de sequências. 🎸
                 </p>
-                <p>
-                    As progressões abaixo são as <strong>mais populares</strong> e podem ser aplicadas
-                    em <strong>todas as tonalidades naturais</strong>.
-                    Basta seguir o mesmo padrão de graus do campo harmônico de cada tom — o segredo
-                    está na sequência, não nas letras dos acordes!
-                </p>
-            </section>
-
-            {/* Lista de Progressões */}
-            <section className="max-w-3xl mx-auto space-y-6">
-                {/* 1-4-1-5 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 1–4–1–5</h3>
-                    <p className="mb-2 italic text-yellow-800">Entrada firme.</p>
-                    <p><strong>No tom de G:</strong> G / C9 / G / D9</p>
-                    <p><strong>No tom de A:</strong> A / D9 / A / E9</p>
-                    <p><strong>No tom de B:</strong> B / E9 / B / F#9</p>
-                    <p><strong>No tom de C:</strong> C / F9 / C / G9</p>
-                    <p><strong>No tom de D:</strong> D / G / D / A9</p>
-                    <p><strong>No tom de E:</strong> E / A9 / E / B9</p>
-                    <p><strong>No tom de F:</strong> F / Bb9 / F / C9</p>
-                </div>
-
-                {/* 1-4-5-1 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 1–4–5–1</h3>
-                    <p className="mb-2 italic text-yellow-800">Energia e alegria.</p>
-                    <p><strong>No tom de G:</strong> G / C9 / D9 / G</p>
-                    <p><strong>No tom de A:</strong> A / D9 / E9 / A</p>
-                    <p><strong>No tom de B:</strong> B / E9 / F#9 / B</p>
-                    <p><strong>No tom de C:</strong> C / F9 / G9 / C</p>
-                    <p><strong>No tom de D:</strong> D / G9 / A9 / D</p>
-                    <p><strong>No tom de E:</strong> E / A9 / B9 / E</p>
-                    <p><strong>No tom de F:</strong> F / Bb9 / C9 / F</p>
-                </div>
-
-                {/* 1-4-2-5 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 1–4–2–5</h3>
-                    <p className="mb-2 italic text-yellow-800">Emoção.</p>
-                    <p><strong>No tom de G:</strong> G / C9 / Am / D</p>
-                    <p><strong>No tom de A:</strong> A / D9 / Bm / E</p>
-                    <p><strong>No tom de B:</strong> B / E9 / c#m / F#</p>
-                    <p><strong>No tom de C:</strong> C / F9 / Dm / G</p>
-                    <p><strong>No tom de D:</strong> D / G9 / Em / A</p>
-                    <p><strong>No tom de E:</strong> E / A9 / F#m / B9</p>
-                    <p><strong>No tom de F:</strong> F / Bb9 / Gm / C</p>
-                </div>
-
-                {/* 1-4-6-5-1 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 1–4–6–5–1</h3>
-                    <p className="mb-2 italic text-yellow-800">Encerramento triunfal.</p>
-                    <p><strong>No tom de G:</strong> G / C9 / Em / D9 / G</p>
-                    <p><strong>No tom de A:</strong> A / D9 / F#m / E9 / A</p>
-                    <p><strong>No tom de B:</strong> B / E9 / G#m / F#9 / B</p>
-                    <p><strong>No tom de C:</strong> C / F9 / Am / G9 / C</p>
-                    <p><strong>No tom de D:</strong> D / G9 / Bm / A9 / D</p>
-                    <p><strong>No tom de E:</strong> E / A9 / C#m / B9 / E</p>
-                    <p><strong>No tom de F:</strong> F / Bb9 / Dm / C9 / F</p>
-                </div>
-
-                {/* 1-4-5-3-6 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 1–4–5–3–6</h3>
-                    <p className="mb-2 italic text-yellow-800">Movimentos de sentimento.</p>
-                    <p><strong>No tom de G:</strong> G7 / C / D / Bm / Em</p>
-                    <p><strong>No tom de A:</strong> A7 / D / E / C#m / F#m</p>
-                    <p><strong>No tom de B:</strong> B7 / E / F# / D#m / G#m</p>
-                    <p><strong>No tom de C:</strong> C7 / F / G / Em / Am</p>
-                    <p><strong>No tom de D:</strong> D7 / G / A / F#m / Bm</p>
-                    <p><strong>No tom de E:</strong> E7 / A / B / G#m / C#m</p>
-                    <p><strong>No tom de F:</strong> F7 / Bb / C / Am / Dm</p>
-                </div>
-
-                {/* 1-5-4-2-5 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 1–5–4–2–5</h3>
-                    <p className="mb-2 italic text-yellow-800">Essa sequência cria movimento e suavidade, com o acorde II (2) atuando como uma ponte que gera leve tensão antes de voltar ao dominante (V).</p>
-                    <p><strong>No tom de G:</strong> G / D / C / Am / D</p>
-                    <p><strong>No tom de A:</strong> A / E / D / Bm / E</p>
-                    <p><strong>No tom de B:</strong> B / F# / E / C#m / F#</p>
-                    <p><strong>No tom de C:</strong> C / G / F / Dm / G</p>
-                    <p><strong>No tom de D:</strong> D / A / G / Em / A</p>
-                    <p><strong>No tom de E:</strong> E / B / A / F#m / B</p>
-                    <p><strong>No tom de F:</strong> F / C / Bb / Gm / C</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Combina leveza e continuidade — perfeita para transições suaves entre verso e refrão.
-                    </p>
-                </div>
-
-                {/* 1-5-6-4 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 1–5–6–4</h3>
-                    <p className="mb-2 italic text-yellow-800">Usada em pop, louvor e baladas.</p>
-                    <p><strong>No tom de G:</strong> G / D / Em / C</p>
-                    <p><strong>No tom de A:</strong> A / E / F#m / D</p>
-                    <p><strong>No tom de B:</strong> B / F# / G#m / E</p>
-                    <p><strong>No tom de C:</strong> C / G / Am / F</p>
-                    <p><strong>No tom de D:</strong> D / A / Bm / G</p>
-                    <p><strong>No tom de E:</strong> E / B / C#m / A</p>
-                    <p><strong>No tom de F:</strong> F / C / Dm / Bb</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 É a progressão de hits como &quot;Let It Be&quot; (The Beatles) e &quot;With or Without You&quot; (U2).
-                    </p>
-                </div>
-
-                {/* 1–5–6–3–4 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎶 1–5–6–3–4</h3>
-                    <p className="mb-2 italic text-yellow-800">
-                        Combina força, emoção e resolução — muito usada em pop e louvor.
-                    </p>
-                    <p><strong>No tom de G:</strong> G / D / Em / Bm / C</p>
-                    <p><strong>No tom de A:</strong> A / E / F#m / C#m / D</p>
-                    <p><strong>No tom de B:</strong> B / F# / G#m / D#m / E</p>
-                    <p><strong>No tom de C:</strong> C / G / Am / Em / F</p>
-                    <p><strong>No tom de D:</strong> D / A / Bm / F#m / G</p>
-                    <p><strong>No tom de E:</strong> E / B / C#m / G#m / A</p>
-                    <p><strong>No tom de F:</strong> F / C / Dm / Am / Bb</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Essa progressão tem um &quot;clima&quot; crescente, ótimo para versos e introduções.
-                    </p>
-                </div>
-
-                {/* 1-6-2-5 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 1–6–2–5</h3>
-                    <p className="mb-2 italic text-yellow-800">Clássica no jazz, gospel e MPB.</p>
-                    <p><strong>No tom de G:</strong> G / Em / Am / D</p>
-                    <p><strong>No tom de A:</strong> A / F#m / Bm / E</p>
-                    <p><strong>No tom de B:</strong> B / G#m / C#m / F#</p>
-                    <p><strong>No tom de C:</strong> C / Am / Dm / G</p>
-                    <p><strong>No tom de D:</strong> D / Bm / Em / A</p>
-                    <p><strong>No tom de E:</strong> E / C#m / F#m / B</p>
-                    <p><strong>No tom de F:</strong> F / Dm / Gm / C</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Essa sequência cria uma sensação suave de continuidade e &quot;ida e volta&quot;.
-                    </p>
-                </div>
-
-                {/* 1-6-4-5 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 1–6–4–5</h3>
-                    <p className="mb-2 italic text-yellow-800">Muito usada em louvores e pop romântico.</p>
-                    <p><strong>No tom de G:</strong> G / Em / C / D</p>
-                    <p><strong>No tom de A:</strong> A / F#m / D / E</p>
-                    <p><strong>No tom de B:</strong> B / G#m / E / F#</p>
-                    <p><strong>No tom de C:</strong> C / Am / F / G</p>
-                    <p><strong>No tom de D:</strong> D / Bm / G / A</p>
-                    <p><strong>No tom de E:</strong> E / C#m / A / B</p>
-                    <p><strong>No tom de F:</strong> F / Dm / Bb / C</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Leve e emocional — transmite esperança e crescimento.
-                    </p>
-                </div>
-
-                {/* 1-2-4-5 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 1–2–4–5</h3>
-                    <p className="mb-2 italic text-yellow-800">Típica de músicas alegres e otimistas.</p>
-                    <p><strong>No tom de G:</strong> G / Am / C / D</p>
-                    <p><strong>No tom de A:</strong> A / Bm / D / E</p>
-                    <p><strong>No tom de B:</strong> B / C#m / E / F#</p>
-                    <p><strong>No tom de C:</strong> C / Dm / F / G</p>
-                    <p><strong>No tom de D:</strong> D / Em / G / A</p>
-                    <p><strong>No tom de E:</strong> E / F#m / A / B</p>
-                    <p><strong>No tom de F:</strong> F / Gm / Bb / C</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Essa sequência é muito comum em músicas infantis e canções tradicionais.
-                    </p>
-                </div>
-
-                {/* 6-4-1-5 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 6–4–1–5</h3>
-                    <p className="mb-2 italic text-yellow-800">Usada em pop e rock moderno.</p>
-                    <p><strong>No tom de G:</strong> Em / C / G / D</p>
-                    <p><strong>No tom de A:</strong> F#m / D / A / E</p>
-                    <p><strong>No tom de B:</strong> G#m / E / B / F#</p>
-                    <p><strong>No tom de C:</strong> Am / F / C / G</p>
-                    <p><strong>No tom de D:</strong> Bm / G / D / A</p>
-                    <p><strong>No tom de E:</strong> C#m / A / E / B</p>
-                    <p><strong>No tom de F:</strong> Dm / Bb / F / C</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Muito usada em refrões de músicas internacionais.
-                    </p>
-                </div>
-
-                {/* 6-5-4-1 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 6–5–4–1</h3>
-                    <p className="mb-2 italic text-yellow-800">Cria movimento descendente e emocional.</p>
-                    <p><strong>No tom de G:</strong> Em / D / C / G</p>
-                    <p><strong>No tom de A:</strong> F#m / E / D / A</p>
-                    <p><strong>No tom de B:</strong> G#m / F# / E / B</p>
-                    <p><strong>No tom de C:</strong> Am / G / F / C</p>
-                    <p><strong>No tom de D:</strong> Bm / A / G / D</p>
-                    <p><strong>No tom de E:</strong> C#m / B / A / E</p>
-                    <p><strong>No tom de F:</strong> Dm / C / Bb / F</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Gera uma sensação de retorno e leveza — perfeita para encerramentos.
-                    </p>
-                </div>
-
-                {/* 6–3–4–5–1 (Simples) */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 6–3–4–5–1</h3>
-                    <p className="mb-2 italic text-yellow-800">Progressão emocional e suave, com sensação de retorno natural.</p>
-                    <p><strong>No tom de G:</strong> Em / Bm / C / D / G</p>
-                    <p><strong>No tom de A:</strong> F#m / C#m / D / E / A</p>
-                    <p><strong>No tom de B:</strong> G#m / D#m / E / F# / B</p>
-                    <p><strong>No tom de C:</strong> Am / Em / F / G / C</p>
-                    <p><strong>No tom de D:</strong> Bm / F#m / G / A / D</p>
-                    <p><strong>No tom de E:</strong> C#m / G#m / A / B / E</p>
-                    <p><strong>No tom de F:</strong> Dm / Am / Bb / C / F</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Ideal para músicas lentas, introspectivas ou românticas. Traz sensação de conforto e resolução.
-                    </p>
-                </div>
-
-                {/* 6–3–4–V/V–V/VI (Com dominantes secundários) */}
-                <div className="bg-yellow-100 text-yellow-950 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎶 6–3–4–V/V–V/VI</h3>
-                    <p className="mb-2 italic text-yellow-900">
-                        Versão com dominantes secundários — adiciona tensão e um toque moderno.
-                    </p>
-                    <p><strong>No tom de G:</strong> Em / Bm / C / E / A7</p>
-                    <p><strong>No tom de A:</strong> F#m / C#m / D / G# / C#7</p>
-                    <p><strong>No tom de B:</strong> G#m / D#m / E / A# / D#7</p>
-                    <p><strong>No tom de C:</strong> Am / Em / F / A / D7</p>
-                    <p><strong>No tom de D:</strong> Bm / F#m / G / B / E7</p>
-                    <p><strong>No tom de E:</strong> C#m / G#m / A / C# / F#7</p>
-                    <p><strong>No tom de F:</strong> Dm / Am / Bb / D / G7</p>
-                    <p className="mt-2 text-sm text-yellow-800">
-                        💡 Cria sensação de movimento e &quot;empurrão harmônico&quot;. Muito usada em pagode, MPB e pop romântico.
-                    </p>
-                </div>
-
-                {/* 1–2–5 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎶 1–2–5</h3>
-                    <p className="mb-2 italic text-yellow-800">
-                        Clássica progressão de preparação — usada para retornar ao início ou criar expectativa.
-                    </p>
-                    <p><strong>No tom de G:</strong> G / Am / D</p>
-                    <p><strong>No tom de A:</strong> A / Bm / E</p>
-                    <p><strong>No tom de B:</strong> B / C#m / F#</p>
-                    <p><strong>No tom de C:</strong> C / Dm / G</p>
-                    <p><strong>No tom de D:</strong> D / Em / A</p>
-                    <p><strong>No tom de E:</strong> E / F#m / B</p>
-                    <p><strong>No tom de F:</strong> F / Gm / C</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Ideal para transições suaves ou ponte entre partes da música.
-                    </p>
-                </div>
-
-                {/* 2-5-1 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 2–5–1</h3>
-                    <p className="mb-2 italic text-yellow-800">A rainha das progressões do jazz.</p>
-                    <p><strong>No tom de G:</strong> Am / D / G</p>
-                    <p><strong>No tom de A:</strong> Bm / E / A</p>
-                    <p><strong>No tom de B:</strong> C#m / F# / B</p>
-                    <p><strong>No tom de C:</strong> Dm / G / C</p>
-                    <p><strong>No tom de D:</strong> Em / A / D</p>
-                    <p><strong>No tom de E:</strong> F#m / B / E</p>
-                    <p><strong>No tom de F:</strong> Gm / C / F</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 É a base do jazz, da bossa nova e de boa parte da MPB.
-                    </p>
-                </div>
-
-                {/* 1-4-5 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 1–4–5</h3>
-                    <p className="mb-2 italic text-yellow-800">A sequência mais antiga e universal.</p>
-                    <p><strong>No tom de G:</strong> G / C / D</p>
-                    <p><strong>No tom de A:</strong> A / D / E</p>
-                    <p><strong>No tom de B:</strong> B / E / F#</p>
-                    <p><strong>No tom de C:</strong> C / F / G</p>
-                    <p><strong>No tom de D:</strong> D / G / A</p>
-                    <p><strong>No tom de E:</strong> E / A / B</p>
-                    <p><strong>No tom de F:</strong> F / Bb / C</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 É o coração do blues, do rock e de muitas músicas tradicionais.
-                    </p>
-                </div>
-
-                {/* 1-5-6 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 1–5–6</h3>
-                    <p className="mb-2 italic text-yellow-800">Perfeita para músicas pop, baladas e louvores tranquilos.</p>
-                    <p><strong>No tom de G:</strong> G / D9 / Em</p>
-                    <p><strong>No tom de A:</strong> A / E9 / F#m</p>
-                    <p><strong>No tom de B:</strong> B / F#9 / G#m</p>
-                    <p><strong>No tom de C:</strong> C / G9 / Am</p>
-                    <p><strong>No tom de D:</strong> D / A9 / Bm</p>
-                    <p><strong>No tom de E:</strong> E / B9 / C#m</p>
-                    <p><strong>No tom de F:</strong> F / C9 / Dm</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Simples, elegante e versátil — ótima para introduções, refrões ou transições suaves.
-                    </p>
-                </div>
-
-                {/* 5-4-1 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 5–4–1</h3>
-                    <p className="mb-2 italic text-yellow-800">Progressão de retorno e fechamento.</p>
-                    <p><strong>No tom de G:</strong> D / C / G</p>
-                    <p><strong>No tom de A:</strong> E / D / A</p>
-                    <p><strong>No tom de B:</strong> F# / E / B</p>
-                    <p><strong>No tom de C:</strong> G / F / C</p>
-                    <p><strong>No tom de D:</strong> A / G / D</p>
-                    <p><strong>No tom de E:</strong> B / A / E</p>
-                    <p><strong>No tom de F:</strong> C / Bb / F</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Ideal para finais de música — dá sensação de conclusão e repouso.
-                    </p>
-                </div>
-
-                {/* 6-1-5-4-5 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 6–1–5-4-5</h3>
-                    <p className="mb-2 italic text-yellow-800">Essa sequência tem um toque emocional e resolutivo.</p>
-                    <p><strong>No tom de G:</strong> Em / G / D / C / D</p>
-                    <p><strong>No tom de A:</strong> F#m / A / E / D / E</p>
-                    <p><strong>No tom de B:</strong> G#m / B / F# / E / F#</p>
-                    <p><strong>No tom de C:</strong> Am / C / G / F / G</p>
-                    <p><strong>No tom de D:</strong> Bm / D / A / G / A</p>
-                    <p><strong>No tom de E:</strong> C#m / E / B / A / B</p>
-                    <p><strong>No tom de F:</strong> Dm / F / C / Bb / C</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Cria um fluxo emocional com final aberto — perfeita para pontes e transições que convidam o ouvinte a continuar.
-                    </p>
-                </div>
-
-                {/* 5-4-5-1 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎵 5–4–5–1</h3>
-                    <p className="mb-2 italic text-yellow-800">Transição.</p>
-                    <p><strong>No tom de G:</strong> D9 / C9 / D9 / G</p>
-                    <p><strong>No tom de A:</strong> E9 / D9 / E9 / A</p>
-                    <p><strong>No tom de B:</strong> F#9 / E9 / F#9 / B</p>
-                    <p><strong>No tom de C:</strong> G9 / F9 / G9 / C</p>
-                    <p><strong>No tom de D:</strong> A9 / G9 / A9 / D</p>
-                    <p><strong>No tom de E:</strong> B9 / A9 / B9 / E</p>
-                    <p><strong>No tom de F:</strong> C9 / Bb9 / C9 / F</p>
-                </div>
-
-                {/* 4–3–4–6 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎶 4–3–4–6</h3>
-                    <p className="mb-2 italic text-yellow-800">
-                        Passagem moderna e emotiva, comum em músicas de adoração e pop contemporâneo.
-                    </p>
-                    <p><strong>No tom de G:</strong> C / Bm / C / Em</p>
-                    <p><strong>No tom de A:</strong> D / C#m / D / F#m</p>
-                    <p><strong>No tom de B:</strong> E / D#m / E / G#m</p>
-                    <p><strong>No tom de C:</strong> F / Em / F / Am</p>
-                    <p><strong>No tom de D:</strong> G / F#m / G / Bm</p>
-                    <p><strong>No tom de E:</strong> A / G#m / A / C#m</p>
-                    <p><strong>No tom de F:</strong> Bb / Am / Bb / Dm</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Gera uma sensação de &quot;ida e volta&quot; suave, perfeita para partes mais sentimentais.
-                    </p>
-                </div>
-
-                {/* 4–3–4–5–1–6–3–4–5–1 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎶 4–3–4–5–1–6–3–4–5–1</h3>
-                    <p className="mb-2 italic text-yellow-800">
-                        Essa sequência cria um movimento envolvente e circular, com o acorde III servindo de ponte suave entre o IV e o V.
-                    </p>
-                    <p><strong>No tom de G:</strong> C / Bm / C / D / G / Em / Bm / C / D / G</p>
-                    <p><strong>No tom de A:</strong> D / C#m / D / E / A / F#m / C#m / D / E / A</p>
-                    <p><strong>No tom de B:</strong> E / D#m / E / F# / B / G#m / D#m / E / F# / B</p>
-                    <p><strong>No tom de C:</strong> F / Em / F / G / C / Am / Em / F / G / C</p>
-                    <p><strong>No tom de D:</strong> G / F#m / G / A / D / Bm / F#m / G / A / D</p>
-                    <p><strong>No tom de E:</strong> A / G#m / A / B / E / C#m / G#m / A / B / E</p>
-                    <p><strong>No tom de F:</strong> Bb / Am / Bb / C / F / Dm / Am / Bb / C / F</p>
-                    <p className="mt-2 text-sm text-yellow-700">
-                        💡 Transmite sensação de crescimento e continuidade — ótima para refrões que evoluem e voltam com força.
-                    </p>
-                </div>
-
-                {/* 1–5–6–3–4–1–2–5–4–3–4–6–2–5–1 */}
-                <div className="bg-yellow-50 text-yellow-900 p-5 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-2">🎶 1–5–6–3–4–1–2–5–4–3–4–6–2–5–1</h3>
-                    <p className="mb-2 italic text-yellow-800">
-                        Uma progressão longa e envolvente, perfeita para louvores e músicas emocionais.
-                    </p>
-                    <p><strong>No tom de G:</strong> G / D / Em / Bm / C / G / Am / D / C / Bm / C / Em / Am / D / G</p>
-                    <p><strong>No tom de A:</strong> A / E / F#m / C#m / D / A / Bm / E / D / C#m / D / F#m / Bm / E / A</p>
-                    <p><strong>No tom de B:</strong> B / F# / G#m / D#m / E / B / C#m / F# / E / D#m / E / G#m / C#m / F# / B</p>
-                    <p><strong>No tom de C:</strong> C / G / Am / Em / F / C / Dm / G / F / Em / F / Am / Dm / G / C</p>
-                    <p><strong>No tom de D:</strong> D / A / Bm / F#m / G / D / Em / A / G / F#m / G / Bm / Em / A / D</p>
-                    <p><strong>No tom de E:</strong> E / B / C#m / G#m / A / E / F#m / B / A / G#m / A / C#m / F#m / B / E</p>
-                    <p><strong>No tom de F:</strong> F / C / Dm / Am / Bb / F / Gm / C / Bb / Am / Bb / Dm / Gm / C / F</p>
-                    <div className="mt-4 flex flex-wrap justify-center gap-2 text-sm text-yellow-800">
-                        <span className="bg-yellow-200/70 px-3 py-1 rounded-full">1 (Tônica) → Base e repouso</span>
-                        <span className="bg-yellow-100/70 px-3 py-1 rounded-full">5 (Dominante) → Puxa pro 1</span>
-                        <span className="bg-yellow-200/70 px-3 py-1 rounded-full">6 (Relativo menor) → Emoção</span>
-                        <span className="bg-yellow-100/70 px-3 py-1 rounded-full">3 (Mediante) → Transição suave</span>
-                        <span className="bg-yellow-200/70 px-3 py-1 rounded-full">4 (Subdominante) → Estabilidade</span>
-                        <span className="bg-yellow-100/70 px-3 py-1 rounded-full">2 (Pré-dominante) → Prepara o 5</span>
-                    </div>
-
-                    <p className="mt-3 text-sm text-yellow-700">
-                        💡 Dica: toque com batidas leves e ênfase no 1º e 5º graus.
-                        Essa sequência é ótima para refrões e finais emocionantes.
-                    </p>
-                </div>
-            </section>
-
-            {/* Fechamento */}
-            <section className="max-w-3xl mx-auto text-center text-lg bg-black/40 p-6 rounded-2xl shadow-lg mt-10">
-                <p className="mb-3">
-                    🚀 Agora que você conhece as progressões mais usadas, tente aplicá-las em
-                    músicas que você já toca ou compõe.
-                </p>
-            </section>
-        </main >
+            </div>
+        </main>
     );
 }
