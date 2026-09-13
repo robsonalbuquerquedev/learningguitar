@@ -1,10 +1,26 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
-import type { Metadata } from "next";
+import LessonBreadcrumb from "@/components/learning/LessonBreadcrumb";
+import LessonHero from "@/components/learning/LessonHero";
+import LessonSection from "@/components/learning/LessonSection";
+import LearningObjectives from "@/components/learning/LearningObjectives";
+import ConceptCard from "@/components/learning/ConceptCard";
+import ChordGrid from "@/components/learning/ChordGrid";
+import ChordComparison from "@/components/learning/ChordComparison";
+import TheoryBlock from "@/components/learning/TheoryBlock";
+import FretboardVisualization from "@/components/learning/FretboardVisualization";
+import AccidentalsBlock from "@/components/learning/AccidentalsBlock";
+import PracticePath from "@/components/learning/PracticePath";
+import PracticeChallenge from "@/components/learning/PracticeChallenge";
+import LessonSummary from "@/components/learning/LessonSummary";
+import NextLesson from "@/components/learning/NextLesson";
+import LessonNavigation from "@/components/learning/LessonNavigation";
 
 export const metadata: Metadata = {
     title: {
-        absolute: "Acordes Maiores e Menores Naturais | Guia Simples para Violão"
+        absolute:
+            "Acordes Maiores e Menores Naturais | Guia Simples para Violão"
     },
 
     description:
@@ -23,14 +39,17 @@ export const metadata: Metadata = {
     ],
 
     alternates: {
-        canonical: "https://aprenderviolaoonline.com.br/acordes-maiores-e-menores-naturais"
+        canonical:
+            "https://aprenderviolaoonline.com.br/acordes-maiores-e-menores-naturais"
     },
 
     openGraph: {
-        title: "Acordes Maiores e Menores Naturais | Guia Completo para Violão",
+        title:
+            "Acordes Maiores e Menores Naturais | Guia Completo para Violão",
         description:
             "Aprenda os acordes naturais maiores e menores no violão com explicações simples, exemplos e aplicações práticas para iniciantes.",
-        url: "https://aprenderviolaoonline.com.br/acordes-maiores-e-menores-naturais",
+        url:
+            "https://aprenderviolaoonline.com.br/acordes-maiores-e-menores-naturais",
         images: [
             {
                 url: "/og-image.png",
@@ -46,7 +65,8 @@ export const metadata: Metadata = {
 
     twitter: {
         card: "summary_large_image",
-        title: "Acordes Maiores e Menores Naturais | Guia para Violão",
+        title:
+            "Acordes Maiores e Menores Naturais | Guia para Violão",
         description:
             "Entenda como montar e tocar acordes maiores e menores naturais no violão, com explicações fáceis para quem está começando.",
         images: ["/og-image.png"],
@@ -54,130 +74,506 @@ export const metadata: Metadata = {
     }
 };
 
+const learningObjectives = [
+    {
+        icon: "🎵",
+        title: "O que é um acorde",
+        description:
+            "Entenda como diferentes notas podem soar juntas e formar um acorde."
+    },
+    {
+        icon: "🎶",
+        title: "Maior ou menor?",
+        description:
+            "Aprenda a diferença entre acordes como C e Cm e entenda o significado do m."
+    },
+    {
+        icon: "🎸",
+        title: "Os acordes naturais",
+        description:
+            "Conheça C, D, E, F, G, A e B, os principais acordes naturais maiores."
+    },
+    {
+        icon: "🖐️",
+        title: "Como começar a praticar",
+        description:
+            "Descubra uma sequência simples de acordes para começar sem tentar aprender tudo de uma vez."
+    }
+];
+
+const naturalMajorChords = [
+    {
+        name: "C",
+        fullName: "Dó maior",
+        quality: "major" as const
+    },
+    {
+        name: "D",
+        fullName: "Ré maior",
+        quality: "major" as const
+    },
+    {
+        name: "E",
+        fullName: "Mi maior",
+        quality: "major" as const
+    },
+    {
+        name: "F",
+        fullName: "Fá maior",
+        quality: "major" as const
+    },
+    {
+        name: "G",
+        fullName: "Sol maior",
+        quality: "major" as const
+    },
+    {
+        name: "A",
+        fullName: "Lá maior",
+        quality: "major" as const
+    },
+    {
+        name: "B",
+        fullName: "Si maior",
+        quality: "major" as const
+    }
+];
+
+const naturalMinorChords = [
+    {
+        name: "Cm",
+        fullName: "Dó menor",
+        quality: "minor" as const
+    },
+    {
+        name: "Dm",
+        fullName: "Ré menor",
+        quality: "minor" as const
+    },
+    {
+        name: "Em",
+        fullName: "Mi menor",
+        quality: "minor" as const
+    },
+    {
+        name: "Fm",
+        fullName: "Fá menor",
+        quality: "minor" as const
+    },
+    {
+        name: "Gm",
+        fullName: "Sol menor",
+        quality: "minor" as const
+    },
+    {
+        name: "Am",
+        fullName: "Lá menor",
+        quality: "minor" as const
+    },
+    {
+        name: "Bm",
+        fullName: "Si menor",
+        quality: "minor" as const
+    }
+];
+
+const practiceSteps = [
+    {
+        label: "Primeiro",
+        title: "Comece com quatro acordes",
+        chords: ["C", "G", "Am", "Em"],
+        description:
+            "Pratique cada acorde separadamente. Depois, tente alternar entre eles lentamente, prestando atenção à posição dos dedos e à clareza do som."
+    },
+    {
+        label: "Depois",
+        title: "Amplie seu repertório",
+        chords: ["D", "A", "E"],
+        description:
+            "Quando os primeiros acordes estiverem mais confortáveis, acrescente novas posições e pratique as mudanças sem pressa."
+    },
+    {
+        label: "Mais adiante",
+        title: "Enfrente acordes mais difíceis",
+        chords: ["F", "Bm"],
+        description:
+            "Algumas posições exigem mais força, coordenação e prática. Deixe esses acordes para quando sua mão já estiver mais acostumada."
+    }
+];
+
+const summaryItems = [
+    "Um acorde é uma combinação de notas que soam juntas.",
+    "C representa Dó maior, enquanto Cm representa Dó menor.",
+    "A letra m indica que o acorde é menor.",
+    "Os acordes naturais maiores são C, D, E, F, G, A e B.",
+    "Os acordes naturais menores são Cm, Dm, Em, Fm, Gm, Am e Bm.",
+    "Sustenidos e bemóis representam alterações de um semitom.",
+    "C# e Db, por exemplo, podem representar a mesma altura sonora.",
+    "Você não precisa aprender todos os acordes de uma vez: comece com poucos e pratique as mudanças."
+];
+
 export default function AcordesMaioresEMenoresNaturais() {
     return (
-        <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-amber-50 py-20 px-6">
-            <div className="max-w-4xl mx-auto space-y-6">
-                <h1 className="text-3xl sm:text-4xl font-bold text-center text-yellow-300">
-                    🎵 Acordes Maiores e Menores Naturais
-                </h1>
+        <main className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 px-6 py-10 text-gray-900 md:py-14">
+            <div className="mx-auto max-w-5xl">
+                <LessonBreadcrumb
+                    items={[
+                        {
+                            label: "Início",
+                            href: "/"
+                        },
+                        {
+                            label: "Trilha para iniciantes",
+                            href: "/#beginner-path"
+                        },
+                        {
+                            label: "Fundamentos",
+                            href: "/formacao-de-acordes"
+                        },
+                        {
+                            label: "Acordes"
+                        }
+                    ]}
+                />
 
-                <p className="text-lg leading-relaxed">
-                    Antes de mergulhar em escalas e campos harmônicos, é essencial entender os acordes
-                    naturais — os blocos fundamentais de praticamente todas as músicas.
-                    Aqui estão os acordes <strong>maiores</strong>, <strong>menores</strong>,
-                    além dos <strong>sustenidos</strong> e <strong>bemóis</strong>.
-                </p>
+                <LessonHero
+                    category="🎸 FUNDAMENTOS DO VIOLÃO"
+                    title="Acordes Maiores e Menores Naturais"
+                    description="Entenda o que são acordes, descubra a diferença entre maiores e menores e conheça os acordes naturais que aparecem em milhares de músicas no violão."
+                    level="Iniciante"
+                    duration="Aproximadamente 10 minutos"
+                    type="Teoria + prática"
+                />
 
-                {/* Maiores */}
-                <h2 className="text-2xl font-semibold text-yellow-200">🎸 Acordes Maiores</h2>
-                <p className="leading-relaxed">
-                    Os acordes maiores têm um som aberto, alegre e cheio de energia:
-                </p>
-                <p className="bg-amber-800/40 rounded-xl p-4 text-center font-semibold text-yellow-200">
-                    C – D – E – F – G – A – B
-                </p>
+                <LearningObjectives
+                    objectives={learningObjectives}
+                />
 
-                {/* Menores */}
-                <h2 className="text-2xl font-semibold text-yellow-200">🎶 Acordes Menores</h2>
-                <p className="leading-relaxed">
-                    Já os acordes menores têm um som mais suave e melancólico:
-                </p>
-                <p className="bg-amber-800/40 rounded-xl p-4 text-center font-semibold text-yellow-200">
-                    Cm – Dm – Em – Fm – Gm – Am – Bm
-                </p>
-
-                {/* Sustenidos */}
-                <h2 className="text-2xl font-semibold text-yellow-200">#️⃣ Sustenidos</h2>
-                <p className="leading-relaxed">
-                    O sustenido (<strong>#</strong>) indica que a nota <strong>sobe meio tom</strong>,
-                    ou seja, você avança <strong>uma casa</strong> no violão.
-                </p>
-                <p className="bg-amber-800/40 rounded-xl p-4 text-center font-semibold text-yellow-200">
-                    C# – D# – F# – G# – A#
-                </p>
-
-                {/* Bemóis */}
-                <h2 className="text-2xl font-semibold text-yellow-200">♭ Bemóis</h2>
-                <p className="leading-relaxed">
-                    O bemol (<strong>♭</strong>) indica que a nota <strong>desce meio tom</strong>,
-                    ou seja, você volta <strong>uma casa</strong> no violão.
-                </p>
-                <p className="bg-amber-800/40 rounded-xl p-4 text-center font-semibold text-yellow-200">
-                    Eb – Bb
-                </p>
-
-                {/* Relação */}
-                <h2 className="text-2xl font-semibold text-yellow-200">⚖️ Relação entre sustenidos e bemóis</h2>
-                <p className="leading-relaxed">
-                    Quando subimos no braço do violão usamos <strong>sustenidos (#)</strong> —
-                    quando descemos, usamos <strong>bemóis (♭)</strong>.
-                    E algumas notas são <strong>enarmônicas</strong>, ou seja,
-                    têm nomes diferentes mas o mesmo som.
-                </p>
-
-                <p className="bg-amber-800/40 rounded-xl p-4 text-center font-semibold text-yellow-200">
-                    D# = Eb<br />
-                    A# = Bb<br />
-                    F# = Gb<br />
-                    C# = Db<br />
-                    G# = Ab
-                </p>
-
-                <p className="leading-relaxed">
-                    Essas equivalências são muito úteis para compreender cifras e partituras —
-                    não estranhe se vir <strong>D#</strong> em uma música e <strong>Eb</strong> em outra:
-                    elas representam o mesmo som!
-                </p>
-
-                {/* Sem sustenido */}
-                <h2 className="text-2xl font-semibold text-yellow-200">🚫 Notas sem sustenido</h2>
-                <p className="leading-relaxed">
-                    As notas <strong>B (Si)</strong> e <strong>E (Mi)</strong> não possuem sustenido natural,
-                    pois entre elas e as notas seguintes (C e F) já existe apenas <strong>meio tom</strong>.
-                </p>
-
-                <p className="bg-amber-800/40 rounded-xl p-4 text-center font-semibold text-yellow-200">
-                    Entre E e F → meio tom<br />
-                    Entre B e C → meio tom
-                </p>
-
-                <p className="leading-relaxed">
-                    Por isso, na prática, não existe <strong>E#</strong> nem <strong>B#</strong>.
-                    Mas teoricamente, em certas escalas, esses nomes podem aparecer.
-                </p>
-
-                {/* Ilustração simples */}
-                <div className="bg-amber-800/40 rounded-xl p-6 text-center space-y-3">
-                    <h3 className="text-xl font-semibold text-yellow-200">🎸 Visualizando no Braço do Violão</h3>
-                    <p className="text-amber-100 leading-relaxed">
-                        Imagine o braço do violão em pé:
-                        <br />
-                        <strong>Subir</strong> → sustenido (#) → notas ficam mais agudas 🔼
-                        <br />
-                        <strong>Descer</strong> → bemol (♭) → notas ficam mais graves 🔽
-                    </p>
-                    <div className="flex justify-center items-center gap-2 text-lg font-semibold text-yellow-300">
-                        <span>←♭</span>
-                        <span className="px-3 py-1 bg-yellow-300 text-amber-900 rounded">C</span>
-                        <span className="px-3 py-1 bg-yellow-300 text-amber-900 rounded">C# / Db</span>
-                        <span className="px-3 py-1 bg-yellow-300 text-amber-900 rounded">D</span>
-                        <span>♯→</span>
-                    </div>
-                    <p className="text-sm text-amber-100 italic">
-                        (Subindo = sustenido / Descendo = bemol)
-                    </p>
-                </div>
-
-                <div className="text-center mt-10">
-                    <Link
-                        href="/campo-harmonico"
-                        target="_blank"
-                        className="inline-block bg-yellow-300 text-amber-900 font-semibold px-6 py-3 rounded-full hover:bg-yellow-400 transition"
+                <div id="lesson-content">
+                    <LessonSection
+                        eyebrow="Antes de começar"
+                        title="Você não precisa saber tudo"
                     >
-                        🎵 Entender o Campo Harmônico
-                    </Link>
+                        <p>
+                            Para acompanhar esta aula, você não precisa dominar
+                            teoria musical. Se já consegue segurar o violão,
+                            pressionar algumas cordas e reconhece as letras de
+                            A a G usadas nas cifras, já pode começar.
+                        </p>
+
+                        <ConceptCard
+                            icon="💡"
+                            title="Uma dica importante"
+                        >
+                            Não tente decorar todos os acordes de uma vez.
+                            Primeiro entenda a lógica. Depois, pratique
+                            algumas posições até que seus dedos comecem a
+                            memorizar os movimentos naturalmente.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Primeiro conceito"
+                        title="O que é um acorde?"
+                    >
+                        <p>
+                            Imagine que cada nota musical é uma pessoa. Uma
+                            pessoa sozinha produz uma voz. Quando várias
+                            pessoas cantam juntas, elas podem formar uma
+                            combinação harmoniosa.
+                        </p>
+
+                        <p>
+                            Com os acordes acontece algo parecido: várias
+                            notas são combinadas para produzir um determinado
+                            resultado sonoro.
+                        </p>
+
+                        <TheoryBlock title="A ideia principal">
+                            <p>
+                                <strong>
+                                    Acorde é uma combinação de notas que soam
+                                    juntas.
+                                </strong>
+                            </p>
+
+                            <p className="mt-3">
+                                Por exemplo, o acorde C maior é formado pelas
+                                notas C, E e G. No violão, algumas dessas notas
+                                podem aparecer mais de uma vez em diferentes
+                                cordas.
+                            </p>
+                        </TheoryBlock>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Entendendo a diferença"
+                        title="Maior ou menor?"
+                    >
+                        <p>
+                            Uma das primeiras diferenças que você encontrará
+                            nas cifras é entre acordes maiores e menores.
+                        </p>
+
+                        <p>
+                            Veja um exemplo simples:
+                        </p>
+
+                        <ChordComparison
+                            firstChord={{
+                                name: "C",
+                                fullName: "Dó maior",
+                                notes: "C + E + G",
+                                description:
+                                    "É o acorde de Dó maior. A ausência da letra m indica que estamos falando da forma maior."
+                            }}
+                            secondChord={{
+                                name: "Cm",
+                                fullName: "Dó menor",
+                                notes: "C + Eb + G",
+                                description:
+                                    "É o acorde de Dó menor. A letra m indica que o acorde é menor e sua combinação de notas é diferente."
+                            }}
+                        />
+
+                        <p>
+                            Os acordes maiores e menores possuem características
+                            sonoras diferentes. Muitas vezes os maiores são
+                            percebidos como mais abertos ou brilhantes, enquanto
+                            os menores podem transmitir uma sensação mais
+                            introspectiva. A emoção, porém, depende também da
+                            música e do contexto.
+                        </p>
+
+                        <ConceptCard
+                            icon="🔎"
+                            title="Preste atenção na cifra"
+                        >
+                            Quando você encontrar <strong>C</strong>, estamos
+                            falando de Dó maior. Quando encontrar{" "}
+                            <strong>Cm</strong>, o <strong>m</strong> indica Dó
+                            menor.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Sua primeira referência"
+                        title="Os 7 acordes naturais"
+                    >
+                        <p>
+                            As notas naturais são representadas pelas letras
+                            A, B, C, D, E, F e G. A partir delas, temos os sete
+                            acordes naturais maiores:
+                        </p>
+
+                        <ChordGrid chords={naturalMajorChords} />
+
+                        <p>
+                            Esses acordes aparecem constantemente em músicas e
+                            são uma ótima base para quem está começando a
+                            aprender violão.
+                        </p>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Agora com o m"
+                        title="E os acordes menores?"
+                    >
+                        <p>
+                            A lógica fica simples quando você entende o
+                            significado da letra <strong>m</strong>. Ela
+                            identifica a versão menor do acorde.
+                        </p>
+
+                        <ChordGrid chords={naturalMinorChords} />
+
+                        <ConceptCard
+                            icon="🎯"
+                            title="A regra que você deve guardar"
+                        >
+                            <strong>
+                                C → Dó maior
+                                <br />
+                                Cm → Dó menor
+                            </strong>
+
+                            <p className="mt-2">
+                                A mesma ideia aparece em outros acordes:
+                                G/Gm, A/Am, E/Em e assim por diante.
+                            </p>
+                        </ConceptCard>
+
+                        <p>
+                            Existem ainda muitos outros tipos de acordes, como
+                            C7, Cm7, Cmaj7 e Cadd9. Eles serão estudados em
+                            conteúdos específicos. Por enquanto, concentre-se
+                            nessa diferença fundamental entre maior e menor.
+                        </p>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Indo um pouco além"
+                        title="Como os acordes são formados?"
+                    >
+                        <p>
+                            Agora que você já sabe diferenciar C de Cm, podemos
+                            observar uma pequena parte da lógica por trás dessa
+                            diferença.
+                        </p>
+
+                        <TheoryBlock
+                            title="Exemplo: C maior e C menor"
+                            icon="🎼"
+                        >
+                            <p>
+                                <strong>C maior:</strong> C + E + G
+                            </p>
+
+                            <p className="mt-2">
+                                <strong>C menor:</strong> C + Eb + G
+                            </p>
+
+                            <p className="mt-3">
+                                Perceba que duas notas permanecem iguais. A
+                                diferença está na nota do meio: E passa para
+                                Eb. Essa alteração muda a característica do
+                                acorde.
+                            </p>
+                        </TheoryBlock>
+
+                        <p>
+                            Essa é apenas uma introdução à formação dos acordes.
+                            Mais adiante, você poderá entender com detalhes
+                            intervalos, terças, fórmulas e outras estruturas da
+                            harmonia.
+                        </p>
+
+                        <div className="pt-2">
+                            <Link
+                                href="/formacao-de-acordes"
+                                className="inline-flex items-center font-semibold text-amber-700 transition hover:text-amber-900"
+                            >
+                                Entender como os acordes são formados
+                                <span
+                                    className="ml-2"
+                                    aria-hidden="true"
+                                >
+                                    →
+                                </span>
+                            </Link>
+                        </div>
+
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Ligando teoria e instrumento"
+                        title="Como isso aparece no braço do violão?"
+                    >
+                        <p>
+                            No violão, cada casa representa um avanço de um
+                            semitom. Isso ajuda a visualizar a relação entre
+                            notas naturais e notas alteradas.
+                        </p>
+
+                        <FretboardVisualization />
+
+                        <p>
+                            Se você avançar uma casa, sobe um semitom. Por
+                            exemplo: C → C# → D.
+                        </p>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Complemento de teoria"
+                        title="Sustenidos, bemóis e enarmonia"
+                    >
+                        <p>
+                            Agora que você já entende a ideia de semitom, fica
+                            mais fácil compreender os símbolos{" "}
+                            <strong>#</strong> e <strong>♭</strong>.
+                        </p>
+
+                        <AccidentalsBlock />
+
+                        <p>
+                            C# e Db, por exemplo, podem representar a mesma
+                            altura sonora. O nome escolhido depende do contexto
+                            musical.
+                        </p>
+
+                        <ConceptCard
+                            icon="🧠"
+                            title="Não precisa memorizar tudo agora"
+                        >
+                            Neste momento, basta reconhecer que sustenido e
+                            bemol representam alterações de um semitom e que
+                            algumas notas podem receber nomes diferentes para a
+                            mesma altura sonora.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Hora de praticar"
+                        title="Por onde começar a praticar?"
+                    >
+                        <p>
+                            Você não precisa tentar aprender os 14 acordes
+                            apresentados nesta aula imediatamente.
+                        </p>
+
+                        <p>
+                            Uma estratégia melhor é aprender alguns acordes,
+                            praticar suas posições e depois trabalhar as
+                            mudanças entre eles.
+                        </p>
+
+                        <PracticePath steps={practiceSteps} />
+
+                        <ConceptCard
+                            icon="🎸"
+                            title="O objetivo não é velocidade"
+                        >
+                            No começo, procure formar o acorde corretamente e
+                            produzir um som limpo. Depois, pratique a mudança
+                            para outro acorde. A velocidade vem naturalmente
+                            com a repetição.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Verifique seu aprendizado"
+                        title="Mini desafio"
+                    >
+                        <PracticeChallenge />
+                    </LessonSection>
+
+                    <div className="py-10 md:py-14">
+                        <LessonSummary items={summaryItems} />
+                    </div>
+
+                    <div className="pb-10 md:pb-14">
+                        <NextLesson
+                            title="Aprender como os acordes são formados"
+                            description="Agora que você conhece os acordes maiores e menores naturais, chegou a hora de entender como eles são construídos e por que uma pequena alteração nas notas pode mudar o tipo de acorde."
+                            href="/formacao-de-acordes"
+                        />
+                    </div>
                 </div>
+
+                <LessonNavigation
+                    home={{
+                        title: "Voltar para a trilha de iniciantes",
+                        href: "/#beginner-path"
+                    }}
+                    next={{
+                        title: "Formação de Acordes",
+                        href: "/formacao-de-acordes"
+                    }}
+                />
+
+                <p className="pb-6 text-center text-sm text-gray-500">
+                    Você está construindo sua base. Continue no seu ritmo. 🎸
+                </p>
             </div>
         </main>
     );
