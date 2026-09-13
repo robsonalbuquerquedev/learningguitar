@@ -1,6 +1,22 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
+import LessonBreadcrumb from "@/components/learning/LessonBreadcrumb";
+import LessonHero from "@/components/learning/LessonHero";
+import LessonSection from "@/components/learning/LessonSection";
+
+import LearningObjectives from "@/components/learning/LearningObjectives";
+import ConceptCard from "@/components/learning/ConceptCard";
+import ChordCard from "@/components/learning/ChordCard";
+import ChordGrid from "@/components/learning/ChordGrid";
+import ChordComparison from "@/components/learning/ChordComparison";
+
+import TheoryBlock from "@/components/learning/TheoryBlock";
+import FretboardVisualization from "@/components/learning/FretboardVisualization";
+import ChordFormula from "@/components/learning/ChordFormula";
+import NextLesson from "@/components/learning/NextLesson";
+import LessonNavigation from "@/components/learning/LessonNavigation";
+
 export const metadata: Metadata = {
     title: {
         absolute: "Formação de Acordes no Violão | Guia Completo e Visual"
@@ -43,163 +59,639 @@ export const metadata: Metadata = {
     }
 };
 
+const learningObjectives = [
+    {
+        icon: "🎼",
+        title: "Entender as tríades",
+        description:
+            "Descubra como tônica, terça e quinta formam a estrutura básica de muitos acordes."
+    },
+    {
+        icon: "🎯",
+        title: "Identificar os graus",
+        description:
+            "Aprenda a relacionar as notas do acorde aos graus da escala."
+    },
+    {
+        icon: "🔎",
+        title: "Conhecer as fórmulas",
+        description:
+            "Entenda as fórmulas 1 – 3 – 5 e 1 – ♭3 – 5 para acordes maiores e menores."
+    },
+    {
+        icon: "🎸",
+        title: "Construir acordes",
+        description:
+            "Use a lógica das fórmulas para descobrir as notas que formam diferentes acordes."
+    }
+];
+
+const naturalMajorChords = [
+    {
+        name: "C",
+        fullName: "Dó maior",
+        quality: "major" as const
+    },
+    {
+        name: "D",
+        fullName: "Ré maior",
+        quality: "major" as const
+    },
+    {
+        name: "E",
+        fullName: "Mi maior",
+        quality: "major" as const
+    },
+    {
+        name: "F",
+        fullName: "Fá maior",
+        quality: "major" as const
+    },
+    {
+        name: "G",
+        fullName: "Sol maior",
+        quality: "major" as const
+    },
+    {
+        name: "A",
+        fullName: "Lá maior",
+        quality: "major" as const
+    },
+    {
+        name: "B",
+        fullName: "Si maior",
+        quality: "major" as const
+    }
+];
+
+const naturalMinorChords = [
+    {
+        name: "Am",
+        fullName: "Lá menor",
+        quality: "minor" as const
+    },
+    {
+        name: "Bm",
+        fullName: "Si menor",
+        quality: "minor" as const
+    },
+    {
+        name: "Cm",
+        fullName: "Dó menor",
+        quality: "minor" as const
+    },
+    {
+        name: "Dm",
+        fullName: "Ré menor",
+        quality: "minor" as const
+    },
+    {
+        name: "Em",
+        fullName: "Mi menor",
+        quality: "minor" as const
+    },
+    {
+        name: "Fm",
+        fullName: "Fá menor",
+        quality: "minor" as const
+    },
+    {
+        name: "Gm",
+        fullName: "Sol menor",
+        quality: "minor" as const
+    }
+];
+
 export default function FormacaoDeAcordes() {
-    const notas = ["C", "D", "E", "F", "G", "A", "B"];
-    const acordeCMaior = ["C", "E", "G"];
-    const acordeCMenor = ["C", "Eb", "G"];
-
     return (
-        <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-yellow-50 py-10 px-4">
-            <div className="max-w-3xl mx-auto">
-                {/* Título principal */}
-                <h1 className="text-4xl font-bold mb-8 text-center drop-shadow-md text-yellow-300 animate-fadeSlide">
-                    🎶 Formação de Acordes
-                </h1>
+        <main className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 px-6 py-10 text-gray-900 md:py-14">
+            <div className="mx-auto max-w-5xl">
 
-                {/* Introdução */}
-                <p className="mb-6 leading-relaxed text-lg">
-                    Um <strong>acorde</strong> é um conjunto de três ou mais notas tocadas juntas que soam
-                    harmoniosamente. Para entender como eles se formam, usamos como base a{" "}
-                    <Link
-                        href="/escalas"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-yellow-300 underline hover:text-yellow-200"
+                <LessonBreadcrumb
+                    items={[
+                        {
+                            label: "Início",
+                            href: "/"
+                        },
+                        {
+                            label: "Trilha para iniciantes",
+                            href: "/#beginner-path"
+                        },
+                        {
+                            label: "Fundamentos",
+                            href: "/formacao-de-acordes"
+                        },
+                        {
+                            label: "Formação de acordes"
+                        }
+                    ]}
+                />
+
+                <LessonHero
+                    category="🎸 FUNDAMENTOS DO VIOLÃO"
+                    title="Formação de Acordes"
+                    description="Descubra como notas e graus da escala se combinam para formar acordes maiores, menores e outras estruturas que você encontra no violão."
+                    level="Iniciante"
+                    duration="Aproximadamente 12 minutos"
+                    type="Teoria + prática"
+                />
+
+                <LearningObjectives
+                    objectives={learningObjectives}
+                />
+
+                <div id="lesson-content">
+
+                    <LessonSection
+                        eyebrow="Antes de começar"
+                        title="Um acorde tem uma lógica"
                     >
-                        escala maior (natural)
-                    </Link>
-                    .
-                </p>
-
-                {/* Seção: Acordes tríades */}
-                <section className="mb-10">
-                    <h2 className="text-2xl font-semibold mb-4">📚 Acordes Tríades</h2>
-                    <p className="leading-relaxed">
-                        A maioria dos acordes é formada por três notas — as <em>tríades</em> — compostas por:
-                        <br />
-                        <strong>Tônica</strong> (base), <strong>terça</strong> e <strong>quinta</strong>.
-                    </p>
-
-                    <div className="bg-amber-800/50 rounded-2xl shadow-lg p-6 mt-6 border border-yellow-800">
-                        <p className="mb-3">
-                            Exemplo: Na escala de C (C, D, E, F, G, A, B)
-                            <br />
-                            → C (tônica), E (terça) e G (quinta)
-                            <br />
-                            🎵 Resultado: Acorde de <strong>C</strong> = C / E / G
+                        <p>
+                            Quando começamos a aprender violão, é comum enxergar
+                            os acordes apenas como desenhos que precisamos
+                            memorizar. Mas existe uma lógica por trás dessas
+                            posições.
                         </p>
 
-                        {/* Visualização interativa */}
-                        <div className="mt-6 flex justify-center gap-2">
-                            {notas.map((nota, index) => (
-                                <div
-                                    key={nota}
-                                    className={`w-10 h-10 flex items-center justify-center rounded-full font-bold 
-  ${acordeCMaior.includes(nota)
-                                            ? "bg-yellow-400 text-amber-900 shadow-lg"
-                                            : "bg-amber-700 text-yellow-100 opacity-60"} animate-popIn`}
-                                >
-                                    {nota}
-                                </div>
-                            ))}
-                        </div>
-
-                        <p className="text-center mt-4 text-sm italic">
-                            As notas destacadas (C, E, G) formam o acorde de C (Dó Maior).
+                        <p>
+                            Pense em um acorde como uma receita. Cada nota tem
+                            uma função dentro da combinação. Quando entendemos
+                            essas funções, fica mais fácil compreender por que
+                            determinados acordes são maiores, menores ou
+                            possuem outras características.
                         </p>
-                    </div>
-                </section>
 
-                {/* Seção: Acordes maiores e menores */}
-                <section className="mb-10">
-                    <h2 className="text-2xl font-semibold mb-4">⚖️ Acordes Maiores e Menores</h2>
-                    <p className="leading-relaxed">
-                        Para saber se um acorde é <strong>maior</strong> ou <strong>menor</strong>, contamos a
-                        distância entre a <strong>tônica</strong> e a <strong>terça</strong> usando a{" "}
-                        <Link
-                            href="/escalas"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-yellow-300 underline hover:text-yellow-200"
+                        <ConceptCard
+                            icon="💡"
+                            title="A ideia principal"
                         >
-                            escala cromática
-                        </Link>
-                        .
-                    </p>
+                            Formar um acorde significa combinar determinadas
+                            notas seguindo uma estrutura musical.
+                        </ConceptCard>
+                    </LessonSection>
 
-                    <ul className="list-disc ml-6 mt-3 space-y-2">
-                        <li>
-                            <strong>Acorde Maior:</strong> 2 tons entre tônica e terça → som alegre ☀️ (ex: C → E)
-                        </li>
-                        <li>
-                            <strong>Acorde Menor:</strong> 1 tom e meio entre tônica e terça → som triste 🌧️ (ex:
-                            C → Eb)
-                        </li>
-                    </ul>
-                </section>
+                    <LessonSection
+                        eyebrow="Primeiro conceito"
+                        title="O que é uma tríade?"
+                    >
+                        <p>
+                            Uma das estruturas mais importantes para começar a
+                            entender a formação dos acordes é a{" "}
+                            <strong>tríade</strong>.
+                        </p>
 
-                {/* Visualização comparativa */}
-                <section>
-                    <h2 className="text-2xl font-semibold mb-4">🎧 Visualizando a Diferença</h2>
-                    <p className="leading-relaxed mb-4">
-                        Observe como o acorde de <strong>C Maior</strong> e o acorde de <strong>C Menor</strong>{" "}
-                        diferem apenas na <strong>terça</strong> — essa pequena alteração muda totalmente o
-                        sentimento do som!
-                    </p>
+                        <p>
+                            Como o próprio nome sugere, uma tríade é formada por
+                            três notas principais: <strong>tônica</strong>,
+                            <strong> terça</strong> e <strong>quinta</strong>.
+                        </p>
 
-                    <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                        {/* Acorde Maior */}
-                        <div className="flex-1 bg-amber-800/60 rounded-2xl p-6 border border-yellow-800">
-                            <h3 className="text-xl font-semibold text-center mb-4">☀️ C Maior</h3>
-                            <div className="flex justify-center gap-3">
-                                {acordeCMaior.map((nota, index) => (
-                                    <div
-                                        key={nota}
-                                        className={`w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg 
-    ${nota === "Eb" ? "bg-yellow-200 text-amber-900" : "bg-yellow-400 text-amber-900"}
-    animate-popIn`}
-                                    >
-                                        {nota}
-                                    </div>
-                                ))}
+                        <TheoryBlock title="As três partes da tríade">
+                            <p>
+                                <strong>Tônica:</strong> é a nota que dá nome ao
+                                acorde e funciona como seu ponto de referência.
+                            </p>
+
+                            <p className="mt-3">
+                                <strong>Terça:</strong> ajuda a determinar se a
+                                tríade possui característica maior ou menor.
+                            </p>
+
+                            <p className="mt-3">
+                                <strong>Quinta:</strong> completa a estrutura
+                                básica da tríade.
+                            </p>
+                        </TheoryBlock>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Visualizando a construção"
+                        title="Exemplo: C maior"
+                    >
+                        <p>
+                            Vamos construir um acorde usando a escala de C
+                            maior:
+                        </p>
+
+                        <TheoryBlock title="Escala de C maior">
+                            <p className="text-center text-lg font-semibold">
+                                C → D → E → F → G → A → B
+                            </p>
+                        </TheoryBlock>
+
+                        <p>
+                            Agora selecionamos o primeiro, o terceiro e o
+                            quinto graus:
+                        </p>
+
+                        <ChordFormula
+                            title="Fórmula da tríade maior"
+                            formula="1 – 3 – 5"
+                            description="A tríade maior utiliza a tônica, a terça maior e a quinta."
+                        />
+
+                        <ChordCard
+                            name="C"
+                            fullName="Dó maior"
+                            quality="major"
+                        />
+
+                        <ConceptCard
+                            icon="🎯"
+                            title="O que aconteceu?"
+                        >
+                            Partimos da escala de C maior, selecionamos os
+                            graus 1, 3 e 5 e chegamos às notas C, E e G.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="A regra por trás do acorde"
+                        title="Tônica, terça e quinta"
+                    >
+                        <p>
+                            Os números que aparecem nas fórmulas representam os
+                            graus da escala usados para construir o acorde.
+                        </p>
+
+                        <TheoryBlock title="No acorde C maior">
+                            <div className="grid gap-4 text-center sm:grid-cols-3">
+                                <div>
+                                    <p className="text-sm text-gray-500">
+                                        1º grau
+                                    </p>
+                                    <p className="mt-1 text-xl font-bold">
+                                        C
+                                    </p>
+                                    <p className="text-sm text-gray-600">
+                                        Tônica
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <p className="text-sm text-gray-500">
+                                        3º grau
+                                    </p>
+                                    <p className="mt-1 text-xl font-bold">
+                                        E
+                                    </p>
+                                    <p className="text-sm text-gray-600">
+                                        Terça
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <p className="text-sm text-gray-500">
+                                        5º grau
+                                    </p>
+                                    <p className="mt-1 text-xl font-bold">
+                                        G
+                                    </p>
+                                    <p className="text-sm text-gray-600">
+                                        Quinta
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </TheoryBlock>
 
-                        {/* Acorde Menor */}
-                        <div className="flex-1 bg-amber-800/60 rounded-2xl p-6 border border-yellow-800">
-                            <h3 className="text-xl font-semibold text-center mb-4">🌧️ C Menor</h3>
-                            <div className="flex justify-center gap-3">
-                                {acordeCMenor.map((nota, index) => (
-                                    <div
-                                        key={nota}
-                                        className={`w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg 
-                ${nota === "Eb"
-                                                ? "bg-yellow-200 text-amber-900"
-                                                : "bg-yellow-400 text-amber-900"}
-                animate-popIn`}
-                                        style={{ animationDelay: `${index * 0.2}s` }}
-                                    >
-                                        {nota}
-                                    </div>
-                                ))}
-                            </div>
+                        <ChordFormula
+                            title="Resumo da construção"
+                            formula="C + E + G"
+                            description="1º grau + 3º grau + 5º grau da escala de C maior."
+                        />
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Maior ou menor?"
+                        title="A terça muda tudo"
+                    >
+                        <p>
+                            Agora chegamos a uma das partes mais importantes
+                            desta aula.
+                        </p>
+
+                        <p>
+                            A estrutura básica continua sendo formada pela
+                            tônica, terça e quinta. O que muda entre uma tríade
+                            maior e uma menor é principalmente a{" "}
+                            <strong>terça</strong>.
+                        </p>
+
+                        <ChordComparison
+                            firstChord={{
+                                name: "C",
+                                fullName: "Dó maior",
+                                notes: "C + E + G",
+                                description:
+                                    "A terça é E, formando uma terça maior em relação à tônica C."
+                            }}
+                            secondChord={{
+                                name: "Cm",
+                                fullName: "Dó menor",
+                                notes: "C + Eb + G",
+                                description:
+                                    "A terça é rebaixada para Eb, formando uma terça menor em relação à tônica C."
+                            }}
+                        />
+
+                        <ChordFormula
+                            title="Fórmula do acorde maior"
+                            formula="1 – 3 – 5"
+                            description="Tônica, terça maior e quinta."
+                        />
+
+                        <ChordFormula
+                            title="Fórmula do acorde menor"
+                            formula="1 – ♭3 – 5"
+                            description="Tônica, terça menor e quinta."
+                        />
+
+                        <ConceptCard
+                            icon="🔎"
+                            title="Guarde esta diferença"
+                        >
+                            No C maior temos <strong>C + E + G</strong>.
+                            No C menor temos <strong>C + Eb + G</strong>.
+                            A tônica e a quinta permanecem, enquanto a terça
+                            muda de E para Eb.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Colocando a fórmula em prática"
+                        title="Construindo outros acordes maiores"
+                    >
+                        <p>
+                            A fórmula <strong>1 – 3 – 5</strong> não funciona
+                            apenas para C maior. Ela pode ser aplicada a outras
+                            notas.
+                        </p>
+
+                        <p>
+                            Por exemplo, usando a escala de G maior:
+                        </p>
+
+                        <TheoryBlock title="Escala de G maior">
+                            <p className="text-center text-lg font-semibold">
+                                G → A → B → C → D → E → F#
+                            </p>
+                        </TheoryBlock>
+
+                        <p>
+                            Pegando os graus 1, 3 e 5:
+                        </p>
+
+                        <ChordFormula
+                            title="G maior"
+                            formula="G + B + D"
+                            description="G é a tônica, B é a terça e D é a quinta."
+                        />
+
+                        <p>
+                            O mesmo raciocínio pode ser aplicado aos demais
+                            acordes maiores.
+                        </p>
+
+                        <ChordGrid chords={naturalMajorChords} />
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Agora construindo acordes menores"
+                        title="Aplicando a fórmula 1 – ♭3 – 5"
+                    >
+                        <p>
+                            Para construir uma tríade menor, mantemos a mesma
+                            ideia de tônica, terça e quinta, mas a terça é
+                            rebaixada em um semitom.
+                        </p>
+
+                        <ChordFormula
+                            title="Fórmula da tríade menor"
+                            formula="1 – ♭3 – 5"
+                            description="A terça é diminuída em um semitom em relação à terça maior."
+                        />
+
+                        <p>
+                            Observe o exemplo de A menor:
+                        </p>
+
+                        <TheoryBlock title="Escala de A menor natural">
+                            <p className="text-center text-lg font-semibold">
+                                A → B → C → D → E → F → G
+                            </p>
+                        </TheoryBlock>
+
+                        <ChordCard
+                            name="Am"
+                            fullName="Lá menor"
+                            quality="minor"
+                        />
+
+                        <ChordGrid chords={naturalMinorChords} />
+
+                        <ConceptCard
+                            icon="🧠"
+                            title="A lógica é mais importante que a decoração"
+                        >
+                            Você não precisa decorar cada combinação como se
+                            fosse uma lista aleatória. Entendendo a fórmula,
+                            consegue compreender de onde as notas do acorde
+                            vêm.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Ligando teoria e instrumento"
+                        title="Como isso aparece no braço do violão?"
+                    >
+                        <p>
+                            No violão, as notas que formam um acorde aparecem em
+                            diferentes cordas e casas. Uma mesma nota pode
+                            inclusive aparecer mais de uma vez.
+                        </p>
+
+                        <p>
+                            Por isso, o desenho que você aprende para um acorde
+                            não mostra apenas três posições. Ele representa uma
+                            combinação de notas distribuídas pelo instrumento.
+                        </p>
+
+                        <FretboardVisualization />
+
+                        <ConceptCard
+                            icon="🎸"
+                            title="Do papel para o violão"
+                        >
+                            A fórmula explica <strong>quais notas</strong>{" "}
+                            pertencem ao acorde. A posição no braço mostra{" "}
+                            <strong>onde essas notas</strong> podem ser
+                            encontradas no instrumento.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Indo além"
+                        title="E os outros tipos de acordes?"
+                    >
+                        <p>
+                            Agora que você entende a ideia de tônica, terça e quinta, fica
+                            muito mais fácil começar a interpretar nomes como C7, Cm7, Cmaj7
+                            e Cadd9.
+                        </p>
+
+                        <TheoryBlock title="A mesma lógica continua">
+                            <p>
+                                Uma tríade pode receber outras notas ou ter algumas de suas
+                                notas modificadas.
+                            </p>
+
+                            <p className="mt-3">
+                                Por exemplo, podemos partir de uma estrutura básica e
+                                acrescentar uma sétima para formar acordes com 7ª.
+                            </p>
+                        </TheoryBlock>
+
+                        <p>
+                            Esses acordes possuem suas próprias fórmulas e serão estudados em
+                            conteúdos específicos. Por enquanto, concentre-se na base:
+                        </p>
+
+                        <ChordFormula
+                            title="A estrutura fundamental"
+                            formula="1 – 3 – 5"
+                            description="Tônica, terça e quinta formam a base das tríades."
+                        />
+
+                        <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
+                            <Link
+                                href="/acordes-com-setimas"
+                                className="inline-flex items-center font-semibold text-amber-700 transition hover:text-amber-900"
+                            >
+                                Aprender acordes com 7ª
+                                <span className="ml-2" aria-hidden="true">
+                                    →
+                                </span>
+                            </Link>
+
+                            <Link
+                                href="/acordes-maiores-e-menores-naturais"
+                                className="inline-flex items-center font-semibold text-gray-600 transition hover:text-gray-900"
+                            >
+                                Revisar acordes maiores e menores naturais
+                                <span className="ml-2" aria-hidden="true">
+                                    →
+                                </span>
+                            </Link>
                         </div>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Hora de praticar"
+                        title="Tente construir um acorde"
+                    >
+                        <p>
+                            Agora tente aplicar a lógica sozinho.
+                        </p>
+
+                        <ConceptCard
+                            icon="🎯"
+                            title="Desafio 1"
+                        >
+                            A escala de G maior é:
+                            <strong> G, A, B, C, D, E, F#</strong>.
+                            <br />
+                            <br />
+                            Quais são os graus 1, 3 e 5?
+                        </ConceptCard>
+
+                        <ConceptCard
+                            icon="🎯"
+                            title="Desafio 2"
+                        >
+                            A escala de A menor natural é:
+                            <strong> A, B, C, D, E, F, G</strong>.
+                            <br />
+                            <br />
+                            Quais notas formam a tríade de A menor?
+                        </ConceptCard>
+
+                        <ConceptCard
+                            icon="💡"
+                            title="Confira seu raciocínio"
+                        >
+                            Se você chegou a <strong>G + B + D</strong> no
+                            primeiro desafio e <strong>A + C + E</strong> no
+                            segundo, aplicou corretamente a ideia de tônica,
+                            terça e quinta.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <LessonSection
+                        eyebrow="Resumo"
+                        title="O que você aprendeu?"
+                    >
+                        <TheoryBlock title="A formação básica dos acordes">
+                            <p>
+                                <strong>Tríade:</strong> combinação de três
+                                notas principais.
+                            </p>
+
+                            <p className="mt-3">
+                                <strong>1:</strong> tônica.
+                            </p>
+
+                            <p className="mt-3">
+                                <strong>3:</strong> terça.
+                            </p>
+
+                            <p className="mt-3">
+                                <strong>5:</strong> quinta.
+                            </p>
+
+                            <p className="mt-3">
+                                <strong>Maior:</strong> 1 – 3 – 5.
+                            </p>
+
+                            <p className="mt-3">
+                                <strong>Menor:</strong> 1 – ♭3 – 5.
+                            </p>
+                        </TheoryBlock>
+
+                        <ConceptCard
+                            icon="🎸"
+                            title="A ideia para levar com você"
+                        >
+                            Em vez de enxergar os acordes apenas como desenhos
+                            para memorizar, comece a enxergá-los como
+                            combinações de notas construídas a partir de uma
+                            lógica.
+                        </ConceptCard>
+                    </LessonSection>
+
+                    <div className="pb-10 md:pb-14">
+                        <NextLesson
+                            title="Aprender acordes com 7ª"
+                            description="Agora que você entende como tônica, terça e quinta formam as tríades, chegou a hora de adicionar uma nova camada à harmonia e descobrir como as sétimas transformam esses acordes."
+                            href="/acordes-com-setimas"
+                        />
                     </div>
 
-                    <p className="text-center mt-6 text-sm italic">
-                        A diferença entre o “E” e o “Eb” é o que transforma o clima do acorde. 🎶
-                    </p>
-                </section>
+                    <LessonNavigation
+                        home={{
+                            title: "Voltar para a trilha de iniciantes",
+                            href: "/#beginner-path"
+                        }}
+                        next={{
+                            title: "Acordes com 7ª",
+                            href: "/acordes-com-setimas"
+                        }}
+                    />
 
-                {/* Curiosidade final */}
-                <section className="mt-10">
-                    <h2 className="text-2xl font-semibold mb-4">💡 Curiosidade</h2>
-                    <p className="leading-relaxed">
-                        O sétimo grau da escala é especial — ele não é nem maior nem menor, e é chamado de{" "}
-                        <em>meio diminuto</em>. Ele aparece bastante em estilos como o jazz e o blues, criando
-                        tensão antes de resolver o acorde.
+                    <p className="pb-6 text-center text-sm text-gray-500">
+                        Você acabou de dar um passo importante para entender como os
+                        acordes são construídos. Continue praticando no seu ritmo. 🎸
                     </p>
-                </section>
+                </div>
             </div>
         </main>
     );
