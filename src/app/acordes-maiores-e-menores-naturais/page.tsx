@@ -404,10 +404,17 @@ export default function AcordesMaioresEMenoresNaturais() {
                         </ConceptCard>
 
                         <p>
-                            Existem ainda muitos outros tipos de acordes, como
-                            C7, Cm7, Cmaj7 e Cadd9. Eles serão estudados em
-                            conteúdos específicos. Por enquanto, concentre-se
-                            nessa diferença fundamental entre maior e menor.
+                            Existem ainda outros tipos de acordes que adicionam novas sonoridades,
+                            como os acordes com sétima. Se você quiser dar o próximo passo,
+                            pode conhecer os{" "}
+                            <Link
+                                href="/acordes-com-setimas"
+                                className="font-semibold text-amber-700 underline decoration-amber-300 underline-offset-4 hover:text-amber-800"
+                            >
+                                acordes com sétima
+                            </Link>
+                            , enquanto aqui o foco continua sendo entender a diferença fundamental
+                            entre acordes maiores e menores.
                         </p>
                     </LessonSection>
 

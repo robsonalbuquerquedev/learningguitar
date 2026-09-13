@@ -681,6 +681,10 @@ export default function FormacaoDeAcordes() {
                             title: "Voltar para a trilha de iniciantes",
                             href: "/#beginner-path"
                         }}
+                        previous={{
+                            title: "Acordes maiores e menores",
+                            href: "/acordes-maiores-e-menores-naturais"
+                        }}
                         next={{
                             title: "Acordes com 7ª",
                             href: "/acordes-com-setimas"
