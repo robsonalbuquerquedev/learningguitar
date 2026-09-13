@@ -436,7 +436,7 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                 <NextLesson
                     title="Explorar acordes de minutos"
                     description="Você já passou pelos fundamentos dos acordes, do campo harmônico e das progressões. Agora pode avançar para um conteúdo de nível intermediário, explorando acordes de minutos e novas possibilidades de construção e sonoridade."
-                    href="/acordes-de-minutos"
+                    href="/acordes-diminutos"
                 />
 
                 <LessonNavigation
@@ -450,7 +450,7 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                     }}
                     next={{
                         title: "Acordes de minutos",
-                        href: "/acordes-de-minutos"
+                        href: "/acordes-diminutos"
                     }}
                 />
 

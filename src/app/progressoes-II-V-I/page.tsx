@@ -602,7 +602,7 @@ export default function ProgressoesII_V_I() {
                     <NextLesson
                         title="Explorar acordes de minutos"
                         description="Você já passou pelos fundamentos dos acordes, do campo harmônico e das progressões. Agora pode avançar para um conteúdo de nível intermediário, explorando acordes de minutos e novas possibilidades de construção e sonoridade."
-                        href="/acordes-de-minutos"
+                        href="/acordes-diminutos"
                     />
                 </div>
 
@@ -617,7 +617,7 @@ export default function ProgressoesII_V_I() {
                     }}
                     next={{
                         title: "Acordes de minutos",
-                        href: "/acordes-de-minutos"
+                        href: "/acordes-diminutos"
                     }}
                 />
             </div>

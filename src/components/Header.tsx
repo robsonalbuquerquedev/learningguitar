@@ -48,7 +48,7 @@ const menus: Menu[] = [
                     },
                     {
                         name: "Acordes de Minuto",
-                        href: "/acordes-de-minutos",
+                        href: "/acordes-diminutos",
                     },
                 ],
             },

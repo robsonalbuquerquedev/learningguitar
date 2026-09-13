@@ -520,7 +520,7 @@ export default function ProgressoesI_III_IV_V() {
                     <NextLesson
                         title="Explorar acordes de minutos"
                         description="Você já explorou diferentes formas de organizar os acordes em uma tonalidade. Agora pode avançar para um conteúdo de nível intermediário e conhecer novas possibilidades de construção e sonoridade."
-                        href="/acordes-de-minutos"
+                        href="/acordes-diminutos"
                     />
                 </div>
 
@@ -535,7 +535,7 @@ export default function ProgressoesI_III_IV_V() {
                     }}
                     next={{
                         title: "Acordes de minutos",
-                        href: "/acordes-de-minutos"
+                        href: "/acordes-diminutos"
                     }}
                 />
             </div>

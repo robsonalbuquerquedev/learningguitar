@@ -448,7 +448,7 @@ export default function AcordesComSetimas() {
                             aplicações e relação com outros acordes diminutos serão estudadas
                             com mais profundidade na aula de{" "}
                             <Link
-                                href="/acordes-de-minutos"
+                                href="/acordes-diminutos"
                                 className="font-semibold text-amber-700 underline decoration-amber-300 underline-offset-4 hover:text-amber-800"
                             >
                                 acordes diminutos
