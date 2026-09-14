@@ -3,60 +3,44 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://aprenderviolaoonline.com.br";
 
-    // Rotas institucionais
-    const institucionais = [
+    const rotas = [
+        // Página inicial
         "",
+
+        // Institucional
         "sobre",
         "feedback",
         "recomendacoes",
         "politica-de-privacidade",
         "termos-de-uso",
         "politica-de-afiliados",
-    ];
 
-    // Teoria — Fundamentos
-    const fundamentos = [
+        // Fundamentos dos acordes
         "acordes-maiores-e-menores-naturais",
         "formacao-de-acordes",
-        "escalas",
-        "campo-harmonico",
-    ];
-
-    // Teoria — Acordes Avançados
-    const acordesAvancados = [
         "acordes-com-setimas",
-        "acordes-de-minutos",
-    ];
+        "acordes-diminutos",
 
-    // Teoria — Progressões
-    const progressoes = [
+        // Harmonia
+        "campo-harmonico",
         "progressoes-de-acordes",
         "progressoes-harmonicas-mais-usadas",
-        "subdominante-menor",
         "progressoes-I-III-IV-V",
         "progressoes-II-V-I",
-    ];
+        "subdominante-menor",
 
-    // Teoria — Aplicações
-    const aplicacoes = [
+        // Notas e braço
+        "escalas",
+        "memorizar-todas-as-notas",
+        "memorizar-braco-do-violao",
         "aprender-tocar-em-todos-os-tons",
+
+        // Técnica
         "batidas-basicas",
         "dedilhados",
-    ];
-
-    // Ferramentas
-    const ferramentas = [
-        "memorizar-braco-do-violao",
-        "memorizar-todas-as-notas",
-    ];
-
-    // Solos
-    const solos = [
         "shapes-solos",
-    ];
 
-    // Loja Musical
-    const loja = [
+        // Loja Musical
         "loja-musical",
         "loja-musical/afinadores",
         "loja-musical/capotrastes",
@@ -64,22 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "loja-musical/camisetas-musicais",
     ];
 
-    // Agrupando todas as rotas
-    const todasAsRotas = [
-        ...institucionais,
-        ...fundamentos,
-        ...acordesAvancados,
-        ...progressoes,
-        ...aplicacoes,
-        ...ferramentas,
-        ...solos,
-        ...loja,
-    ];
-
-    return todasAsRotas.map((rota) => ({
+    return rotas.map((rota) => ({
         url: `${baseUrl}/${rota}`,
         lastModified: new Date(),
-        changeFrequency: "weekly" as const,
-        priority: rota === "" ? 1.0 : 0.7,
     }));
 }

@@ -1,34 +1,137 @@
-export const breadcrumbMap: Record<string, string[]> = {
-    "/acordes-maiores-e-menores-naturais": ["Teoria", "Fundamentos"],
-    "/formacao-de-acordes": ["Teoria", "Fundamentos"],
-    "/escalas": ["Teoria", "Fundamentos"],
-    "/campo-harmonico": ["Teoria", "Fundamentos"],
+export interface BreadcrumbData {
+    categories: string[];
+    name: string;
+}
 
-    "/acordes-com-setimas": ["Teoria", "Acordes Avançados"],
-    "/acordes-de-minutos": ["Teoria", "Acordes Avançados"],
+export const breadcrumbMap: Record<string, BreadcrumbData> = {
+    // Fundamentos dos acordes
+    "/acordes-maiores-e-menores-naturais": {
+        categories: ["Aprender", "Fundamentos dos acordes"],
+        name: "Acordes Maiores e Menores Naturais",
+    },
 
-    "/progressoes-de-acordes": ["Teoria", "Progressões"],
-    "/progressoes-harmonicas-mais-usadas": ["Teoria", "Progressões"],
-    "/subdominante-menor": ["Teoria", "Progressões"],
-    "/progressoes-I-III-IV-V": ["Teoria", "Progressões"],
-    "/progressoes-II-V-I": ["Teoria", "Progressões"],
+    "/formacao-de-acordes": {
+        categories: ["Aprender", "Fundamentos dos acordes"],
+        name: "Formação de Acordes",
+    },
 
-    "/aprender-tocar-em-todos-os-tons": ["Teoria", "Aplicações"],
-    "/batidas-basicas": ["Teoria", "Aplicações"],
-    "/dedilhados": ["Teoria", "Aplicações"],
+    "/acordes-com-setimas": {
+        categories: ["Aprender", "Fundamentos dos acordes"],
+        name: "Acordes com Sétimas",
+    },
 
-    "/memorizar-braco-do-violao": ["Ferramentas"],
-    "/memorizar-todas-as-notas": ["Ferramentas"],
+    "/acordes-diminutos": {
+        categories: ["Aprender", "Fundamentos dos acordes"],
+        name: "Acordes Diminutos",
+    },
 
-    "/shapes-solos": ["Solos"],
+    // Harmonia
+    "/campo-harmonico": {
+        categories: ["Aprender", "Harmonia"],
+        name: "Campo Harmônico",
+    },
 
-    "/loja-musical": ["Loja Musical"],
-    "/loja-musical/afinadores": ["Loja Musical"],
-    "/loja-musical/capotrastes": ["Loja Musical"],
-    "/loja-musical/palhetas": ["Loja Musical"],
-    "/loja-musical/camisetas-musicais": ["Loja Musical"],
+    "/progressoes-de-acordes": {
+        categories: ["Aprender", "Harmonia"],
+        name: "Progressões de Acordes",
+    },
 
-    "/sobre": ["Outros"],
-    "/feedback": ["Outros"],
-    "/recomendacoes": ["Outros"],
+    "/progressoes-harmonicas-mais-usadas": {
+        categories: ["Aprender", "Harmonia"],
+        name: "Progressões Harmônicas Mais Usadas",
+    },
+
+    "/progressoes-I-III-IV-V": {
+        categories: ["Aprender", "Harmonia"],
+        name: "Progressão I–III–IV–V",
+    },
+
+    "/progressoes-II-V-I": {
+        categories: ["Aprender", "Harmonia"],
+        name: "Progressão II–V–I",
+    },
+
+    "/subdominante-menor": {
+        categories: ["Aprender", "Harmonia"],
+        name: "Subdominante Menor",
+    },
+
+    // Notas e braço
+    "/escalas": {
+        categories: ["Aprender", "Notas e braço"],
+        name: "Escalas",
+    },
+
+    "/memorizar-todas-as-notas": {
+        categories: ["Aprender", "Notas e braço"],
+        name: "Memorizar Todas as Notas",
+    },
+
+    "/memorizar-braco-do-violao": {
+        categories: ["Aprender", "Notas e braço"],
+        name: "Memorizar o Braço do Violão",
+    },
+
+    "/aprender-tocar-em-todos-os-tons": {
+        categories: ["Aprender", "Notas e braço"],
+        name: "Aprender a Tocar em Todos os Tons",
+    },
+
+    // Técnica
+    "/batidas-basicas": {
+        categories: ["Aprender", "Técnica"],
+        name: "Batidas Básicas",
+    },
+
+    "/dedilhados": {
+        categories: ["Aprender", "Técnica"],
+        name: "Dedilhados",
+    },
+
+    "/shapes-solos": {
+        categories: ["Aprender", "Técnica"],
+        name: "Shapes de Solos",
+    },
+
+    // Loja Musical
+    "/loja-musical": {
+        categories: ["Loja Musical"],
+        name: "Loja Musical",
+    },
+
+    "/loja-musical/afinadores": {
+        categories: ["Loja Musical"],
+        name: "Afinadores",
+    },
+
+    "/loja-musical/capotrastes": {
+        categories: ["Loja Musical"],
+        name: "Capotrastes",
+    },
+
+    "/loja-musical/palhetas": {
+        categories: ["Loja Musical"],
+        name: "Palhetas",
+    },
+
+    "/loja-musical/camisetas-musicais": {
+        categories: ["Loja Musical"],
+        name: "Camisetas Musicais",
+    },
+
+    // Mais
+    "/sobre": {
+        categories: ["Mais"],
+        name: "Sobre",
+    },
+
+    "/feedback": {
+        categories: ["Mais"],
+        name: "Feedback",
+    },
+
+    "/recomendacoes": {
+        categories: ["Mais"],
+        name: "Recomendações",
+    },
 };

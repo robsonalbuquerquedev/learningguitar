@@ -11,7 +11,7 @@ export default function BreadcrumbInjector() {
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-                __html: JSON.stringify(breadcrumbJson)
+                __html: JSON.stringify(breadcrumbJson),
             }}
         />
     );

@@ -1,10 +1,32 @@
 import { breadcrumbMap } from "./breadcrumb-map";
 
+interface BreadcrumbItem {
+    "@type": "ListItem";
+    position: number;
+    name: string;
+    item?: string;
+}
+
 export function generateBreadcrumbList(pathname: string) {
-    const segments: string[] = breadcrumbMap[pathname] || [];
+    const data = breadcrumbMap[pathname];
     const baseUrl = "https://aprenderviolaoonline.com.br";
 
-    const breadcrumbItems = [
+    if (!data) {
+        return {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Início",
+                    item: baseUrl,
+                },
+            ],
+        };
+    }
+
+    const breadcrumbItems: BreadcrumbItem[] = [
         {
             "@type": "ListItem",
             position: 1,
@@ -13,13 +35,19 @@ export function generateBreadcrumbList(pathname: string) {
         },
     ];
 
-    segments.forEach((segment: string, index: number) => {
+    data.categories.forEach((category, index) => {
         breadcrumbItems.push({
             "@type": "ListItem",
             position: index + 2,
-            name: segment,
-            item: baseUrl + pathname,
+            name: category,
         });
+    });
+
+    breadcrumbItems.push({
+        "@type": "ListItem",
+        position: data.categories.length + 2,
+        name: data.name,
+        item: `${baseUrl}${pathname}`,
     });
 
     return {
