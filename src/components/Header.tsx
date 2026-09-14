@@ -32,7 +32,7 @@ const menus: Menu[] = [
         name: "Aprender",
         subcategories: [
             {
-                name: "Acordes",
+                name: "Fundamentos dos acordes",
                 links: [
                     {
                         name: "Acordes Maiores e Menores",
@@ -47,18 +47,14 @@ const menus: Menu[] = [
                         href: "/acordes-com-setimas",
                     },
                     {
-                        name: "Acordes de Minuto",
+                        name: "Acordes Diminutos",
                         href: "/acordes-diminutos",
                     },
                 ],
             },
             {
-                name: "Teoria e Harmonia",
+                name: "Harmonia",
                 links: [
-                    {
-                        name: "Escalas",
-                        href: "/escalas",
-                    },
                     {
                         name: "Campo Harmônico",
                         href: "/campo-harmonico",
@@ -71,10 +67,43 @@ const menus: Menu[] = [
                         name: "Progressões Harmônicas Mais Usadas",
                         href: "/progressoes-harmonicas-mais-usadas",
                     },
+                    {
+                        name: "II–V–I",
+                        href: "/progressoes-II-V-I",
+                    },
+                    {
+                        name: "I–III–IV–V",
+                        href: "/progressoes-I-III-IV-V",
+                    },
+                    {
+                        name: "Subdominante Menor",
+                        href: "/subdominante-menor",
+                    },
                 ],
             },
             {
-                name: "Ritmo",
+                name: "Notas e braço",
+                links: [
+                    {
+                        name: "Escalas",
+                        href: "/escalas",
+                    },
+                    {
+                        name: "Memorizar Todas as Notas",
+                        href: "/memorizar-todas-as-notas",
+                    },
+                    {
+                        name: "Memorizar o Braço do Violão",
+                        href: "/memorizar-braco-do-violao",
+                    },
+                    {
+                        name: "Tocar em Todos os Tons",
+                        href: "/aprender-tocar-em-todos-os-tons",
+                    },
+                ],
+            },
+            {
+                name: "Técnica",
                 links: [
                     {
                         name: "Batidas Básicas",
@@ -84,61 +113,18 @@ const menus: Menu[] = [
                         name: "Dedilhados",
                         href: "/dedilhados",
                     },
-                ],
-            },
-            {
-                name: "Progressões",
-                links: [
                     {
-                        name: "I–III–IV–V",
-                        href: "/progressoes-I-III-IV-V",
-                    },
-                    {
-                        name: "II–V–I",
-                        href: "/progressoes-II-V-I",
-                    },
-                    {
-                        name: "Subdominante Menor",
-                        href: "/subdominante-menor",
-                    },
-                    {
-                        name: "Tocar em Todos os Tons",
-                        href: "/aprender-tocar-em-todos-os-tons",
+                        name: "Shapes de Solos",
+                        href: "/shapes-solos",
                     },
                 ],
             },
         ],
     },
-    {
-        name: "Ferramentas",
-        links: [
-            {
-                name: "Braço do Violão",
-                href: "/memorizar-braco-do-violao",
-            },
-            {
-                name: "Notas no Braço",
-                href: "/memorizar-todas-as-notas",
-            },
-        ],
-    },
-    {
-        name: "Solos",
-        links: [
-            {
-                name: "Shapes",
-                href: "/shapes-solos",
-            },
-            {
-                name: "Escalas",
-                href: "/escalas",
-            },
-            {
-                name: "Memorizar Todas as Notas",
-                href: "/memorizar-todas-as-notas",
-            },
-        ],
-    },
+    // {
+    //     name: "Ferramentas",
+    //     links: [],
+    // },
     {
         name: "Loja Musical",
         links: [
@@ -187,7 +173,9 @@ export default function Header() {
     const pathname = usePathname();
 
     const [menuOpen, setMenuOpen] = useState(false);
-    const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+    const [dropdownOpen, setDropdownOpen] = useState<string | null>(
+        null
+    );
 
     const isActive = (href: string) => {
         if (href.startsWith("/#")) {
@@ -573,3 +561,4 @@ export default function Header() {
         </header>
     );
 }
+
