@@ -294,13 +294,12 @@ export default function ProgressoesHarmonicasMaisUsadas() {
 
                     <LessonSection
                         eyebrow="Aprofundamento"
-                        title="Duas progressões que merecem uma aula própria"
+                        title="Progressões que merecem uma aula própria"
                     >
                         <p>
-                            Algumas progressões são importantes o suficiente
-                            para receber uma explicação mais detalhada. Em vez
-                            de repetir todo o conteúdo nesta página, deixamos
-                            cada tema em sua própria aula.
+                            Algumas progressões são importantes o suficiente para receber uma
+                            explicação mais detalhada. Em vez de repetir todo o conteúdo nesta
+                            página, deixamos cada tema em sua própria aula.
                         </p>
 
                         <div className="grid gap-6 md:grid-cols-2">
@@ -312,9 +311,8 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                                 </h3>
 
                                 <p className="mt-3 text-gray-700">
-                                    Uma progressão fundamental para entender a
-                                    relação entre preparação, dominante e
-                                    resolução.
+                                    Uma progressão fundamental para entender a relação entre
+                                    preparação, dominante e resolução.
                                 </p>
 
                                 <p className="mt-3 font-semibold text-gray-900">
@@ -337,9 +335,8 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                                 </h3>
 
                                 <p className="mt-3 text-gray-700">
-                                    Uma sequência que combina I, iii, IV e V,
-                                    permitindo observar como o acorde do III grau
-                                    se encaixa entre os demais.
+                                    Uma sequência que combina I, iii, IV e V, permitindo observar
+                                    como o acorde do III grau se encaixa entre os demais.
                                 </p>
 
                                 <p className="mt-3 font-semibold text-gray-900">
@@ -351,6 +348,31 @@ export default function ProgressoesHarmonicasMaisUsadas() {
                                     className="mt-5 inline-flex font-semibold text-amber-700 underline decoration-amber-300 underline-offset-4 hover:text-amber-800"
                                 >
                                     Estudar I–III–IV–V →
+                                </Link>
+                            </article>
+
+                            <article className="rounded-2xl border border-amber-200 bg-white p-6 shadow-sm">
+                                <span className="text-2xl">🌙</span>
+
+                                <h3 className="mt-3 text-xl font-bold text-amber-900">
+                                    Subdominante menor — IV → iv
+                                </h3>
+
+                                <p className="mt-3 text-gray-700">
+                                    Uma progressão marcada pelo contraste entre o IV maior e o iv
+                                    menor, criando uma mudança de cor harmônica e um efeito
+                                    emocional característico.
+                                </p>
+
+                                <p className="mt-3 font-semibold text-gray-900">
+                                    F → Fm
+                                </p>
+
+                                <Link
+                                    href="/subdominante-menor"
+                                    className="mt-5 inline-flex font-semibold text-amber-700 underline decoration-amber-300 underline-offset-4 hover:text-amber-800"
+                                >
+                                    Estudar subdominante menor →
                                 </Link>
                             </article>
                         </div>
