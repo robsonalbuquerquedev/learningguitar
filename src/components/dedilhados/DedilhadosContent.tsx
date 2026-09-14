@@ -1,56 +1,54 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { dedilhados, type Dedilhado } from "@/data/dedilhados";
 
 export default function DedilhadosContent() {
     return (
-        <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-            initial="hidden"
-            animate="visible"
-            variants={{
-                hidden: {},
-                visible: { transition: { staggerChildren: 0.1 } },
-            }}
-        >
-            {dedilhados.map((ded: Dedilhado, index: number) => (
-                <motion.div
-                    key={index}
-                    className="bg-amber-800/40 p-6 rounded-2xl shadow-md text-center hover:scale-105 transition-transform"
-                    variants={{
-                        hidden: { opacity: 0, y: 30 },
-                        visible: { opacity: 1, y: 0 },
-                    }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {dedilhados.map((ded: Dedilhado) => (
+                <article
+                    key={ded.nome}
+                    className="rounded-2xl border border-amber-200 bg-white p-6 text-center shadow-sm"
                 >
-                    <h2 className="text-2xl font-semibold text-yellow-200 mb-3">{ded.nome}</h2>
+                    <h3 className="text-xl font-bold text-amber-900">
+                        {ded.nome}
+                    </h3>
 
                     {ded.descricao && (
-                        <p className="text-amber-100 mb-4">{ded.descricao}</p>
+                        <p className="mt-3 text-sm leading-relaxed text-gray-700">
+                            {ded.descricao}
+                        </p>
                     )}
 
-                    <div className="flex flex-wrap justify-center gap-2 text-lg">
-                        {ded.padrao.map((mov: string, i: number) => (
-                            <motion.span
-                                key={i}
-                                className={`
-                  px-3 py-1 rounded-lg font-semibold
-                  ${mov.includes("X") ? "bg-red-500/70 text-white" :
-                                        mov.includes("P") ? "bg-yellow-500/70 text-gray-900" :
-                                            mov.includes("M") ? "bg-amber-300/70 text-gray-900" :
-                                                "bg-yellow-200/70 text-gray-900"}
-                `}
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                transition={{ delay: i * 0.1 }}
-                            >
-                                {mov}
-                            </motion.span>
-                        ))}
+                    <div
+                        className="mt-5 flex flex-wrap justify-center gap-2"
+                        aria-label={`Padrão do dedilhado ${ded.nome}`}
+                    >
+                        {ded.padrao.map((mov: string, index: number) => {
+                            const isMute = mov.includes("X");
+                            const isThumb = mov.includes("P");
+                            const isMiddle = mov.includes("M");
+
+                            return (
+                                <span
+                                    key={index}
+                                    className={`rounded-lg px-3 py-1 text-sm font-bold ${
+                                        isMute
+                                            ? "bg-red-100 text-red-700"
+                                            : isThumb
+                                              ? "bg-amber-200 text-amber-900"
+                                              : isMiddle
+                                                ? "bg-yellow-100 text-yellow-900"
+                                                : "bg-gray-100 text-gray-800"
+                                    }`}
+                                >
+                                    {mov}
+                                </span>
+                            );
+                        })}
                     </div>
-                </motion.div>
+                </article>
             ))}
-        </motion.div>
+        </div>
     );
 }
