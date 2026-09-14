@@ -1,88 +1,118 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { FaArrowDown, FaArrowUp, FaTimes } from "react-icons/fa";
 import { batidas, type Batida } from "@/data/batidas";
 
 export default function BatidasContent() {
-    const [filtro, setFiltro] = useState<string>("");
+    const [filtro, setFiltro] = useState("");
 
-    const batidasFiltradas = batidas.filter((b: Batida) =>
-        b.nome.toLowerCase().includes(filtro.toLowerCase()) ||
-        (b.descricao && b.descricao.toLowerCase().includes(filtro.toLowerCase()))
+    const batidasFiltradas = batidas.filter((batida: Batida) =>
+        batida.nome.toLowerCase().includes(filtro.toLowerCase()) ||
+        (batida.descricao &&
+            batida.descricao.toLowerCase().includes(filtro.toLowerCase()))
     );
 
     return (
-        <motion.div
-            className="space-y-8"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-        >
-            {/* Campo de busca */}
-            <div className="flex justify-center">
-                <motion.input
+        <div className="space-y-8">
+            <div className="mx-auto max-w-xl">
+                <label
+                    htmlFor="busca-batidas"
+                    className="mb-2 block text-sm font-semibold text-gray-800"
+                >
+                    Encontre uma batida
+                </label>
+
+                <input
+                    id="busca-batidas"
                     type="text"
-                    placeholder="Buscar batida (ex: rock, sertanejo...)"
-                    className="w-full sm:w-2/3 lg:w-1/2 p-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                    placeholder="Ex.: rock, sertanejo..."
                     value={filtro}
-                    onChange={(e) => setFiltro(e.target.value)}
-                    whileFocus={{ scale: 1.03 }}
-                    transition={{ type: "spring", stiffness: 200 }}
+                    onChange={(event) => setFiltro(event.target.value)}
+                    className="w-full rounded-xl border border-amber-200 bg-white px-4 py-3 text-gray-900 shadow-sm outline-none transition focus:border-amber-400 focus:ring-2 focus:ring-amber-200"
                 />
             </div>
 
-            {/* Grid de batidas */}
             {batidasFiltradas.length > 0 ? (
-                <motion.div
-                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-                    initial="hidden"
-                    animate="visible"
-                    variants={{
-                        hidden: {},
-                        visible: {
-                            transition: { staggerChildren: 0.1 },
-                        },
-                    }}
-                >
-                    {batidasFiltradas.map((batida: Batida, index: number) => (
-                        <motion.div
-                            key={index}
-                            className="bg-amber-800/40 p-6 rounded-2xl shadow-md text-center hover:scale-105 transition-transform"
-                            variants={{
-                                hidden: { opacity: 0, y: 30 },
-                                visible: { opacity: 1, y: 0 },
-                            }}
-                            transition={{ duration: 0.4, ease: "easeOut" }}
-                            whileHover={{ scale: 1.05 }}
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {batidasFiltradas.map((batida: Batida) => (
+                        <article
+                            key={batida.nome}
+                            className="rounded-2xl border border-amber-200 bg-white p-6 text-center shadow-sm"
                         >
-                            <h2 className="text-2xl font-semibold text-yellow-200 mb-2">{batida.nome}</h2>
+                            <h3 className="text-xl font-bold text-amber-900">
+                                {batida.nome}
+                            </h3>
 
                             {batida.descricao && (
-                                <p className="text-lg leading-relaxed mb-4 text-amber-100">{batida.descricao}</p>
+                                <p className="mt-3 text-sm leading-relaxed text-gray-700">
+                                    {batida.descricao}
+                                </p>
                             )}
 
-                            <div className="flex justify-center gap-3 text-2xl">
-                                {batida.padrao.map((mov: "down" | "up" | "mute", i: number) => {
-                                    if (mov === "down") return <FaArrowDown key={i} className="text-yellow-300" />;
-                                    if (mov === "up") return <FaArrowUp key={i} className="text-yellow-100" />;
-                                    if (mov === "mute") return <FaTimes key={i} className="text-red-400" />;
-                                    return null;
-                                })}
+                            <div
+                                className="mt-5 flex justify-center gap-3 text-2xl"
+                                aria-label={`Padrão da batida ${batida.nome}`}
+                            >
+                                {batida.padrao.map(
+                                    (
+                                        movimento:
+                                            | "down"
+                                            | "up"
+                                            | "mute",
+                                        index: number
+                                    ) => {
+                                        if (movimento === "down") {
+                                            return (
+                                                <FaArrowDown
+                                                    key={index}
+                                                    className="text-amber-700"
+                                                    aria-hidden="true"
+                                                />
+                                            );
+                                        }
+
+                                        if (movimento === "up") {
+                                            return (
+                                                <FaArrowUp
+                                                    key={index}
+                                                    className="text-amber-500"
+                                                    aria-hidden="true"
+                                                />
+                                            );
+                                        }
+
+                                        if (movimento === "mute") {
+                                            return (
+                                                <FaTimes
+                                                    key={index}
+                                                    className="text-red-500"
+                                                    aria-hidden="true"
+                                                />
+                                            );
+                                        }
+
+                                        return null;
+                                    }
+                                )}
                             </div>
-                        </motion.div>
+                        </article>
                     ))}
-                </motion.div>
+                </div>
             ) : (
-                <p className="text-center text-yellow-200 mt-8">
-                    Nenhuma batida encontrada para &quot;<span className="font-semibold">{filtro}</span>&quot;
+                <p className="text-center text-sm text-gray-600">
+                    Nenhuma batida encontrada para{" "}
+                    <span className="font-semibold text-gray-900">
+                        &quot;{filtro}&quot;
+                    </span>
+                    .
                 </p>
             )}
 
-            <p className="text-center text-sm text-amber-200 mt-6">
-                💡 Dica: pratique devagar e sinta o balanço natural entre o toque e o abafado (X).
+            <p className="text-center text-sm text-gray-600">
+                💡 Dica: pratique devagar e perceba o balanço entre os
+                movimentos para baixo, para cima e os abafamentos (X).
             </p>
-        </motion.div>
+        </div>
     );
 }
