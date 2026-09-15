@@ -1,15 +1,16 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-    FaBars,
-    FaTimes,
-    FaChevronDown,
-} from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+    FaArrowLeft,
+    FaBars,
+    FaChevronRight,
+    FaTimes,
+} from "react-icons/fa";
 
 interface LinkItem {
     name: string;
@@ -121,10 +122,6 @@ const menus: Menu[] = [
             },
         ],
     },
-    // {
-    //     name: "Ferramentas",
-    //     links: [],
-    // },
     {
         name: "Loja Musical",
         links: [
@@ -173,9 +170,11 @@ export default function Header() {
     const pathname = usePathname();
 
     const [menuOpen, setMenuOpen] = useState(false);
-    const [dropdownOpen, setDropdownOpen] = useState<string | null>(
+    const [activeMenu, setActiveMenu] = useState<Menu | null>(
         null
     );
+    const [activeSubcategory, setActiveSubcategory] =
+        useState<Subcategory | null>(null);
 
     const isActive = (href: string) => {
         if (href.startsWith("/#")) {
@@ -185,18 +184,79 @@ export default function Header() {
         return pathname === href;
     };
 
-    const closeMobileMenu = () => {
-        setMenuOpen(false);
+    const openMenu = () => {
+        setMenuOpen(true);
+        setActiveMenu(null);
+        setActiveSubcategory(null);
     };
+
+    const closeMenu = () => {
+        setMenuOpen(false);
+        setActiveMenu(null);
+        setActiveSubcategory(null);
+    };
+
+    const openMenuLevel = (menu: Menu) => {
+        setActiveMenu(menu);
+        setActiveSubcategory(null);
+    };
+
+    const openSubcategoryLevel = (
+        subcategory: Subcategory
+    ) => {
+        setActiveSubcategory(subcategory);
+    };
+
+    const goBack = () => {
+        if (activeSubcategory) {
+            setActiveSubcategory(null);
+            return;
+        }
+
+        if (activeMenu) {
+            setActiveMenu(null);
+        }
+    };
+
+    useEffect(() => {
+        if (!menuOpen) {
+            document.body.style.overflow = "";
+            return;
+        }
+
+        document.body.style.overflow = "hidden";
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                closeMenu();
+            }
+        };
+
+        document.addEventListener(
+            "keydown",
+            handleKeyDown
+        );
+
+        return () => {
+            document.body.style.overflow = "";
+            document.removeEventListener(
+                "keydown",
+                handleKeyDown
+            );
+        };
+    }, [menuOpen]);
 
     return (
         <header className="fixed left-0 top-0 z-50 w-full border-b border-yellow-300/15 bg-gradient-to-r from-amber-950/95 via-amber-900/95 to-amber-950/95 shadow-lg backdrop-blur-md">
-            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:py-4">
+            {/* =====================================================
+                HEADER
+            ====================================================== */}
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
                 {/* Logo */}
                 <Link
                     href="/"
+                    onClick={closeMenu}
                     className="flex items-center gap-2 text-xl font-extrabold text-yellow-300 transition-colors duration-300 hover:text-yellow-200 sm:gap-3 sm:text-2xl"
-                    onClick={closeMobileMenu}
                 >
                     <motion.div
                         initial={{
@@ -228,337 +288,379 @@ export default function Header() {
                     </span>
                 </Link>
 
-                {/* Navegação desktop */}
-                <nav className="hidden items-center gap-6 text-sm font-semibold text-white md:flex">
-                    {/* Início */}
-                    <Link
-                        href="/"
-                        className={`relative py-2 transition-colors duration-200 hover:text-yellow-300 ${
-                            pathname === "/"
-                                ? "text-yellow-300"
-                                : "text-white"
-                        }`}
-                    >
-                        Início
-
-                        {pathname === "/" && (
-                            <motion.span
-                                layoutId="header-underline"
-                                className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-yellow-300"
-                            />
-                        )}
-                    </Link>
-
-                    {/* Começar */}
-                    <Link
-                        href="/#start-here"
-                        className="py-2 transition-colors duration-200 hover:text-yellow-300"
-                    >
-                        Começar
-                    </Link>
-
-                    {/* Explorar */}
-                    <Link
-                        href="/#explore-content"
-                        className="py-2 transition-colors duration-200 hover:text-yellow-300"
-                    >
-                        Explorar
-                    </Link>
-
-                    {/* Menus */}
-                    {menus.map((menu) => (
-                        <div
-                            key={menu.name}
-                            className="group relative"
-                            onMouseEnter={() =>
-                                setDropdownOpen(menu.name)
-                            }
-                            onMouseLeave={() =>
-                                setDropdownOpen(null)
-                            }
-                        >
-                            <button
-                                type="button"
-                                className="flex items-center gap-1 py-2 transition-colors duration-200 hover:text-yellow-300"
-                                aria-haspopup="true"
-                                aria-expanded={
-                                    dropdownOpen === menu.name
-                                }
-                            >
-                                {menu.name}
-
-                                <FaChevronDown
-                                    className={`mt-[2px] text-[10px] transition-transform duration-200 ${
-                                        dropdownOpen === menu.name
-                                            ? "rotate-180"
-                                            : ""
-                                    }`}
-                                />
-                            </button>
-
-                            <AnimatePresence>
-                                {dropdownOpen === menu.name && (
-                                    <motion.div
-                                        initial={{
-                                            opacity: 0,
-                                            y: -8,
-                                        }}
-                                        animate={{
-                                            opacity: 1,
-                                            y: 0,
-                                        }}
-                                        exit={{
-                                            opacity: 0,
-                                            y: -8,
-                                        }}
-                                        transition={{
-                                            duration: 0.18,
-                                        }}
-                                        className={`absolute left-0 top-full mt-2 rounded-2xl border border-yellow-300/15 bg-amber-950/98 p-4 shadow-2xl backdrop-blur-md ${
-                                            menu.subcategories
-                                                ? "grid w-[620px] grid-cols-2 gap-x-6 gap-y-5"
-                                                : menu.links &&
-                                                    menu.links.length > 4
-                                                  ? "grid w-[300px] grid-cols-2 gap-2"
-                                                  : "flex w-[220px] flex-col gap-1"
-                                        }`}
-                                    >
-                                        {menu.subcategories
-                                            ? menu.subcategories.map(
-                                                  (subcategory) => (
-                                                      <div
-                                                          key={
-                                                              subcategory.name
-                                                          }
-                                                      >
-                                                          <p className="mb-2 px-3 text-xs font-bold uppercase tracking-[0.12em] text-yellow-300">
-                                                              {
-                                                                  subcategory.name
-                                                              }
-                                                          </p>
-
-                                                          <div className="flex flex-col gap-1">
-                                                              {subcategory.links.map(
-                                                                  (
-                                                                      link
-                                                                  ) => (
-                                                                      <Link
-                                                                          key={
-                                                                              link.href
-                                                                          }
-                                                                          href={
-                                                                              link.href
-                                                                          }
-                                                                          className={`rounded-lg px-3 py-2 text-sm transition-colors duration-200 ${
-                                                                              isActive(
-                                                                                  link.href
-                                                                              )
-                                                                                  ? "bg-yellow-300/10 text-yellow-300"
-                                                                                  : "text-white/80 hover:bg-yellow-300/10 hover:text-yellow-200"
-                                                                          }`}
-                                                                      >
-                                                                          {
-                                                                              link.name
-                                                                          }
-                                                                      </Link>
-                                                                  )
-                                                              )}
-                                                          </div>
-                                                      </div>
-                                                  )
-                                              )
-                                            : menu.links?.map(
-                                                  (link) => (
-                                                      <Link
-                                                          key={
-                                                              link.href
-                                                          }
-                                                          href={
-                                                              link.href
-                                                          }
-                                                          className={`rounded-lg px-3 py-2 text-sm transition-colors duration-200 ${
-                                                              isActive(
-                                                                  link.href
-                                                              )
-                                                                  ? "bg-yellow-300/10 text-yellow-300"
-                                                                  : "text-white/80 hover:bg-yellow-300/10 hover:text-yellow-200"
-                                                          }`}
-                                                      >
-                                                          {
-                                                              link.name
-                                                          }
-                                                      </Link>
-                                                  )
-                                              )}
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    ))}
-                </nav>
-
-                {/* Menu mobile */}
+                {/* Botão de navegação */}
                 <button
                     type="button"
-                    onClick={() => setMenuOpen(!menuOpen)}
-                    className="rounded-lg p-2 text-xl text-white transition-colors duration-200 hover:bg-yellow-300/10 hover:text-yellow-300 focus:outline-none md:hidden"
+                    onClick={
+                        menuOpen ? closeMenu : openMenu
+                    }
+                    className="flex min-h-11 min-w-11 items-center justify-center rounded-xl text-xl text-white transition-colors duration-200 hover:bg-yellow-300/10 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300/60"
                     aria-label={
                         menuOpen
                             ? "Fechar menu"
                             : "Abrir menu"
                     }
                     aria-expanded={menuOpen}
+                    aria-controls="main-navigation"
                 >
                     {menuOpen ? <FaTimes /> : <FaBars />}
                 </button>
             </div>
 
-            {/* Menu mobile expandido */}
+            {/* =====================================================
+                NAVEGAÇÃO
+            ====================================================== */}
             <AnimatePresence>
                 {menuOpen && (
-                    <motion.nav
-                        initial={{
-                            opacity: 0,
-                            height: 0,
-                        }}
-                        animate={{
-                            opacity: 1,
-                            height: "auto",
-                        }}
-                        exit={{
-                            opacity: 0,
-                            height: 0,
-                        }}
-                        transition={{
-                            duration: 0.25,
-                        }}
-                        className="overflow-hidden border-t border-yellow-300/10 bg-amber-950/98 backdrop-blur-md md:hidden"
-                    >
-                        <div className="mx-auto max-w-7xl px-5 pb-6 pt-3">
-                            {/* Links principais */}
-                            <div className="mb-4 border-b border-yellow-300/10 pb-4">
-                                <Link
-                                    href="/"
-                                    onClick={closeMobileMenu}
-                                    className={`block rounded-lg px-3 py-2.5 text-base font-bold transition-colors ${
-                                        pathname === "/"
-                                            ? "bg-yellow-300/10 text-yellow-300"
-                                            : "text-white hover:bg-yellow-300/5 hover:text-yellow-300"
-                                    }`}
-                                >
-                                    Início
-                                </Link>
+                    <>
+                        {/* Backdrop */}
+                        <motion.button
+                            type="button"
+                            aria-label="Fechar menu"
+                            initial={{
+                                opacity: 0,
+                            }}
+                            animate={{
+                                opacity: 1,
+                            }}
+                            exit={{
+                                opacity: 0,
+                            }}
+                            transition={{
+                                duration: 0.2,
+                            }}
+                            onClick={closeMenu}
+                            className="fixed inset-0 z-40 cursor-default bg-black/60 backdrop-blur-[2px]"
+                        />
 
-                                <Link
-                                    href="/#start-here"
-                                    onClick={closeMobileMenu}
-                                    className="block rounded-lg px-3 py-2.5 text-base font-bold text-white transition-colors hover:bg-yellow-300/5 hover:text-yellow-300"
-                                >
-                                    Começar
-                                </Link>
+                        {/* =================================================
+                            PAINEL DE NAVEGAÇÃO
+                        ================================================== */}
+                        <motion.aside
+                            id="main-navigation"
+                            initial={{
+                                x: "100%",
+                                opacity: 0.8,
+                            }}
+                            animate={{
+                                x: 0,
+                                opacity: 1,
+                            }}
+                            exit={{
+                                x: "100%",
+                                opacity: 0.8,
+                            }}
+                            transition={{
+                                duration: 0.28,
+                                ease: "easeOut",
+                            }}
+                            className="fixed right-0 top-0 z-50 flex h-dvh w-[min(90vw,460px)] flex-col border-l border-yellow-300/15 bg-gradient-to-b from-amber-950 via-amber-950 to-stone-950 shadow-2xl"
+                        >
+                            {/* =================================================
+                                PAINEL HEADER
+                            ================================================== */}
+                            <div className="flex min-h-[73px] items-center justify-between border-b border-yellow-300/10 px-5 sm:px-6">
+                                <div className="flex items-center gap-3">
+                                    {(activeMenu ||
+                                        activeSubcategory) && (
+                                        <button
+                                            type="button"
+                                            onClick={goBack}
+                                            className="flex min-h-10 min-w-10 items-center justify-center rounded-lg text-white transition-colors hover:bg-yellow-300/10 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300/50"
+                                            aria-label="Voltar"
+                                        >
+                                            <FaArrowLeft />
+                                        </button>
+                                    )}
 
-                                <Link
-                                    href="/#explore-content"
-                                    onClick={closeMobileMenu}
-                                    className="block rounded-lg px-3 py-2.5 text-base font-bold text-white transition-colors hover:bg-yellow-300/5 hover:text-yellow-300"
+                                    <div>
+                                        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-yellow-400/70">
+                                            {activeSubcategory
+                                                ? activeSubcategory.name
+                                                : activeMenu
+                                                  ? activeMenu.name
+                                                  : "Navegação"}
+                                        </p>
+
+                                        <h2 className="mt-0.5 text-lg font-bold text-white">
+                                            {activeSubcategory
+                                                ? "Conteúdos"
+                                                : activeMenu
+                                                  ? "Escolha uma opção"
+                                                  : "LearningGuitar 🎸"}
+                                        </h2>
+                                    </div>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    onClick={closeMenu}
+                                    className="flex min-h-10 min-w-10 items-center justify-center rounded-xl text-white transition-colors hover:bg-yellow-300/10 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300/50"
+                                    aria-label="Fechar menu"
                                 >
-                                    Explorar
-                                </Link>
+                                    <FaTimes />
+                                </button>
                             </div>
 
-                            {/* Menus */}
-                            {menus.map((menu) => (
-                                <details
-                                    key={menu.name}
-                                    className="group border-b border-yellow-300/10 last:border-b-0"
-                                >
-                                    <summary className="flex cursor-pointer list-none items-center justify-between px-3 py-3 text-base font-bold text-yellow-300 transition-colors hover:text-yellow-200">
-                                        {menu.name}
+                            {/* =================================================
+                                CONTEÚDO DO PAINEL
+                            ================================================== */}
+                            <nav className="flex-1 overflow-y-auto overscroll-contain px-4 py-5 sm:px-5">
+                                {/* =================================================
+                                    NÍVEL 1 — MENU PRINCIPAL
+                                ================================================== */}
+                                {!activeMenu && (
+                                    <motion.div
+                                        key="main-level"
+                                        initial={{
+                                            opacity: 0,
+                                            x: -15,
+                                        }}
+                                        animate={{
+                                            opacity: 1,
+                                            x: 0,
+                                        }}
+                                        exit={{
+                                            opacity: 0,
+                                            x: -15,
+                                        }}
+                                        transition={{
+                                            duration: 0.2,
+                                        }}
+                                    >
+                                        {/* Links principais */}
+                                        <div className="mb-6 space-y-1 border-b border-yellow-300/10 pb-5">
+                                            <Link
+                                                href="/"
+                                                onClick={
+                                                    closeMenu
+                                                }
+                                                className={`flex min-h-12 items-center rounded-xl px-4 py-3 text-base font-bold transition-colors ${
+                                                    pathname ===
+                                                    "/"
+                                                        ? "bg-yellow-300/10 text-yellow-300"
+                                                        : "text-white hover:bg-yellow-300/5 hover:text-yellow-300"
+                                                }`}
+                                            >
+                                                Início
+                                            </Link>
 
-                                        <FaChevronDown className="text-xs transition-transform duration-200 group-open:rotate-180" />
-                                    </summary>
+                                            <Link
+                                                href="/#start-here"
+                                                onClick={
+                                                    closeMenu
+                                                }
+                                                className="flex min-h-12 items-center rounded-xl px-4 py-3 text-base font-bold text-white transition-colors hover:bg-yellow-300/5 hover:text-yellow-300"
+                                            >
+                                                Começar
+                                            </Link>
 
-                                    <div className="pb-3 pl-3">
-                                        {menu.subcategories
-                                            ? menu.subcategories.map(
-                                                  (subcategory) => (
-                                                      <div
-                                                          key={
-                                                              subcategory.name
-                                                          }
-                                                          className="mb-4 last:mb-0"
-                                                      >
-                                                          <p className="mb-1 px-3 text-xs font-bold uppercase tracking-[0.1em] text-yellow-400/70">
-                                                              {
-                                                                  subcategory.name
-                                                              }
-                                                          </p>
+                                            <Link
+                                                href="/#explore-content"
+                                                onClick={
+                                                    closeMenu
+                                                }
+                                                className="flex min-h-12 items-center rounded-xl px-4 py-3 text-base font-bold text-white transition-colors hover:bg-yellow-300/5 hover:text-yellow-300"
+                                            >
+                                                Explorar
+                                            </Link>
+                                        </div>
 
-                                                          {subcategory.links.map(
-                                                              (
-                                                                  link
-                                                              ) => (
-                                                                  <Link
-                                                                      key={
-                                                                          link.href
-                                                                      }
-                                                                      href={
-                                                                          link.href
-                                                                      }
-                                                                      onClick={
-                                                                          closeMobileMenu
-                                                                      }
-                                                                      className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
-                                                                          isActive(
-                                                                              link.href
-                                                                          )
-                                                                              ? "text-yellow-300"
-                                                                              : "text-white/75 hover:bg-yellow-300/5 hover:text-yellow-200"
-                                                                      }`}
-                                                                  >
-                                                                      {
-                                                                          link.name
-                                                                      }
-                                                                  </Link>
-                                                              )
-                                                          )}
-                                                      </div>
-                                                  )
-                                              )
-                                            : menu.links?.map(
-                                                  (link) => (
-                                                      <Link
-                                                          key={
-                                                              link.href
-                                                          }
-                                                          href={
-                                                              link.href
-                                                          }
-                                                          onClick={
-                                                              closeMobileMenu
-                                                          }
-                                                          className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
-                                                              isActive(
-                                                                  link.href
-                                                              )
-                                                                  ? "text-yellow-300"
-                                                                  : "text-white/75 hover:bg-yellow-300/5 hover:text-yellow-200"
-                                                          }`}
-                                                      >
-                                                          {
-                                                              link.name
-                                                          }
-                                                      </Link>
-                                                  )
-                                              )}
-                                    </div>
-                                </details>
-                            ))}
-                        </div>
-                    </motion.nav>
+                                        {/* Categorias */}
+                                        <div className="space-y-2">
+                                            {menus.map(
+                                                (menu) => (
+                                                    <button
+                                                        key={
+                                                            menu.name
+                                                        }
+                                                        type="button"
+                                                        onClick={() =>
+                                                            openMenuLevel(
+                                                                menu
+                                                            )
+                                                        }
+                                                        className="group flex min-h-14 w-full items-center justify-between rounded-xl border border-yellow-300/10 bg-white/[0.03] px-4 py-3 text-left transition-all duration-200 hover:border-yellow-300/20 hover:bg-yellow-300/10 focus:outline-none focus:ring-2 focus:ring-yellow-300/50"
+                                                    >
+                                                        <span className="text-base font-bold text-yellow-300 transition-colors group-hover:text-yellow-200">
+                                                            {
+                                                                menu.name
+                                                            }
+                                                        </span>
+
+                                                        <FaChevronRight className="text-xs text-yellow-400/60 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-yellow-300" />
+                                                    </button>
+                                                )
+                                            )}
+                                        </div>
+                                    </motion.div>
+                                )}
+
+                                {/* =================================================
+                                    NÍVEL 2 — CATEGORIA
+                                ================================================== */}
+                                {activeMenu &&
+                                    !activeSubcategory && (
+                                        <motion.div
+                                            key={`menu-${activeMenu.name}`}
+                                            initial={{
+                                                opacity: 0,
+                                                x: 15,
+                                            }}
+                                            animate={{
+                                                opacity: 1,
+                                                x: 0,
+                                            }}
+                                            exit={{
+                                                opacity: 0,
+                                                x: 15,
+                                            }}
+                                            transition={{
+                                                duration: 0.2,
+                                            }}
+                                        >
+                                            {/* Subcategorias */}
+                                            {activeMenu.subcategories ? (
+                                                <div className="space-y-2">
+                                                    {activeMenu.subcategories.map(
+                                                        (
+                                                            subcategory
+                                                        ) => (
+                                                            <button
+                                                                key={
+                                                                    subcategory.name
+                                                                }
+                                                                type="button"
+                                                                onClick={() =>
+                                                                    openSubcategoryLevel(
+                                                                        subcategory
+                                                                    )
+                                                                }
+                                                                className="group flex min-h-16 w-full items-center justify-between rounded-xl border border-yellow-300/10 bg-white/[0.03] px-4 py-3 text-left transition-all duration-200 hover:border-yellow-300/20 hover:bg-yellow-300/10 focus:outline-none focus:ring-2 focus:ring-yellow-300/50"
+                                                            >
+                                                                <div>
+                                                                    <span className="block text-sm font-bold text-white transition-colors group-hover:text-yellow-200">
+                                                                        {
+                                                                            subcategory.name
+                                                                        }
+                                                                    </span>
+
+                                                                    <span className="mt-1 block text-xs text-white/40">
+                                                                        {
+                                                                            subcategory
+                                                                                .links
+                                                                                .length
+                                                                        }{" "}
+                                                                        conteúdos
+                                                                    </span>
+                                                                </div>
+
+                                                                <FaChevronRight className="text-xs text-yellow-400/60 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-yellow-300" />
+                                                            </button>
+                                                        )
+                                                    )}
+                                                </div>
+                                            ) : (
+                                                /* Links diretos */
+                                                <div className="space-y-1">
+                                                    {activeMenu.links?.map(
+                                                        (
+                                                            link
+                                                        ) => (
+                                                            <Link
+                                                                key={
+                                                                    link.href
+                                                                }
+                                                                href={
+                                                                    link.href
+                                                                }
+                                                                onClick={
+                                                                    closeMenu
+                                                                }
+                                                                className={`flex min-h-12 items-center rounded-xl px-4 py-3 text-sm transition-colors ${
+                                                                    isActive(
+                                                                        link.href
+                                                                    )
+                                                                        ? "bg-yellow-300/10 font-semibold text-yellow-300"
+                                                                        : "text-white/80 hover:bg-yellow-300/5 hover:text-yellow-200"
+                                                                }`}
+                                                            >
+                                                                {
+                                                                    link.name
+                                                                }
+                                                            </Link>
+                                                        )
+                                                    )}
+                                                </div>
+                                            )}
+                                        </motion.div>
+                                    )}
+
+                                {/* =================================================
+                                    NÍVEL 3 — SUBCATEGORIA
+                                ================================================== */}
+                                {activeSubcategory && (
+                                    <motion.div
+                                        key={`subcategory-${activeSubcategory.name}`}
+                                        initial={{
+                                            opacity: 0,
+                                            x: 15,
+                                        }}
+                                        animate={{
+                                            opacity: 1,
+                                            x: 0,
+                                        }}
+                                        exit={{
+                                            opacity: 0,
+                                            x: 15,
+                                        }}
+                                        transition={{
+                                            duration: 0.2,
+                                        }}
+                                        className="space-y-1"
+                                    >
+                                        {activeSubcategory.links.map(
+                                            (link) => (
+                                                <Link
+                                                    key={
+                                                        link.href
+                                                    }
+                                                    href={
+                                                        link.href
+                                                    }
+                                                    onClick={
+                                                        closeMenu
+                                                    }
+                                                    className={`flex min-h-12 items-center rounded-xl px-4 py-3 text-sm transition-colors ${
+                                                        isActive(
+                                                            link.href
+                                                        )
+                                                            ? "bg-yellow-300/10 font-semibold text-yellow-300"
+                                                            : "text-white/80 hover:bg-yellow-300/5 hover:text-yellow-200"
+                                                    }`}
+                                                >
+                                                    {
+                                                        link.name
+                                                    }
+                                                </Link>
+                                            )
+                                        )}
+                                    </motion.div>
+                                )}
+                            </nav>
+
+                            {/* =================================================
+                                RODAPÉ DO PAINEL
+                            ================================================== */}
+                            <div className="border-t border-yellow-300/10 px-5 py-4">
+                                <p className="text-center text-xs text-white/35">
+                                    Aprenda. Pratique. Toque. 🎸
+                                </p>
+                            </div>
+                        </motion.aside>
+                    </>
                 )}
             </AnimatePresence>
         </header>
     );
 }
-
