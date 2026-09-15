@@ -166,6 +166,21 @@ const menus: Menu[] = [
     },
 ];
 
+const primaryLinks: LinkItem[] = [
+    {
+        name: "Início",
+        href: "/",
+    },
+    {
+        name: "Começar",
+        href: "/#start-here",
+    },
+    {
+        name: "Explorar",
+        href: "/#explore-content",
+    },
+];
+
 export default function Header() {
     const pathname = usePathname();
 
@@ -251,12 +266,14 @@ export default function Header() {
             {/* =====================================================
                 HEADER
             ====================================================== */}
-            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-                {/* Logo */}
+            <div className="mx-auto flex max-w-7xl items-center gap-3 px-3 py-3 sm:gap-5 sm:px-6 sm:py-4">
+                {/* =================================================
+                    LOGO
+                ================================================== */}
                 <Link
                     href="/"
                     onClick={closeMenu}
-                    className="flex items-center gap-2 text-xl font-extrabold text-yellow-300 transition-colors duration-300 hover:text-yellow-200 sm:gap-3 sm:text-2xl"
+                    className="flex shrink-0 items-center gap-2 text-xl font-extrabold text-yellow-300 transition-colors duration-300 hover:text-yellow-200 focus:outline-none focus:ring-2 focus:ring-yellow-300/60 focus:ring-offset-2 focus:ring-offset-amber-950 sm:gap-3 sm:text-2xl"
                 >
                     <motion.div
                         initial={{
@@ -283,18 +300,46 @@ export default function Header() {
                         />
                     </motion.div>
 
-                    <span className="hidden xs:inline bg-gradient-to-r from-yellow-300 via-yellow-100 to-yellow-300 bg-clip-text text-transparent">
+                    <span className="hidden bg-gradient-to-r from-yellow-300 via-yellow-100 to-yellow-300 bg-clip-text text-transparent xs:inline">
                         LearningGuitar 🎸
                     </span>
                 </Link>
 
-                {/* Botão de navegação */}
+                {/* =================================================
+                    NAVEGAÇÃO PRINCIPAL
+                ================================================== */}
+                <nav
+                    aria-label="Navegação principal"
+                    className="ml-auto flex min-w-0 items-center"
+                >
+                    <ul className="flex items-center gap-0.5 sm:gap-1 md:gap-2">
+                        {primaryLinks.map((link) => (
+                            <li key={link.href}>
+                                <Link
+                                    href={link.href}
+                                    onClick={closeMenu}
+                                    className={`flex min-h-10 items-center rounded-lg px-2 py-2 text-[13px] font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-300/60 sm:px-3 sm:text-sm md:px-4 md:text-[15px] ${
+                                        isActive(link.href)
+                                            ? "bg-yellow-300/10 text-yellow-300"
+                                            : "text-white/90 hover:bg-yellow-300/10 hover:text-yellow-300"
+                                    }`}
+                                >
+                                    {link.name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+
+                {/* =================================================
+                    HAMBURGER
+                ================================================== */}
                 <button
                     type="button"
                     onClick={
                         menuOpen ? closeMenu : openMenu
                     }
-                    className="flex min-h-11 min-w-11 items-center justify-center rounded-xl text-xl text-white transition-colors duration-200 hover:bg-yellow-300/10 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300/60"
+                    className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-xl text-xl text-white transition-colors duration-200 hover:bg-yellow-300/10 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300/60 cursor-pointer"
                     aria-label={
                         menuOpen
                             ? "Fechar menu"
@@ -308,12 +353,14 @@ export default function Header() {
             </div>
 
             {/* =====================================================
-                NAVEGAÇÃO
+                NAVEGAÇÃO SECUNDÁRIA
             ====================================================== */}
             <AnimatePresence>
                 {menuOpen && (
                     <>
-                        {/* Backdrop */}
+                        {/* =================================================
+                            BACKDROP
+                        ================================================== */}
                         <motion.button
                             type="button"
                             aria-label="Fechar menu"
@@ -366,7 +413,7 @@ export default function Header() {
                                         <button
                                             type="button"
                                             onClick={goBack}
-                                            className="flex min-h-10 min-w-10 items-center justify-center rounded-lg text-white transition-colors hover:bg-yellow-300/10 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300/50"
+                                            className="flex min-h-10 min-w-10 items-center justify-center rounded-lg text-white transition-colors hover:bg-yellow-300/10 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300/50 cursor-pointer"
                                             aria-label="Voltar"
                                         >
                                             <FaArrowLeft />
@@ -395,7 +442,7 @@ export default function Header() {
                                 <button
                                     type="button"
                                     onClick={closeMenu}
-                                    className="flex min-h-10 min-w-10 items-center justify-center rounded-xl text-white transition-colors hover:bg-yellow-300/10 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300/50"
+                                    className="flex min-h-10 min-w-10 items-center justify-center rounded-xl text-white transition-colors hover:bg-yellow-300/10 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300/50 cursor-pointer"
                                     aria-label="Fechar menu"
                                 >
                                     <FaTimes />
@@ -405,7 +452,10 @@ export default function Header() {
                             {/* =================================================
                                 CONTEÚDO DO PAINEL
                             ================================================== */}
-                            <nav className="flex-1 overflow-y-auto overscroll-contain px-4 py-5 sm:px-5">
+                            <nav
+                                className="flex-1 overflow-y-auto overscroll-contain px-4 py-5 sm:px-5"
+                                aria-label="Navegação secundária"
+                            >
                                 {/* =================================================
                                     NÍVEL 1 — MENU PRINCIPAL
                                 ================================================== */}
@@ -428,45 +478,6 @@ export default function Header() {
                                             duration: 0.2,
                                         }}
                                     >
-                                        {/* Links principais */}
-                                        <div className="mb-6 space-y-1 border-b border-yellow-300/10 pb-5">
-                                            <Link
-                                                href="/"
-                                                onClick={
-                                                    closeMenu
-                                                }
-                                                className={`flex min-h-12 items-center rounded-xl px-4 py-3 text-base font-bold transition-colors ${
-                                                    pathname ===
-                                                    "/"
-                                                        ? "bg-yellow-300/10 text-yellow-300"
-                                                        : "text-white hover:bg-yellow-300/5 hover:text-yellow-300"
-                                                }`}
-                                            >
-                                                Início
-                                            </Link>
-
-                                            <Link
-                                                href="/#start-here"
-                                                onClick={
-                                                    closeMenu
-                                                }
-                                                className="flex min-h-12 items-center rounded-xl px-4 py-3 text-base font-bold text-white transition-colors hover:bg-yellow-300/5 hover:text-yellow-300"
-                                            >
-                                                Começar
-                                            </Link>
-
-                                            <Link
-                                                href="/#explore-content"
-                                                onClick={
-                                                    closeMenu
-                                                }
-                                                className="flex min-h-12 items-center rounded-xl px-4 py-3 text-base font-bold text-white transition-colors hover:bg-yellow-300/5 hover:text-yellow-300"
-                                            >
-                                                Explorar
-                                            </Link>
-                                        </div>
-
-                                        {/* Categorias */}
                                         <div className="space-y-2">
                                             {menus.map(
                                                 (menu) => (
@@ -480,7 +491,7 @@ export default function Header() {
                                                                 menu
                                                             )
                                                         }
-                                                        className="group flex min-h-14 w-full items-center justify-between rounded-xl border border-yellow-300/10 bg-white/[0.03] px-4 py-3 text-left transition-all duration-200 hover:border-yellow-300/20 hover:bg-yellow-300/10 focus:outline-none focus:ring-2 focus:ring-yellow-300/50"
+                                                        className="group flex min-h-14 w-full items-center justify-between rounded-xl border border-yellow-300/10 bg-white/[0.03] px-4 py-3 text-left transition-all duration-200 hover:border-yellow-300/20 hover:bg-yellow-300/10 focus:outline-none focus:ring-2 focus:ring-yellow-300/50 cursor-pointer"
                                                     >
                                                         <span className="text-base font-bold text-yellow-300 transition-colors group-hover:text-yellow-200">
                                                             {
@@ -519,7 +530,6 @@ export default function Header() {
                                                 duration: 0.2,
                                             }}
                                         >
-                                            {/* Subcategorias */}
                                             {activeMenu.subcategories ? (
                                                 <div className="space-y-2">
                                                     {activeMenu.subcategories.map(
@@ -536,7 +546,7 @@ export default function Header() {
                                                                         subcategory
                                                                     )
                                                                 }
-                                                                className="group flex min-h-16 w-full items-center justify-between rounded-xl border border-yellow-300/10 bg-white/[0.03] px-4 py-3 text-left transition-all duration-200 hover:border-yellow-300/20 hover:bg-yellow-300/10 focus:outline-none focus:ring-2 focus:ring-yellow-300/50"
+                                                                className="group flex min-h-16 w-full items-center justify-between rounded-xl border border-yellow-300/10 bg-white/[0.03] px-4 py-3 text-left transition-all duration-200 hover:border-yellow-300/20 hover:bg-yellow-300/10 focus:outline-none focus:ring-2 focus:ring-yellow-300/50 cursor-pointer"
                                                             >
                                                                 <div>
                                                                     <span className="block text-sm font-bold text-white transition-colors group-hover:text-yellow-200">
@@ -561,7 +571,6 @@ export default function Header() {
                                                     )}
                                                 </div>
                                             ) : (
-                                                /* Links diretos */
                                                 <div className="space-y-1">
                                                     {activeMenu.links?.map(
                                                         (
