@@ -1,187 +1,402 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
-    title: "Palhetas 🎶 | Loja LearningGuitar",
+    title: "Palhetas para Violão 🎶 | Loja Musical LearningGuitar",
     description:
-        "Kits de palhetas para violão, guitarra e baixo. Conforto, precisão e durabilidade — produtos selecionados pela LearningGuitar com envio pela Shopee Brasil.",
+        "Entenda como as palhetas funcionam, conheça diferenças de espessura e encontre opções para complementar sua prática no violão e em outros instrumentos.",
     keywords: [
         "palhetas",
         "palheta para violão",
-        "palheta guitarra",
-        "kits de palhetas",
+        "palheta para guitarra",
+        "espessura de palheta",
+        "como escolher palheta",
+        "acessórios para violão",
         "acessórios musicais",
         "LearningGuitar",
-        "loja musical",
-        "acessórios para violão",
-        "Shopee"
     ],
     alternates: {
-        canonical: "https://aprenderviolaoonline.com.br/loja-musical/palhetas",
+        canonical:
+            "https://aprenderviolaoonline.com.br/loja-musical/palhetas",
     },
     openGraph: {
-        title: "Palhetas 🎶 | Loja LearningGuitar",
+        title: "Palhetas para Violão 🎶 | Loja Musical LearningGuitar",
         description:
-            "Escolha o kit de palhetas ideal para o seu estilo musical. Produtos selecionados especialmente para conforto, durabilidade e precisão.",
+            "Conheça as diferenças entre palhetas e encontre opções para complementar sua prática musical.",
         url: "https://aprenderviolaoonline.com.br/loja-musical/palhetas",
         type: "website",
     },
 };
 
+const produtos = [
+    // {
+    //     nome: "Kit Palhetas Celuloide",
+    //     descricao:
+    //         "Conjunto de palhetas de celuloide acompanhado de capotraste e estojo.",
+    //     imagem: "/palheta1.png",
+    //     link: "https://s.shopee.com.br/60Ja1brICE",
+    // },
+    {
+        nome: "Kit 4 Palhetas Fender",
+        descricao:
+            "Kit com quatro palhetas Fender apresentadas em diferentes espessuras.",
+        imagem: "/palheta2.png",
+        link: "https://s.shopee.com.br/AKSZCET27E",
+    },
+    {
+        nome: "Kit 5 Palhetas + Porta Palheta",
+        descricao:
+            "Conjunto com cinco palhetas e um acessório para armazená-las.",
+        imagem: "/palheta3.png",
+        link: "https://s.shopee.com.br/gI3grc8V3",
+    },
+    {
+        nome: "Porta Palhetas + 6 Palhetas",
+        descricao:
+            "Conjunto com porta-palhetas e seis palhetas para manter diferentes opções organizadas.",
+        imagem: "/palheta4.png",
+        link: "https://s.shopee.com.br/9Ka21ADWGl",
+    },
+    {
+        nome: "Suporte Porta Palhetas",
+        descricao:
+            "Suporte adesivo para guardar palhetas e deixá-las acessíveis durante a prática.",
+        imagem: "/palheta5.png",
+        link: "https://s.shopee.com.br/8AO4dI6cq4",
+    },
+    {
+        nome: "Kit 50 Palhetas com Estojo",
+        descricao:
+            "Kit com 50 palhetas acompanhado de estojo para armazenamento.",
+        imagem: "/palheta6.png",
+        link: "https://s.shopee.com.br/12MvPZpxa",
+    },
+    {
+        nome: "Chaveiro + Palheta Fender",
+        descricao:
+            "Conjunto que combina uma palheta Fender com acessórios para transporte e armazenamento.",
+        imagem: "/palheta7.png",
+        link: "https://s.shopee.com.br/4VUmJCc03S",
+    },
+    {
+        nome: "Porta Palhetas + 2 Palhetas",
+        descricao:
+            "Porta-palhetas compacto acompanhado de duas palhetas.",
+        imagem: "/palheta8.png",
+        link: "https://s.shopee.com.br/30fyXB33rh",
+    },
+    {
+        nome: "Porta Palhetas + Palheta VIP",
+        descricao:
+            "Conjunto com porta-palhetas e uma palheta inclusa.",
+        imagem: "/palheta9.png",
+        link: "https://s.shopee.com.br/3qF5X4zSyR",
+    },
+];
+
 export default function PalhetasPage() {
-    const produtos = [
-        {
-            nome: "Kit Palhetas Celuloide",
-            descricao:
-                "Conjunto completo de palhetas de celuloide premium com capotraste e estojo prático.",
-            imagem: "/palheta1.png",
-            link: "https://s.shopee.com.br/60Ja1brICE",
-        },
-        {
-            nome: "Kit 4 Palhetas Fender",
-            descricao:
-                "Palhetas Fender originais, com diferentes espessuras para variados estilos musicais.",
-            imagem: "/palheta2.png",
-            link: "https://s.shopee.com.br/AKSZCET27E",
-        },
-        {
-            nome: "Kit 5 Palhetas + Porta Palheta",
-            descricao:
-                "Kit com 5 palhetas de alta qualidade e 1 suporte prático — perfeito para músicos.",
-            imagem: "/palheta3.png",
-            link: "https://s.shopee.com.br/gI3grc8V3",
-        },
-        {
-            nome: "Porta Palhetas + 6 Palhetas",
-            descricao:
-                "Estojo compacto com 6 palhetas Alice, ideal para quem busca conforto e versatilidade.",
-            imagem: "/palheta4.png",
-            link: "https://s.shopee.com.br/9Ka21ADWGl",
-        },
-        {
-            nome: "Suporte Porta Palhetas",
-            descricao:
-                "Suporte adesivo para violão, guitarra e baixo — mantenha suas palhetas sempre à mão.",
-            imagem: "/palheta5.png",
-            link: "https://s.shopee.com.br/8AO4dI6cq4",
-        },
-        {
-            nome: "Kit 50 Palhetas com Estojo",
-            descricao:
-                "Kit econômico com 50 palhetas coloridas em caixinha transparente. Ideal para estudos.",
-            imagem: "/palheta6.png",
-            link: "https://s.shopee.com.br/12MvPZpxa",
-        },
-        {
-            nome: "Chaveiro + Palheta Fender",
-            descricao:
-                "Combo de acessórios premium: porta-palhetas Marshall, chaveiro e palheta Fender 0.96mm.",
-            imagem: "/palheta7.png",
-            link: "https://s.shopee.com.br/4VUmJCc03S",
-        },
-        {
-            nome: "Porta Palhetas + 2 Palhetas",
-            descricao:
-                "Porta-palhetas colorido com 2 palhetas inclusas — compacto, leve e funcional.",
-            imagem: "/palheta8.png",
-            link: "https://s.shopee.com.br/30fyXB33rh",
-        },
-        {
-            nome: "Porta Palhetas + Palheta VIP",
-            descricao:
-                "Conjunto elegante de porta-palhetas com palheta VIP — ideal para presentear músicos.",
-            imagem: "/palheta9.png",
-            link: "https://s.shopee.com.br/3qF5X4zSyR",
-        },
-    ];
-
     return (
-        <main className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-amber-800 text-white">
+        <main className="min-h-screen bg-gradient-to-br from-amber-950 via-yellow-950 to-amber-900 text-white">
 
-            {/* 🟨 HERO SPLIT */}
-            <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-20 md:py-28 gap-10">
+            {/* HERO */}
+            <section className="px-6 pt-16 pb-20 md:px-16 md:pt-24 md:pb-28">
+                <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
 
-                {/* 🎸 Imagem */}
-                <div className="md:w-1/2 flex justify-center animate-fadeSlide">
-                    <Image
-                        src="/hero-palheta.png"
-                        alt="Palhetas LearningGuitar"
-                        width={480}
-                        height={480}
-                        className="rounded-2xl shadow-2xl border-4 border-yellow-400/70"
-                        priority
-                    />
-                </div>
+                    {/* IMAGEM */}
+                    <div className="flex justify-center animate-fadeSlide">
+                        <Image
+                            src="/hero-palheta.png"
+                            alt="Palhetas para instrumentos musicais"
+                            width={480}
+                            height={480}
+                            className="rounded-3xl border border-yellow-300/30 shadow-2xl"
+                            priority
+                        />
+                    </div>
 
-                {/* ✨ Texto */}
-                <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left animate-fadeSlide">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-yellow-200 drop-shadow-lg mb-4">
-                        🎶 Palhetas
-                    </h1>
+                    {/* TEXTO */}
+                    <div className="text-center lg:text-left animate-fadeSlide">
 
-                    <p className="text-lg sm:text-xl bg-black/30 p-4 rounded-xl shadow-md leading-relaxed mb-6 max-w-lg">
-                        Encontre o kit de palhetas perfeito para o seu estilo de toque!
-                        Opções para violão, guitarra e baixo escolhidas para oferecer conforto,
-                        precisão e durabilidade — com envio garantido pela <strong>Shopee Brasil</strong>.
-                    </p>
+                        <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-[0.2em] text-yellow-300">
+                            Acessório para sua prática
+                        </span>
 
-                    <a
-                        href="#produtos-section"
-                        className="bg-yellow-300 text-amber-900 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-400 transition-all duration-300 cursor-pointer"
-                    >
-                        🎵 Ver Produtos
-                    </a>
+                        <h1 className="text-4xl font-extrabold leading-tight text-yellow-200 sm:text-5xl md:text-6xl">
+                            Palhetas 🎶
+                        </h1>
+
+                        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-amber-100/90 sm:text-xl">
+                            A palheta é um acessório simples, mas pode mudar
+                            a forma como você ataca as cordas e percebe a
+                            execução de determinadas técnicas.
+                        </p>
+
+                        <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/60">
+                            Conheça algumas diferenças entre as palhetas e
+                            depois explore as opções disponíveis para encontrar
+                            um modelo que faça sentido para sua prática.
+                        </p>
+
+                        <a
+                            href="#produtos"
+                            className="mt-8 inline-flex items-center gap-2 rounded-full bg-yellow-300 px-7 py-3 font-bold text-amber-950 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-yellow-200"
+                        >
+                            Ver opções
+                            <span>↓</span>
+                        </a>
+
+                    </div>
                 </div>
             </section>
 
-            {/* 🎶 Título */}
-            <h2
-                id="produtos-section"
-                className="text-center text-yellow-100 text-3xl sm:text-4xl font-bold drop-shadow-md mb-12 animate-fadeSlide"
-            >
-                🎶 Produtos em Destaque
-            </h2>
+            {/* PALHETA E APRENDIZADO */}
+            <section className="px-6 pb-16">
+                <div className="mx-auto max-w-4xl">
 
-            {/* 🪶 Grid de produtos */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-6 pb-24">
-                {produtos.map((item, index) => (
-                    <div
-                        key={index}
-                        className="bg-white/10 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 animate-popIn"
-                        style={{ animationDelay: `${index * 0.15}s` }}
-                    >
-                        <div className="relative w-full h-52 mb-3 bg-black/20 flex items-center justify-center rounded-lg overflow-hidden">
-                            <Image
-                                src={item.imagem}
-                                alt={item.nome}
-                                fill
-                                sizes="(max-width: 768px) 100vw, 33vw"
-                                className="object-contain rounded-lg"
-                                priority={index === 0}
-                            />
-                        </div>
+                    <div className="rounded-3xl border border-yellow-300/10 bg-black/20 p-7 shadow-xl sm:p-9">
 
-                        <h2 className="text-xl font-semibold text-yellow-200 mb-2">
-                            {item.nome}
+                        <h2 className="text-2xl font-bold text-yellow-200 sm:text-3xl">
+                            Preciso usar uma palheta para aprender violão?
                         </h2>
 
-                        <p className="text-sm mb-4">{item.descricao}</p>
+                        <p className="mt-4 leading-relaxed text-amber-100/85">
+                            Não. Existem diferentes formas de tocar violão,
+                            incluindo técnicas que utilizam os dedos. A
+                            palheta é uma ferramenta que pode ser útil em
+                            determinados estilos, músicas e formas de execução.
+                        </p>
 
-                        <a
-                            href={item.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block bg-yellow-400 text-amber-900 font-bold px-5 py-2 rounded-full hover:bg-yellow-300 transition"
+                        <p className="mt-4 leading-relaxed text-amber-100/85">
+                            Para quem está começando, vale experimentar e
+                            descobrir qual maneira de tocar proporciona mais
+                            controle e conforto. Não existe uma única forma
+                            obrigatória de utilizar o instrumento.
+                        </p>
+
+                        <Link
+                            href="/#beginner-path"
+                            className="mt-6 inline-flex text-sm font-semibold text-yellow-300 underline decoration-yellow-300/30 underline-offset-4 hover:text-yellow-200"
                         >
-                            Ver na Shopee
-                        </a>
-                    </div>
-                ))}
-            </div>
+                            Conhecer a jornada para iniciantes →
+                        </Link>
 
-            {/* Rodapé */}
-            <p className="text-center text-sm text-amber-100 mt-16 italic pb-6 animate-fadeSlide">
-                Produtos recomendados por <strong>LearningGuitar 🎸</strong> em parceria com Shopee Brasil.
-            </p>
+                    </div>
+
+                </div>
+            </section>
+
+            {/* ESPESSURA */}
+            <section className="px-6 pb-20">
+                <div className="mx-auto max-w-6xl">
+
+                    <div className="mb-10 text-center">
+                        <h2 className="text-3xl font-extrabold text-yellow-200 sm:text-4xl">
+                            O que observar em uma palheta?
+                        </h2>
+
+                        <p className="mx-auto mt-3 max-w-2xl text-amber-100/70">
+                            Formato, material e espessura são alguns dos
+                            detalhes que podem variar entre os modelos.
+                        </p>
+                    </div>
+
+                    <div className="grid gap-5 md:grid-cols-3">
+
+                        <article className="rounded-2xl border border-yellow-300/10 bg-white/10 p-6">
+
+                            <span className="text-3xl">📏</span>
+
+                            <h3 className="mt-4 text-xl font-bold text-yellow-100">
+                                Espessura
+                            </h3>
+
+                            <p className="mt-3 text-sm leading-relaxed text-white/65">
+                                Palhetas podem ter diferentes espessuras.
+                                Modelos mais finos costumam oferecer uma
+                                sensação diferente durante o ataque das
+                                cordas em comparação com modelos mais rígidos.
+                            </p>
+
+                        </article>
+
+                        <article className="rounded-2xl border border-yellow-300/10 bg-white/10 p-6">
+
+                            <span className="text-3xl">✋</span>
+
+                            <h3 className="mt-4 text-xl font-bold text-yellow-100">
+                                Pegada
+                            </h3>
+
+                            <p className="mt-3 text-sm leading-relaxed text-white/65">
+                                O formato e a superfície podem influenciar a
+                                sensação de segurança ao segurar a palheta
+                                durante a execução.
+                            </p>
+
+                        </article>
+
+                        <article className="rounded-2xl border border-yellow-300/10 bg-white/10 p-6">
+
+                            <span className="text-3xl">🎵</span>
+
+                            <h3 className="mt-4 text-xl font-bold text-yellow-100">
+                                Forma de tocar
+                            </h3>
+
+                            <p className="mt-3 text-sm leading-relaxed text-white/65">
+                                A escolha também pode depender da técnica que
+                                você está praticando, como batidas, dedilhados
+                                adaptados para palheta ou solos.
+                            </p>
+
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+
+            {/* EXPERIMENTAÇÃO */}
+            <section className="px-6 pb-20">
+                <div className="mx-auto max-w-4xl">
+
+                    <div className="rounded-3xl border border-yellow-300/20 bg-yellow-400/10 p-7 sm:p-9">
+
+                        <h2 className="text-2xl font-bold text-yellow-200 sm:text-3xl">
+                            Está começando? Experimente antes de decidir.
+                        </h2>
+
+                        <p className="mt-4 leading-relaxed text-amber-100/85">
+                            Se você ainda não sabe qual espessura ou formato
+                            prefere, não precisa começar comprando um kit
+                            grande. Testar modelos diferentes pode ajudar a
+                            perceber quais características combinam melhor com
+                            sua maneira de tocar.
+                        </p>
+
+                    </div>
+
+                </div>
+            </section>
+
+            {/* PRODUTOS */}
+            <section
+                id="produtos"
+                className="scroll-mt-20 px-6 pb-24"
+            >
+                <div className="mx-auto max-w-6xl">
+
+                    <div className="mb-10 text-center">
+
+                        <h2 className="text-3xl font-extrabold text-yellow-200 sm:text-4xl">
+                            Opções de palhetas
+                        </h2>
+
+                        <p className="mx-auto mt-3 max-w-2xl text-amber-100/70">
+                            Confira os modelos disponíveis e observe suas
+                            características antes de escolher.
+                        </p>
+
+                    </div>
+
+                    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+                        {produtos.map((produto, index) => (
+                            <article
+                                key={produto.nome}
+                                className="flex flex-col rounded-3xl border border-yellow-300/10 bg-white/10 p-5 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-yellow-300/30 hover:bg-white/15 animate-popIn"
+                                style={{
+                                    animationDelay: `${index * 0.1}s`,
+                                }}
+                            >
+
+                                <div className="relative mb-5 h-56 w-full overflow-hidden rounded-2xl bg-black/20">
+
+                                    <Image
+                                        src={produto.imagem}
+                                        alt={produto.nome}
+                                        fill
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        className="object-contain"
+                                        priority={index < 2}
+                                    />
+
+                                </div>
+
+                                <h3 className="text-xl font-bold leading-snug text-yellow-100">
+                                    {produto.nome}
+                                </h3>
+
+                                <p className="mt-3 flex-1 text-sm leading-relaxed text-white/65">
+                                    {produto.descricao}
+                                </p>
+
+                                <a
+                                    href={produto.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer sponsored"
+                                    className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-yellow-300 px-5 py-3 font-bold text-amber-950 transition-all duration-300 hover:bg-yellow-200"
+                                >
+                                    Ver produto
+                                    <span>↗</span>
+                                </a>
+
+                            </article>
+                        ))}
+
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA FINAL */}
+            <section className="px-6 pb-20">
+                <div className="mx-auto max-w-4xl rounded-3xl border border-yellow-300/20 bg-yellow-400/10 p-7 text-center sm:p-9">
+
+                    <span className="text-3xl">🎸</span>
+
+                    <h2 className="mt-4 text-2xl font-bold text-yellow-200 sm:text-3xl">
+                        A palheta é apenas uma ferramenta
+                    </h2>
+
+                    <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-amber-100/85">
+                        Você não precisa ter vários modelos para aprender
+                        violão. Escolha uma opção que faça sentido para sua
+                        prática e concentre sua energia no que realmente
+                        desenvolve sua habilidade: tocar.
+                    </p>
+
+                    <Link
+                        href="/começar"
+                        className="mt-7 inline-flex rounded-full bg-yellow-300 px-7 py-3 font-bold text-amber-950 transition-colors duration-300 hover:bg-yellow-200"
+                    >
+                        🎶 Continuar aprendendo
+                    </Link>
+
+                </div>
+            </section>
+
+            {/* TRANSPARÊNCIA */}
+            <section className="px-6 pb-14">
+                <div className="mx-auto max-w-3xl border-t border-white/10 pt-8 text-center">
+
+                    <p className="text-xs leading-relaxed text-amber-200/65">
+                        <strong className="text-amber-200">
+                            Transparência:
+                        </strong>{" "}
+                        alguns links desta página podem ser links de afiliado.
+                        Caso você realize uma compra por meio deles, o
+                        LearningGuitar poderá receber uma comissão, sem custo
+                        adicional para você.
+                    </p>
+
+                    <p className="mt-3 text-xs leading-relaxed text-amber-200/65">
+                        Preços, disponibilidade, especificações e condições
+                        podem mudar. Consulte sempre a página do produto antes
+                        de realizar uma compra.
+                    </p>
+
+                </div>
+            </section>
+
         </main>
     );
 }
